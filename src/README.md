@@ -1,10 +1,9 @@
-Introduce about myself.
+Introduce about myself
 =======================
 
 Introduction
 ------------
-![IMG_4571.jpg](..%2F..%2F..%2FDownloads%2FIMG_4571.jpg)
-Hello, I am Esther Jung. 
+Hello, I am Esther Jung.
 I am 25 years old. ~~Korean age is 27. Haha.~~
 My major is International Studies, and I have studied about Financial Engineering.
 I used to live in Gim-hae before, I recently moved to Busan for a class.
@@ -34,14 +33,11 @@ What I like
 - Watching dramas and movies
 - Listening to music
 - Traveling
-- Staying at home
 
 Inspirational Quote
 -------------------
 > See, I am doing a new thing! Now it springs up; do you not perceive it? I am making a way in the wilderness and streams in the wasteland. <!-- -->
 > _(Isaiah 43:19)_
-
-![IMG_0978.jpg](..%2F..%2F..%2FDownloads%2FIMG_0978.jpg)
 
 
 
