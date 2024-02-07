@@ -15,7 +15,7 @@ public class Var01 {
         System.out.println("Score : " + score);
 
 //      int score = 80;      // 변수 선언은 한 번만 가능
-//      score = 80.5         // 타입 변수와 값이 일치하지 않음(타입 > 정수 / 점수 > 실수)
+//      score = 80.5         // 타입 변수와 값이 일치하지 않음(타입은 정수(int)로 설정했는데 실숫값이 들어갔기 때문에 안 됨.)
 
         int number = 100;    // 선언과 초기와 동시에 가능
         int result = score + number;    // 다른 변수의 값을 불러들여 저장 또는 연산 가능

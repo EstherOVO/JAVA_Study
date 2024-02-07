@@ -6,7 +6,7 @@ public class Var05 {
 /*
       ◎ 변수 이름을 작성 시
         - 변수 이름은 숫자를 포함할 수는 있으나, 숫자로 시작하는 것은 안 된다.
-        - 공백이 들어갈 수 없다. > CamelCase (낙타등 표기법) 공백 이후 등장 단어는 대문자로 변환하여 사용
+        - 공백이 들어갈 수 없다. → CamelCase (낙타등 표기법) 공백 이후 등장 단어는 대문자로 변환하여 사용
           EX) int Order_detail (X), int Order_Detail (O)
         - 예약어를 사용할 수 없다.
           EX) public, int, double, void .. etc
