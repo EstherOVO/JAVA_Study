@@ -7,10 +7,5 @@ public class Statement {
         int y = 2; // "y를 선언하고 2를 저장하라."는 의미
         int result = x + y; // "result를 선언하고 x와 y를 더해서 저장하라."는 의미
         System.out.println(result); // "출력하라."는 의미
-
-
-
-
-
     }
 }
