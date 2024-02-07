@@ -15,9 +15,10 @@ public class Var04 {
         3) C > B
 */
 
+//      선생님 답변 :
         int a = 10; // A Container
         int b = 20; // B Container
-        int temp;   // C Container
+        int temp;   // temp Container
 
         temp = a;   // temp Container에 A Container의 내용물(물 10ml)을 넣는다.
         a = b;      // A Container에 B Container의 내용물(주스 20ml)을 넣는다.

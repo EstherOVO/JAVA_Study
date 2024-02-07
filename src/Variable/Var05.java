@@ -7,7 +7,7 @@ public class Var05 {
       ◎ 변수 이름을 작성 시
         - 변수 이름은 숫자를 포함할 수는 있으나, 숫자로 시작하는 것은 안 된다.
         - 공백이 들어갈 수 없다. → CamelCase (낙타등 표기법) 공백 이후 등장 단어는 대문자로 변환하여 사용
-          EX) int Order_detail (X), int Order_Detail (O)
+          EX) int order_detail (X), int order_Detail (O)
         - 예약어를 사용할 수 없다.
           EX) public, int, double, void .. etc
         - 변수 이름에는 영문자, 숫자, $, _를 사용한다.
@@ -27,7 +27,7 @@ public class Var05 {
         ◎ 유의사항
           - 변수 이름은 의미를 명확하게 전달해야 한다.
           - 용도를 설명할 수 있어야 한다.
-            EX ) int a; 혹은 int b; 보다는 int guestNumber;, int maxScore;, int oderCount; 등으로 사용
+            EX ) 'int a;' 혹은 'int b;' 보다는 'int guestNumber;', 'int maxScore;', 'int oderCount;' 등으로 사용
 */
 
     }

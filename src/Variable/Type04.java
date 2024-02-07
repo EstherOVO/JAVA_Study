@@ -7,7 +7,7 @@ public class Type04 {
 
         int i = 10;
 //      byte b = i;         // 큰 타입에서 작은 타입으로 변환 불가능
-        byte b = (byte) i;  // 작은 타입으로 강제로 변환 → 캐스팅 연산자 사용
+        byte b = (byte) i;  // 작은 타입으로 강제로 변환 → Casting 연산자 사용
 
         double d = 3.14;
         int i2 = (int) d;

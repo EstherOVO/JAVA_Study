@@ -7,10 +7,10 @@ public class Type05 {
         int v2 = 100;
         long v3 = 1000L;
 
-        long result = v1 + v2 + v3;
+        long result1 = v1 + v2 + v3;
 //      int result = v1 + v2 + v3;          // 작은 타입으로 담을 시 compile error 발생
         int result2 = (int) (v1 + v2 + v3); // Casting을 통해 변환 가능
-        System.out.println(result);
+        System.out.println(result1);
         System.out.println(result2);
 
         int v4 = 10 / 4;

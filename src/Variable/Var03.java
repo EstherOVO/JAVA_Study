@@ -10,8 +10,8 @@ public class Var03 {
         System.out.println(hour + "시 " + minute + "분");
 
 //      시간을 분으로 변환하여 저장
-        int TotalMinute = hour * 60 + minute;
-        System.out.println("총 " + TotalMinute + "분");
+        int totalMinute = hour * 60 + minute;
+        System.out.println("총 " + totalMinute + "분");
 
     }
 }
