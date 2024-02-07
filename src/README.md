@@ -1,4 +1,4 @@
-Introduce about myself
+Introduce about myself.
 =======================
 
 Introduction
