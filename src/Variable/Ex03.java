@@ -10,8 +10,10 @@ public class Ex03 {
         long a = 10_000_000_000L;
         System.out.println(a);
 
-        boolean b = true;
-        System.out.println(b);
+        boolean b1 = true;
+        boolean b2 = false;
+        System.out.println(b1);
+        System.out.println(b2);
 
     }
 }

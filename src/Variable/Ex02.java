@@ -9,8 +9,9 @@ public class Ex02 {
 
         int n1 = 30;
         int n2 = 40;
+        int sum = n1 + n2;
 
-        System.out.println(n1 + n2);
+        System.out.println(sum);
 
     }
 }
