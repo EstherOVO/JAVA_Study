@@ -3,8 +3,8 @@ package Variable;
 public class Type03 {
     public static void main(String[] args) {
 
-//      자동 타입 변환 : 허용 범위가 작은 타입이 허용 범위가 큰 타입으로 저장될 때 사용
-//      (제일 큼) double > float > long > int > short > byte (제일 작음)
+//      자동 타입 변환(Promotion) : 허용 범위가 작은 타입이 허용 범위가 큰 타입으로 저장될 때 사용
+//      (제일 작음) byte < short < int < long < float < double (제일 큼)
 //      정수 타입이 실수 타입으로 저장될 경우 무조건 자동 타입 변환
 
         byte b = 10;
