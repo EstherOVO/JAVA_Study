@@ -19,9 +19,9 @@ public class Var04 {
         int b = 20; // B Container
         int temp;   // C Container
 
-        temp = a;   // 임시 Container에 A Container의 내용물(물 10ml)을 넣는다.
+        temp = a;   // temp Container에 A Container의 내용물(물 10ml)을 넣는다.
         a = b;      // A Container에 B Container의 내용물(주스 20ml)을 넣는다.
-        b = temp;   // B Container에 임시 Container의 내용물(물 10ml)을 옮긴다.
+        b = temp;   // B Container에 temp Container의 내용물(물 10ml)을 옮긴다.
 
         System.out.println("A Container = " + a);
         System.out.println("B Container = " + b);
