@@ -17,7 +17,7 @@ My Goals
 1. Become familiar with Java
 2. Update my profiles on GitHub > Success!
 3. Complete the class
-4. Read books about Code
+4. Read books about Programming
 
 Skills
 ------
