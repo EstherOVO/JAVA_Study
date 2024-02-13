@@ -13,7 +13,7 @@ public class Ex03 {
 
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("몇 단부터 몇 단까지 알고 싶으신가요? ");
+        System.out.print("몇 단부터 몇 단까지 알고 싶으신가요? ");
         int enteredNumber = scanner.nextInt();
 
         for (int timesTable = 1; timesTable <= enteredNumber; timesTable++) {
