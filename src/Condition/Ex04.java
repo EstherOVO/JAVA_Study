@@ -14,6 +14,7 @@ public class Ex04 {
 */
 
         Scanner scanner = new Scanner(System.in);
+
         System.out.print("첫 번째 숫자를 입력하세요 : ");
         double first = scanner.nextDouble();
 
@@ -22,8 +23,6 @@ public class Ex04 {
 
         System.out.print("연산자를 입력하세요 : ");
         String operator = scanner.next();
-
-        double result;
 
         switch (operator) {
             case "+" :
@@ -37,19 +36,13 @@ public class Ex04 {
                 break;
             case "/" :
                 System.out.println("값 : " + (first / second));
-
-                if (first == 0) {
-                    System.out.println("0으로 나눌 수 없습니다. 다시 입력해 주세요.");
-                } else if (second == 0) {
-                    System.out.println("0으로 나눌 수 없습니다. 다시 입력해 주세요.");
-                } else if (first == 0 && second == 0) {
+                if (second == 0) {
                     System.out.println("0으로 나눌 수 없습니다. 다시 입력해 주세요.");
                 }
                 break;
             default :
                 System.out.println("잘못된 입력입니다. 다시 시도해 주세요.");
                 break;
-
         }
 
     }

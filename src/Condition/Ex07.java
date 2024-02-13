@@ -12,7 +12,7 @@ public class Ex07 {
 
         Scanner scanner = new Scanner(System.in);
 
-        System.out.printf("수를 입력하세요 : ");
+        System.out.print("수를 입력하세요 : ");
         int number = scanner.nextInt();
 
         int oddEven = number % 2;

@@ -15,7 +15,7 @@ public class Ex01 {
 
         Scanner scanner = new Scanner(System.in);
 
-        System.out.print("환전하실 금액(달러)를 입력해 주세요 : ");
+        System.out.print("환전하실 금액(달러)을 입력해 주세요 : ");
         String enteredDollar = scanner.nextLine();
 
         System.out.print("총 환전하실 금액이 " + enteredDollar + "달러가 맞습니까? (Y / N) : ");
@@ -29,10 +29,10 @@ public class Ex01 {
         switch (enteredAnswer) {
             case "Y" :
                 if (enteredDollar2 == 0) {
-                    System.out.println("환전하실 금액(달러)가 없습니다.");
+                    System.out.println("환전하실 금액(달러)이 없습니다.");
                 } else if (enteredDollar2 > 0) {
                     System.out.println("총 환전 금액은 " + exchangeWon + "원입니다.");
-                } else if (enteredDollar2 < 0) {
+                } else {
                     System.out.println("잘못 입력하셨습니다. 금액(달러)을 확인해 주시기를 바랍니다.");
                 }
                 break;

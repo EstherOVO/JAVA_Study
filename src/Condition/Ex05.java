@@ -14,19 +14,20 @@ public class Ex05 {
         아이디 혹은 비밀번호가 일치하지 않으면
         "로그인 실패: 아이디 혹은 비밀번호가 잘못되었습니다."와 같은 메시지를 출력하세요.
 */
+
         final String validUsername = "user";
         final String validPassword = "pass";
 
         Scanner scanner = new Scanner(System.in);
 
-        System.out.printf("아이디(ID) : ");
-        String enterUsername = scanner.nextLine();
+        System.out.print("아이디(ID) : ");
+        String enteredUsername = scanner.nextLine();
 
-        System.out.printf("비밀번호(PASSWORD) : ");
-        String enterUserpass = scanner.nextLine();
+        System.out.print("비밀번호(PASSWORD) : ");
+        String enteredPassword = scanner.nextLine();
 
-        if (validUsername.equals(enterUsername) && validPassword.equals(enterUserpass)) {
-            System.out.println("로그인 성공!");
+        if (validUsername.equals(enteredUsername) && validPassword.equals(enteredPassword)) {
+            System.out.println("로그인 성공 :)");
         } else {
             System.out.println("로그인 실패 :(\n아이디(ID) 혹은 비밀번호(PASSWORD)가 잘못 되었습니다.\n다시 시도해 주시기를 바랍니다.");
         }

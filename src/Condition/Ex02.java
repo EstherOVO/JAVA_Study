@@ -15,17 +15,17 @@ public class Ex02 {
 
         Scanner scanner = new Scanner(System.in);
 
-        System.out.printf("계절을 알고 싶은 달을 입력해 주세요 : ");
-        int season = scanner.nextInt();
+        System.out.print("계절을 알고 싶은 달을 입력해 주세요 : ");
+        int month = scanner.nextInt();
 
-        if (season >= 1 && season <= 2) {
-            System.out.println(season + "월은 겨울입니다.");
-        } else if (season >= 3 && season <=5) {
-            System.out.println(season + "월은 봄입니다.");
-        } else if (season >= 6 && season <=8) {
-            System.out.println(season + "월은 여름입니다.");
-        } else if (season >= 9 && season <=12) {
-            System.out.println(season + "월은 가을입니다.");
+        if (month == 12 || month == 1 || month == 2) {
+            System.out.println(month + "월은 겨울입니다.");
+        } else if (month >= 3 && month <=5) {
+            System.out.println(month + "월은 봄입니다.");
+        } else if (month >= 6 && month <=8) {
+            System.out.println(month + "월은 여름입니다.");
+        } else if (month >= 9 && month <=11) {
+            System.out.println(month + "월은 가을입니다.");
         } else {
             System.out.println("잘못 입력하셨습니다. 다시 시도해 주세요.");
         }
