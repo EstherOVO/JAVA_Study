@@ -25,7 +25,7 @@ public class Ex03 {
             fee = 5000;
             System.out.println("주차 요금은 " + fee + "원 입니다.");
         } else if (hour <= 24) {
-            fee = 5000 + ((hour - 2) * 1/2) * 1000;
+            fee = 5000 + ((hour - 2) * 2) * 1000;
             System.out.println("주차 요금은 " + fee + "원 입니다.");
         } else {
             fee = 30000;
