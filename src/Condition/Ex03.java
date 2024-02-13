@@ -18,9 +18,9 @@ public class Ex03 {
         Scanner scanner = new Scanner(System.in);
 
         System.out.print("주차장 이용 시간(시간 단위 입력) : ");
-        int hour = scanner.nextInt();
+        double hour = scanner.nextDouble();
 
-        int fee = hour * 5000;
+        double fee = hour * 5000;
         if (hour <= 2) {
             fee = 5000;
             System.out.println("주차 요금은 " + fee + "원 입니다.");
