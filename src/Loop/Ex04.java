@@ -25,8 +25,8 @@ public class Ex04 {
         System.out.print("별을 몇 줄까지 출력할까요? ");
         int enteredNumber = scanner.nextInt();
 
-        for (int line = 1; line <= enteredNumber; line++) {
-            for (int numberOfStar = 0; numberOfStar < line; numberOfStar++) {
+        for (int line = 0; line < enteredNumber; line++) {
+            for (int numberOfStar = 0; numberOfStar <= line; numberOfStar++) {
                 System.out.print("*");
             }
             System.out.println();

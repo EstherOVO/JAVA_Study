@@ -14,11 +14,12 @@ public class Ex04_2 {
 */
 
         Scanner scanner = new Scanner(System.in);
+
         System.out.print("별을 몇 줄까지 출력할까요? ");
         int enteredNumber = scanner.nextInt();
 
-        for (int line = 0; line <= enteredNumber; line++) {
-            for (int numeberOfStar = enteredNumber; numeberOfStar > line; numeberOfStar--) {
+        for (int line = 0; line < enteredNumber; line++) {
+            for (int numberOfStar = enteredNumber; numberOfStar > line; numberOfStar--) {
                 System.out.print("*");
             }
             System.out.println();

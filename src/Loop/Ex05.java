@@ -12,21 +12,21 @@ public class Ex05 {
  */
 
         Scanner scanner = new Scanner(System.in);
+
         System.out.print("시작 정수 : ");
-        int startNumebr = scanner.nextInt();
+        int firstNumber = scanner.nextInt();
         System.out.print("끝 정수 : ");
-        int endNumber = scanner.nextInt();
+        int secondNumber = scanner.nextInt();
 
-        System.out.print(startNumebr + " ~ " + endNumber + " 사이의 짝수 :");
+        System.out.print(firstNumber + " ~ " + secondNumber + " 사이의 짝수 :");
+
         int sum = 0;
-        for (int result = startNumebr; result <= endNumber; result++) {
-            if (result%2 != 0) {
-                continue;
+        for (int even = firstNumber; even < secondNumber; even++) {
+            if (even % 2 == 0) {
+                System.out.print(" " + even);
+                sum += even;
             }
-            sum += result;
-            System.out.print(" " + result);
         }
-
         System.out.println("\n총 합계 : " + sum);
 
     }

@@ -13,13 +13,15 @@ public class Ex03 {
 
         Scanner scanner = new Scanner(System.in);
 
-        System.out.print("몇 단부터 몇 단까지 알고 싶으신가요? ");
-        int enteredNumber = scanner.nextInt();
+        System.out.print("몇 단부터 몇 단까지 알려드릴까요~!\n첫 번째 단(~단 부터) : ");
+        int firstNumber = scanner.nextInt();
+        System.out.print("두 번째 단(~단 까지) : ");
+        int secondNumber = scanner.nextInt();
 
-        for (int timesTable = 1; timesTable <= enteredNumber; timesTable++) {
+        for (int timesTable = firstNumber; timesTable <=secondNumber; timesTable++) {
             System.out.println(timesTable + "단 : ");
             for (int result = 1; result <= 9; result++) {
-                System.out.println(timesTable + " x " + (int) result + " = " + (int) (timesTable * result));
+                System.out.println(timesTable + " x " + result + " = " + (timesTable * result));
             }
         }
 

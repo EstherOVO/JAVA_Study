@@ -6,7 +6,7 @@ public class Ex10 {
     public static void main(String[] args) {
 
 /*
-        은행 애플리케이션
+        은행 앱
 
         ------------------------------------
         1. 예금 | 2. 출금 | 3. 잔고 | 4. 종료
@@ -21,36 +21,43 @@ public class Ex10 {
         4. 번
         "프로그램이 종료됩니다"
 */
+
         Scanner scanner = new Scanner(System.in);
 
+        boolean runApp = true;
         int balance = 0;
 
-        for (int a = 1; a <= 4; a++) {
+        while (runApp) {
+            System.out.println("\n★이용하시고자 하는 메뉴의 번호를 입력해 주세요.★");
             System.out.println("------------------------------------");
             System.out.println("(1) 예금 | (2) 출금 | (3) 잔고 | (4) 종료");
             System.out.println("------------------------------------");
-            System.out.print("몇 번을 누르시겠습니까? ");
+            System.out.print("이용 메뉴 번호 : ");
             int enteredNumber = scanner.nextInt();
 
             switch (enteredNumber) {
                 case 1 :
-                    System.out.print(enteredNumber + "번을 누르셨습니다.\n" + "예금액을 입력해 주세요 : ");
-                    int amount = scanner.nextInt();
-                    balance += amount;
+                    System.out.print("\'예금\'을 클릭하셨습니다.예금액을 입력해 주세요 : ");
+                    int deposit = scanner.nextInt();
+                    balance += deposit;
                     break;
                 case 2 :
-                    System.out.print(enteredNumber + "번을 누르셨습니다.\n" + "출금액을 입력해 주세요 : ");
+                    System.out.print("\'출금\'을 클릭하셨습니다.출금액을 입력해 주세요 : ");
                     int withdraw = scanner.nextInt();
                     balance -= withdraw;
                     break;
                 case 3 :
-                    System.out.print(enteredNumber + "번을 누르셨습니다.\n잔액은 총 " + balance + "원입니다.");
+                    System.out.print("\'잔고\'를 클릭하셨습니다. 총 잔액은 " + balance + "원 입니다.");
                     break;
                 case 4 :
-                    System.out.print(enteredNumber + "번을 누르셨습니다.\n종료하겠습니다.");
+                    System.out.print("\'종료\'를 클릭하셨습니다.이용해 주셔서 감사합니다.");
+                    runApp = false;
                     break;
             }
-            System.out.println();
+            if (enteredNumber <= 0 || enteredNumber > 4) {
+                System.out.println("잘못 입력하셨습니다. 번호 확인 후 다시 시도해 주시기를 바랍니다.");
+                runApp = false;
+            }
         }
 
     }

@@ -13,17 +13,18 @@ public class Ex02 {
  */
 
         Scanner scanner = new Scanner(System.in);
-        System.out.print("정수 입력: ");
+
+        System.out.print("정수를 입력해 주세요 : ");
         int enteredNumber = scanner.nextInt();
 
         int factorial = 1;
-        int startNumber = 1;
-        while (startNumber <= enteredNumber) {
-            factorial *= startNumber;
-            startNumber++;
-        }
+        int number = 1;
 
-        System.out.println(enteredNumber + "! = " + (int) factorial);
+        while (number <= enteredNumber) {
+            factorial *= number;
+            number++;
+        }
+        System.out.println(enteredNumber + "! = " + factorial);
 
     }
 }

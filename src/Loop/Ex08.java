@@ -17,19 +17,17 @@ public class Ex08 {
 
         Scanner scanner = new Scanner(System.in);
 
-        System.out.print("제가 생각한 숫자는 몇일까요 : ");
+        System.out.print("숫자 맞추기 게임!\n제가 생각한 숫자를 맞춰보세요 : ");
         int enteredNumber = scanner.nextInt();
 
-        int tryCount = 0;
-
         for (int guessNumber = 1; guessNumber <= 100; guessNumber++) {
-            if (answer > enteredNumber) {
+            if (enteredNumber < answer) {
                 System.out.println("Up!");
                 enteredNumber = scanner.nextInt();
-            } else if (answer < enteredNumber) {
+            } else if (enteredNumber > answer) {
                 System.out.println("Down!");
                 enteredNumber = scanner.nextInt();
-            } else if (enteredNumber == answer) {
+            } else if (enteredNumber == answer){
                 System.out.println("정답입니다!");
                 break;
             }
