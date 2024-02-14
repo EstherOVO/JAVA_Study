@@ -16,29 +16,39 @@ public class Ex02 {
         5
         >> 1, 2, 3, 4, 5
 */
-
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("정수 5개를 입력하세요.");
-        int enteredNumber1 = scanner.nextInt();
-        int enteredNumber2 = scanner.nextInt();
-        int enteredNumber3 = scanner.nextInt();
-        int enteredNumber4 = scanner.nextInt();
-        int enteredNumber5 = scanner.nextInt();
+        System.out.println("5개의 정수를 입력하세요");
+        System.out.print("첫 번째 정수 : ");
+        String number1 = scanner.nextLine();
+        System.out.print("두 번째 정수 : ");
+        String number2 = scanner.nextLine();
+        System.out.print("세 번째 정수 : ");
+        String number3 = scanner.nextLine();
+        System.out.print("네 번째 정수 : ");
+        String number4 = scanner.nextLine();
+        System.out.print("다섯 번째 정수 : ");
+        String number5 = scanner.nextLine();
 
-        int[] enteredNumbers = new int[5];
-        enteredNumbers[0] = enteredNumber1;
-        enteredNumbers[1] = enteredNumber2;
-        enteredNumbers[2] = enteredNumber3;
-        enteredNumbers[3] = enteredNumber4;
-        enteredNumbers[4] = enteredNumber5;
+        int num1 = Integer.parseInt(number1);
+        int num2 = Integer.parseInt(number2);
+        int num3 = Integer.parseInt(number3);
+        int num4 = Integer.parseInt(number4);
+        int num5 = Integer.parseInt(number5);
 
+        int[] numbers = new int[5];
+        numbers[0] = num1;
+        numbers[1] = num2;
+        numbers[2] = num3;
+        numbers[3] = num4;
+        numbers[4] = num5;
 
-        System.out.print("입력한 정수 :");
-        for (int result = 0; result < enteredNumbers.length; result++) {
-            System.out.print(" " + enteredNumbers[result]);
-            if (result < enteredNumbers.length - 1) {
-                System.out.print(",");
+        System.out.print("입력한 정수 : ");
+        for (int i = 0; i < numbers.length; i++) {
+            if (i == numbers.length - 1) {
+                System.out.print(numbers[i] + " ");
+            } else {
+                System.out.print(numbers[i] + ", ");
             }
         }
 

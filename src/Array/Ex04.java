@@ -1,33 +1,54 @@
 package Array;
 
+import java.util.Scanner;
+
 public class Ex04 {
     public static void main(String[] args) {
 
 //      2차원 배열의 합계 구하기
 //      2차원 정수 배열을 선언하고 모든 요소의 합계를 계산하는 프로그램을 만드세요.
 
-        int arr [][] = new int[2][2];
+        Scanner scanner = new Scanner(System.in);
 
-        arr[0][0] = 1;
-        arr[0][1] = 2;
-        arr[1][0] = 3;
-        arr[1][1] = 4;
+//      행 입력받기
+        System.out.print("몇 행 : ");
+        int row = scanner.nextInt();
 
-        int sum = 0;
+//      열 입력받기
+        System.out.print("몇 열 : ");
+        int column = scanner.nextInt();
 
-        System.out.print("배열의 모든 요소 : ");
-        for (int i = 0; i < arr.length; i++) {  // 행수만큼의 반복
-            for (int j = 0; j < 2; j++) {       // 열수만큼의 반복
-                if (j == 1 && i == 1) {
-                    System.out.print(arr[i][j] + " ");
-                } else {
-                    System.out.print(arr[i][j] + ", ");
-                }
-                sum += arr[i][j];
+//      행-열 값 입력받기
+        System.out.println("행-열의 값을 순서대로 입력해 주세요 :\n예시) 2행 2열의 경우 : [0][0] → [0][1] → [1][0] → [1][1] 순서");
+
+        int[][] rowColumn = new int[row][column];
+
+        for (int i = 0; i < rowColumn.length; i++) {
+            for (int j = 0; j < rowColumn[i].length; j++) {
+                rowColumn[i][j] = scanner.nextInt();
             }
         }
-        System.out.println();
-        System.out.println("합계 : " + sum);
+
+//      입력값 산출
+        System.out.print("입력한 값 : ");
+        for (int i = 0; i < rowColumn.length; i++) {
+            for (int j = 0; j < rowColumn[i].length; j++) {
+                if (i == rowColumn.length - 1 && j == rowColumn[i].length - 1) {
+                    System.out.print(rowColumn[i][j] + " ");
+                } else {
+                    System.out.print(rowColumn[i][j] + ", ");
+                }
+            }
+        }
+
+//      합계 구하기
+        int sum = 0;
+        for (int i = 0; i < rowColumn.length; i++) {
+            for (int j = 0; j < rowColumn[i].length; j++) {
+                sum += rowColumn[i][j];
+            }
+        }
+        System.out.println("\n입력한 배열의 합계 : " + sum);
 
     }
 }
