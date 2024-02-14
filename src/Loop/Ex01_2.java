@@ -15,7 +15,7 @@ public class Ex01_2 {
         int secondNumber = scanner.nextInt();
 
         System.out.print(firstNumber + " ~ " + secondNumber + " 사이의 짝수 :" );
-        for (int even = firstNumber; even < secondNumber; even++) {
+        for (int even = firstNumber; even <= secondNumber; even++) {
             if (even % 2 == 0) {
                 System.out.print(" " + even);
             }
