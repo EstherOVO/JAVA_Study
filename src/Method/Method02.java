@@ -39,4 +39,3 @@ public class Method02 {
         return sum;                 // 반환 결과
     }
 }
-
