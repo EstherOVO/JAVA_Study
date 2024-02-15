@@ -32,6 +32,5 @@ public class Ex02 {
         int avg = sum / 3;
         System.out.println("세 수의 평균 : " + avg);
         return avg;
-
     }
 }

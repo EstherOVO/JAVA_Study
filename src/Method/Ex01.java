@@ -16,13 +16,11 @@ public class Ex01 {
         int secondNumber = scanner.nextInt();
 
         sub(firstNumber, secondNumber);
-
     }
 
     public static int sub(int x, int y) {
         int sub = x - y;
         System.out.println("두 수의 뺄셈 : " + sub);
         return sub;
-
     }
 }
