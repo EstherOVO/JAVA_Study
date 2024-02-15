@@ -1,26 +1,42 @@
 package Method;
 
 public class Method02 {
-
     public static void main(String[] args) {
-        header();   // 메소드 호출
-        System.out.println("자바 프로그램을 코딩하고 있습니다.");
-        System.out.println("각종 연산을 수행합니다...");
-        footer();   // 메소드 호출
+
+        int x = 1;
+        int y = 2;
+        int sum = x + y;
+        System.out.println("x + y = " + sum);
+
+        sum(1, 2);         // 메소드 호출
+        sum(10, 20);
+        sum(100, 200);
+
+        int number = sum(15, 40);   // 리턴(출력) 값을 변수에 저장할 수 있다.
+        System.out.println("number = " + number);
+
+/*
+        int x2 = 3;
+        int y2 = 5;
+        int sum2 = x2 + y2;
+        System.out.println("x + y = " + sum2);
+*/
     }
 
-//  메소드 선언 : 매개변수(입력값)과 리턴(출력값)이 없는 메소드
-    public static void header() {
-        System.out.println("=== 자바 프로그램이 시작되었습니다 ===");
-        return; // 아무것도 반환하지 않고 함수를 종료한다.
-//      System.out.println("가나다라"); → return 이후의 코드는 닿지 않는다.
+//      함수(function)
+//      수학에서 가져온 개념으로, 값을 입력하면 연산을 처리하여 결과를 출력한다.
+//      자바에서는 함수를 메소드(Method)라고 한다.
 
-    }
+/*
+        [리턴 타입] [메소드 이름] ([매개 변수 ... ]) {
+            실행할 코드
+*/
 
-//  메소드 선언
-    public static void footer() {
-        System.out.println("=== 자바 프로그램이 종료되었습니다 ===");
-//      void 타입의 경우 return 생략 가능하다.
-
+//      sum 메소드 선언
+        public static int sum(int x, int y) {     // 메소드 시그니처
+        int sum = x + y;
+        System.out.println("x + y = " + sum);
+        return sum;                 // 반환 결과
     }
 }
+

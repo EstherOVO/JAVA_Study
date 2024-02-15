@@ -1,23 +1,24 @@
 package Method;
 
 public class Method03 {
+
     public static void main(String[] args) {
-
-        boolean result1 = isOdd(3);
-        boolean result2 = isOdd(4);
-
-        System.out.println("result1 = " + result1);
-        System.out.println("result2 = " + result2);
+        header();   // 메소드 호출
+        System.out.println("자바 프로그램을 코딩하고 있습니다.");
+        System.out.println("각종 연산을 수행합니다...");
+        footer();   // 메소드 호출
     }
 
-    public static boolean isOdd(int number) {
-//  홀수면 true, 짝수면 false를 반환(리턴)하는 메소드
+//  메소드 선언 : 매개변수(입력값)과 리턴(출력값)이 없는 메소드
+    public static void header() {
+        System.out.println("=== 자바 프로그램이 시작되었습니다 ===");
+        return; // 아무것도 반환하지 않고 함수를 종료한다.
+//      System.out.println("가나다라"); → return 이후의 코드는 닿지 않는다.
+    }
 
-        if (number % 2 == 1) {
-            return true;
-        } else {
-            return false;
-        }
-
+//  메소드 선언
+    public static void footer() {
+        System.out.println("=== 자바 프로그램이 종료되었습니다 ===");
+//      void 타입의 경우 return 생략 가능하다.
     }
 }
