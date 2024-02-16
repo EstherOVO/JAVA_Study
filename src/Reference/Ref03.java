@@ -15,6 +15,5 @@ public class Ref03 {
 
 //      String 문자열은 특별한 타입으로 문자열 연결 연산 가능하다.
 //      예시 String a = "1" / String b = "2" → a + b → 출력 : 12
-
     }
 }
