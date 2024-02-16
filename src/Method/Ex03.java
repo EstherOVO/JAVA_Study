@@ -4,7 +4,7 @@ public class Ex03 {
     public static void main(String[] args) {
 
 //      정수 배열의 평균 구하기
-        int[] numbers = {5, 5, 10, 100};    // 변경해 보세요.
+        int[] numbers = {5, 10, 25, 100};    // 변경해 보세요.
         System.out.println("평균 : " + calculateAverage(numbers));
     }
 

@@ -14,7 +14,7 @@ public class Ex02 {
         System.out.print("두 번째 숫자 : ");
         int secondNumber = scanner.nextInt();
 
-        System.out.print("두 번째 숫자 : ");
+        System.out.print("세 번째 숫자 : ");
         int thirdNumber = scanner.nextInt();
 
         sum(firstNumber, secondNumber, thirdNumber);
