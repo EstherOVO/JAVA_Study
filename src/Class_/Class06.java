@@ -24,7 +24,7 @@ public class Class06 {
 
     //  학생 객체를 생성해주는 메소드
     public static Student createStudent(String name, int score, int age) {
-        Student student = new Student();    // 생성된 객체(학생 타입의 인스턴스)는 힙 영역에 던져진다.
+        Student student = new Student();    // 생성된 객체(학생 타입의 인스턴스)는 힙(Heap) 영역에 던져진다.
         student.name = name;
         student.score = score;
         student.age = age;

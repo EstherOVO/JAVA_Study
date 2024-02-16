@@ -10,7 +10,7 @@ public class Class05 {
 //      객체를 메소드로 전달(참조값을 복사)
 //      메소드 내에서 변경된 필드 값들은 실제 객체에 적용이 된다.
 
-        Student student2 = new Student();   // 동시에 선언과 초기화
+        Student student2 = new Student();   // 선언과 초기화를 동시에 한다.
         initStudent(student2, "임꺽정", 70, 17);
 
 //      학생 타입의 배열을 선언
