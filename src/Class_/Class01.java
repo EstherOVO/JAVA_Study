@@ -11,6 +11,5 @@ public class Class01 {
                 - student1은 Student의 인스턴스다.
                 - student1은 객체다.
  */
-
     }
 }
