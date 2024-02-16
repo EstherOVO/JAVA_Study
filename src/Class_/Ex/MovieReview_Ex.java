@@ -1,21 +1,21 @@
 package Class_.Ex;
 
-public class Ex01_MovieReview {
+public class MovieReview_Ex {
     public static void main(String[] args) {
 
-        Class01_MovieReview movie1 = new Class01_MovieReview();
+        MovieReview movie1 = new MovieReview();
         movie1.title = "인턴";
         movie1.review = "인생 영화다!";
 
-        Class01_MovieReview movie2 = new Class01_MovieReview();
+        MovieReview movie2 = new MovieReview();
         movie2.title = "유잼";
         movie2.review = "재밌다!";
 
-        Class01_MovieReview movie3 = new Class01_MovieReview();
+        MovieReview movie3 = new MovieReview();
         movie3.title = "노잼";
         movie3.review = "재미없다!";
 
-        Class01_MovieReview[] movies = new Class01_MovieReview[3];
+        MovieReview[] movies = new MovieReview[3];
         movies[0] = movie1;
         movies[1] = movie2;
         movies[2] = movie3;

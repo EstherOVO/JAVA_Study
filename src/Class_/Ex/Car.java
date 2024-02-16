@@ -1,6 +1,6 @@
 package Class_.Ex;
 
-public class Class02_Car {
+public class Car {
 
     String brand;
     String model;
