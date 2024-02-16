@@ -2,7 +2,7 @@ package Class_.Ex;
 
 import java.text.DecimalFormat;
 
-public class ProductOrder_Ex {
+public class ProductOrder_Ex01 {
     public static void main(String[] args) {
 
         ProductOrder product1 = new ProductOrder();

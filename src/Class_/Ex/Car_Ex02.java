@@ -1,6 +1,6 @@
 package Class_.Ex;
 
-public class Car_Ex {
+public class Car_Ex02 {
     public static void main(String[] args) {
 
         Car car1 = new Car();

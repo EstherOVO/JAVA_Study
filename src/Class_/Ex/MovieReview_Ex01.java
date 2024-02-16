@@ -1,6 +1,6 @@
 package Class_.Ex;
 
-public class MovieReview_Ex {
+public class MovieReview_Ex01 {
     public static void main(String[] args) {
 
         MovieReview movie1 = new MovieReview();
