@@ -1,11 +1,14 @@
-package Class_.Ex;
+package Class00.Ex;
 
 import java.util.Scanner;
 
 public class Calculator {
-    int num1, num2;
-    char op;
 
+//  필드
+    int num1, num2;
+    char operator;
+
+//  메소드
     void getAnswer() {
         Scanner scanner = new Scanner(System.in);
 
@@ -16,9 +19,9 @@ public class Calculator {
         num2 = scanner.nextInt();
 
         System.out.print("Enter operator (+, -, *, /) : ");
-        op = scanner.next().charAt(0);
+        operator = scanner.next().charAt(0);
 
-        switch (op) {
+        switch (operator) {
             case '+' :
                 System.out.println("Result: " + add());
                 break;

@@ -1,6 +1,4 @@
-package Class_.Ex;
-
-import java.util.Scanner;
+package Class00.Ex;
 
 public class Calculator_Ex06 {
     public static void main(String[] args) {
