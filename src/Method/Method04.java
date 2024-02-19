@@ -1,22 +1,18 @@
 package Method;
 
 public class Method04 {
+
     public static void main(String[] args) {
 
-        boolean result1 = isOdd(3);
-        boolean result2 = isOdd(4);
-
-        System.out.println("result1 = " + result1);
-        System.out.println("result2 = " + result2);
+        checkAge(10);
+        checkAge(25);
     }
 
-    public static boolean isOdd(int number) {
-//  홀수면 true, 짝수면 false를 반환(리턴)하는 메소드
-
-        if (number % 2 == 1) {
-            return true;
+    public static void checkAge(int age) {
+        if(age < 18) {
+            System.out.println("미성년자입니다. 주류 및 담배 구매가 불가합니다.");
         } else {
-            return false;
+            System.out.println("성인입니다. 주류 및 담배 구매가 가능합니다.");
         }
     }
 }

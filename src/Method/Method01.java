@@ -3,35 +3,39 @@ package Method;
 public class Method01 {
     public static void main(String[] args) {
 
-  /*
-        메소드 정의
-        - 제어자(Modifier) : public, static
-        - 리턴타입(Return Type) : 메소드가 실행된 뒤 반환되는 타입
-        - 메소드 이름(Method Name) : 메소드를 호출하는 데 사용된다. 기능이 드러나도록 이름을 짓는 것이 좋다.
-        - 매개변수(Parameter)  : 입력 값. 메소드 내부에서 사용 가능한 변수로, 매개변수가 없을 수도 있다.
-        - 메소드 본문(Method Body) : 실행되는 코드 블록으로, 중괄호({ }) 사이에 위치한다.
+        int x = 1;
+        int y = 2;
+        int sum = x + y;
+        System.out.println("x + y = " + sum);
 
-        메소드의 종류
-        - 매개변수가 없고 리턴 타입도 없는 메소드
-        - 리턴 타입이 없는 경우 void를 사용
+        sum(1, 2);         // 메소드 호출
+        sum(10, 20);
+        sum(100, 200);
 
-        메소드의 장점
-        - 반복되는 코드의 중복을 줄일 수 있다.
-        - 작업이 분리되어 코드의 가독성이 향상된다.
-        - 코드를 다른 프로그램에서 재사용할 수 있다.
-        - 기존의 기능을 확장해서 사용하는데 유용하다.
-        - 메소드를 사용할 때는 내부 작업, 구현부에 대해 알 필요가 없이 사용할 수 있다.
-        - 모듈화된 메소드는 개별적으로 테스트하고 디버깅할 수 있다.
-        - 유지 및 보수에 용이해진다.
+        int number = sum(15, 40);   // 리턴(출력) 값을 변수에 저장할 수 있다.
+        System.out.println("number = " + number);
 
-        메소드 명명 규칙
-        - 기본적으로 변수의 이름을 붙이는 방식과 같다.
-        - 메소드의 이름에는 동사를 사용해서 시작하는 것이 좋다.
-            - addNumbers : 두 숫자를 더하는 메소드
-            - getStudioInfo : 학생의 정보를 가져오는 메소드
-            - setEmployeeName : 직원의 이름을 설정하는 메소드
-        - 일반적으로 널리 사용되지 않는 약어는 사용하지 않는 것이 좋다.
-            - addN, getSi, setEn → 무슨 동작을 하는 메소드인지 추측하기 어렵다.
+/*
+        int x2 = 3;
+        int y2 = 5;
+        int sum2 = x2 + y2;
+        System.out.println("x + y = " + sum2);
 */
+    }
+
+//      함수(function)
+//      수학에서 가져온 개념으로, 값을 입력하면 연산을 처리하여 결과를 출력한다.
+//      자바에서는 함수를 메소드(Method)라고 한다.
+
+/*
+        [리턴 타입] [메소드 이름] ([매개 변수 ... ]) {
+            실행할 코드
+*/
+
+//      sum 메소드 선언
+        public static int sum(int x, int y) {     // 메소드 시그니처
+        int sum = x + y;
+        System.out.println("x + y = " + sum);
+        return sum;                 // 반환 결과
     }
 }
