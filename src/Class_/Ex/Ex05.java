@@ -11,7 +11,7 @@ public class Ex05 {
 
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("몇 개를 주문하시겠습니까? ");
+        System.out.print("몇 개를 주문하시겠습니까? ");
         int orderNumber = scanner.nextInt();
 
         ProductOrder[] orders = new ProductOrder[orderNumber];
@@ -48,7 +48,8 @@ public class Ex05 {
     }
 
     private static void printOrder(ProductOrder products) {
-        System.out.println("· 제품명 : " + products.name + "\n· 가격 : " + products.price + "원" + "\n· 주문수량 : " + products.quantity + "개");
+        DecimalFormat formatter = new DecimalFormat("###,###");
+        System.out.println("· 제품명 : " + products.name + "\n· 가격 : " + formatter.format(products.price) + "원" + "\n· 주문수량 : " + formatter.format(products.quantity) + "개");
         System.out.println("=======================");
     }
 
