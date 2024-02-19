@@ -3,21 +3,13 @@ package Class_;
 public class Class02 {
     public static void main(String[] args) {
 
-        String student1Name = "홍길동";
-        int student1Score = 80;
-        int student1Age = 15;
+//      배열을 사용하게 될 경우 사람이 데이터를 수정하거나 관리할 때 실수할 수 있다.
+        String[] studentNames = {"홍길동", "임꺽정", "이몽룡"};
+        int[] studentScores = {80, 70, 95};
+        int[] studentAges = {15, 17, 19};
 
-        String student2Name = "임꺽정";
-        int student2Score = 70;
-        int student2Age = 17;
-
-        String student3Name = "이몽룡";
-        int student3Score = 95;
-        int student3Age = 19;
-
-//      학생 정보 출력
-        System.out.println("학생 이름 : " + student1Name + " / 점수 : " + student1Score + " / 나이 : " + student1Age);
-        System.out.println("학생 이름 : " + student2Name + " / 점수 : " + student2Score + " / 나이 : " + student2Age);
-        System.out.println("학생 이름 : " + student3Name + " / 점수 : " + student3Score + " / 나이 : " + student3Age);
+        for (int i = 0; i < studentNames.length; i++) {
+            System.out.println("학생 이름 : " + studentNames[i] + " / 점수 : " + studentScores[i] + " / 나이 : " + studentAges[i]);
+        }
     }
 }

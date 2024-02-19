@@ -1,17 +1,10 @@
 package Class_;
 
-import Reference.Data;
-
 public class Class05 {
     public static void main(String[] args) {
-        Student student1;           // Student라는 타입의 변수를 선언
-        student1 = new Student();
-        initStudent(student1, "홍길동", 80, 15);
-//      객체를 메소드로 전달(참조값을 복사)
-//      메소드 내에서 변경된 필드 값들은 실제 객체에 적용이 된다.
 
-        Student student2 = new Student();   // 선언과 초기화를 동시에 한다.
-        initStudent(student2, "임꺽정", 70, 17);
+        Student student1 = createStudent("홍길동", 80, 15);
+        Student student2 = createStudent("임꺽정", 70, 17);
 
 //      학생 타입의 배열을 선언
         Student[] students = new Student[2];
@@ -29,10 +22,12 @@ public class Class05 {
         System.out.println("학생 이름 : " + students.name + " / 점수 : " + students.score + " / 나이 : " + students.age);
     }
 
-    //  학생 객체의 필드를 초기화 해주는 메소드
-    public static void initStudent(Student student, String name, int score, int age) {
+    //  학생 객체를 생성해주는 메소드
+    public static Student createStudent(String name, int score, int age) {
+        Student student = new Student();    // 생성된 객체(학생 타입의 인스턴스)는 힙(Heap) 영역에 던져진다.
         student.name = name;
         student.score = score;
         student.age = age;
+        return student;     // 객체(객체의 참조값(주소 0x100))
     }
 }
