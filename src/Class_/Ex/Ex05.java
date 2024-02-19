@@ -33,6 +33,7 @@ public class Ex05 {
         }
 
         DecimalFormat formatter = new DecimalFormat("###,###");
+
         System.out.println("=======================");
         for (int i = 0; i < orders.length; i++) {
             printOrder(orders[i]);
