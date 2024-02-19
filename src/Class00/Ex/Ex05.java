@@ -1,4 +1,4 @@
-package Class_.Ex;
+package Class00.Ex;
 
 import java.text.DecimalFormat;
 import java.util.Scanner;
