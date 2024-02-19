@@ -1,4 +1,4 @@
-package Class_;
+package Class00;
 
 public class Class07 {
     public static void main(String[] args) {

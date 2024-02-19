@@ -1,33 +1,43 @@
-package Class_;
+package Class00;
 
-public class Class06 {
-    public static void main(String[] args) {
+public class Radio {
 
-//      절차적 프래그래밍으로 라디오 구현 → 위에서부터 아래로 순차적으로 실행되고, 명령문이 한 줄씩 실행된다.
-        int volume = 0;         // 음량
-        boolean isOn = false;   // 전원 온오프 여부 : 기본값 꺼짐
+//  필드 : 라디오와 관련된 속성 데이터의 모음
+    int volume;
+    boolean isOn;
 
-//      라디오 전원 켜기
+//  메소드 : 라디오와 관련된 기능 및 행동의 모음
+
+//  라디오 전원 켜기
+    void turnOn() {
         isOn = true;
         System.out.println("라디오 전원을 켰습니다.");
+    }
 
-//      음량 높이기
+    //  음량 높이기 메소드
+    void volumeUp() {
         volume++;
         System.out.println("라디오 음량 : " + volume);
+    }
 
-//      음량 줄이기
+    //  음량 줄이기 메소드
+    void volumeDown() {
         volume--;
         System.out.println("라디오 음량 : " + volume);
+    }
 
-//      라디오 상태 확인
+    //  라디오 상태 확인 메소드
+    void showRadioStatus() {
         System.out.println("라디오 상태 확인");
         if (isOn = true) {
             System.out.println("라디오 전원 켜짐(음량 : " + volume + ")");
         } else {
             System.out.println("라디오 전원 꺼짐");
         }
+    }
 
-//      라디오 전원 끄기
+    //  라디오 전원 끄기 메소드
+    void turnOff() {
         isOn = false;
         System.out.println("라디오를 종료합니다.");
     }
