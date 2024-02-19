@@ -12,7 +12,7 @@ public class Calculator {
         System.out.println("= Enter two numbers =");
         System.out.print("First number : ");
         num1 = scanner.nextInt();
-        System.out.print("Sencond number : ");
+        System.out.print("Second number : ");
         num2 = scanner.nextInt();
 
         System.out.print("Enter operator (+, -, *, /) : ");
