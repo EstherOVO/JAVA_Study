@@ -1,4 +1,4 @@
-package Variable;
+package variable;
 
 public class Escape {
     public static void main(String[] args) {

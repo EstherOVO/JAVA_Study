@@ -1,4 +1,4 @@
-package Variable;
+package variable;
 
 public class Type02 {
     public static void main(String[] args) {

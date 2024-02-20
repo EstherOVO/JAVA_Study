@@ -1,4 +1,4 @@
-package Variable;
+package variable;
 
 public class Var03 {
     public static void main(String[] args) {
