@@ -1,4 +1,4 @@
-package Class01;
+package class01;
 
 public class Constructor01 {
     public static void main(String[] args) {
