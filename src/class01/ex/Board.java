@@ -1,4 +1,4 @@
-package Class01.Ex;
+package class01.ex;
 
 public class Board {
         String title;
@@ -12,7 +12,7 @@ public class Board {
         }
 
         Board(String title, String content, String writer) {
-            this(title, content, writer, "0", 0);
+            this(title, content, writer, "date", 0);
         }
 
         Board(String title, String content, String writer, String date) {
