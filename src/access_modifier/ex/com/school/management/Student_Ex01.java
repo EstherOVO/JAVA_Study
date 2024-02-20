@@ -1,4 +1,4 @@
-package access_modifier.ex.school.management;
+package access_modifier.ex.com.school.management;
 
 public class Student_Ex01 {
     public static void main(String[] args) {

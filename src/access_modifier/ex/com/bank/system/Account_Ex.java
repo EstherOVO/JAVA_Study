@@ -1,4 +1,4 @@
-package access_modifier.ex.bank.system;
+package access_modifier.ex.com.bank.system;
 
 public class Account_Ex {
     public static void main(String[] args) {
