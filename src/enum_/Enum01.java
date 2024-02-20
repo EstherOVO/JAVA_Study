@@ -1,4 +1,4 @@
-package Enum_;
+package enum_;
 
 public class Enum01 {
     public static void main(String[] args) {
