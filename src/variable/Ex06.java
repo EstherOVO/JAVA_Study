@@ -1,6 +1,4 @@
-package Variable;
-
-import java.util.Scanner;
+package variable;
 
 public class Ex06 {
         public static void main(String[] args) {
