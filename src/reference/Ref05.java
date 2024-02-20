@@ -1,4 +1,4 @@
-package Reference;
+package reference;
 
 public class Ref05 {
     public static void main(String[] args) {

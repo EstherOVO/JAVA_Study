@@ -1,4 +1,4 @@
-package Reference;
+package reference;
 
 public class Ref01 {
         public static void main(String[] args) {    // 메소드 영역(Method Area) → 스택 영역

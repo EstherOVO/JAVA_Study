@@ -1,4 +1,4 @@
-package Reference;
+package reference;
 
 public class Null02 {
     public static void main(String[] args) {
