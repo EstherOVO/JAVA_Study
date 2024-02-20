@@ -1,4 +1,4 @@
-package Class00;
+package class00;
 
 public class Student {  // 클래스 = 설계도 : 객체를 만들기 위한 설계도
 //  인스턴스 : 설계도대로 생성된 객체 → new 연산자로 생성

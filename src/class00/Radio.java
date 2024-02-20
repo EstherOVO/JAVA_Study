@@ -1,4 +1,4 @@
-package Class00;
+package class00;
 
 public class Radio {
 
