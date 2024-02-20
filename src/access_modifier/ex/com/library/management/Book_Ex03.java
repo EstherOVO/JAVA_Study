@@ -10,8 +10,6 @@ public class Book_Ex03 {
 
         library.addBook(book1);
         library.addBook(book2);
-
         library.listBooks();
-
     }
 }

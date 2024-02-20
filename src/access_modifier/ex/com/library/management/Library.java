@@ -5,8 +5,8 @@ public class Library {
     Book[] books;
     int index;
 
-    Library(int capacity) {
-        books = new Book[capacity];
+    public Library(int capacity) {
+        this.books = new Book[capacity];
     }
 
     public void addBook(Book book) {
@@ -17,7 +17,7 @@ public class Library {
     public void listBooks() {
         System.out.println("= 도서 목록 =");
         for (int i = 0; i < books.length; i++) {
-            System.out.println("도서 제목 : " + books[i].getTitle() + "\n저자 : " + books[i].getAuthor());
+            System.out.println("· 제목 : " + books[i].getTitle() + "\n· 저자 : " + books[i].getAuthor());
         }
     }
 }

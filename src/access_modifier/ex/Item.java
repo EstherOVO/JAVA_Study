@@ -17,15 +17,20 @@ public class Item {
     }
 
     public int getPrice() {
+        if (price >= 0) {
+            this.price = price;
+        }
         return price;
     }
 
     public int getQuantity() {
+        if (price >= 0) {
+            this.price = price;
+        }
         return quantity;
     }
 
-    public int getSum() {
+    public int totalPrice() {
         return price * quantity;
     }
-
 }
