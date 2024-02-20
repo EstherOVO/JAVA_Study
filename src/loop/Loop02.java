@@ -1,4 +1,4 @@
-package Loop;
+package loop;
 
 public class Loop02 {
     public static void main(String[] args) {
