@@ -1,4 +1,4 @@
-package Class00.Ex;
+package class00.ex;
 
 public class Rectangle_Ex07 {
     public static void main(String[] args) {

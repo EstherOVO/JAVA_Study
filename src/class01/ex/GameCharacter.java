@@ -1,4 +1,4 @@
-package Class01.Ex;
+package class01.ex;
 
 public class GameCharacter {
 
