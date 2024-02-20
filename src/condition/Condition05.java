@@ -1,4 +1,4 @@
-package Condition;
+package condition;
 
 public class Condition05 {
     public static void main(String[] args) {
