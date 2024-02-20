@@ -13,15 +13,15 @@ public class GameCharacter {
     }
 
     void attack() {
-        System.out.println(name + " attack! ▶");
+        System.out.print(name + " attack! ▶ ");
     }
 
     void takeDamage(int damage) {
         this.health -= damage;
         if (health > 0) {
-            System.out.println("§ " + name + "의 현재 생명력 : " + health);
+            System.out.println(name + "의 현재 생명력 § : " + health);
         } else if (health == 0) {
-            System.out.println("§ " + name + "님의 패배로 게임을 종료합니다.");
+            System.out.println(name + "님의 패배로 게임을 종료합니다.");
 
         }
     }
