@@ -14,17 +14,12 @@ public class Book {
         this.isAvailable = isAvailable;
     }
 
-    Book(String title, String author) {
-        this.title = title;
-        this.author = author;
-    }
-
     boolean borrowBook() {
-        if (isAvailable) {
-            System.out.println("\"" + title + "\"은(는) 대여가 가능합니다.\n");
+        if (isAvailable == true) {
+            System.out.println("\'" + title + "\'은(는) 도서 대출이 가능합니다.\n");
             return true;
-        } else if (!isAvailable) {
-            System.out.println("\"" + title + "\"은(는) 대여가 불가능합니다.\n");
+        } else if (isAvailable == false) {
+            System.out.println("\'" + title + "\'은(는) 도서 대출이 불가합니다.\n");
             return false;
         }
         return borrowBook();
@@ -32,15 +27,17 @@ public class Book {
 
     boolean returnBook() {
         isAvailable = true;
-        return isAvailable;
+        if (isAvailable == false) {
+        }
+        return true;
     }
 
     void printInfo() {
-        System.out.println("§ 현재 검색하신 도서 정보 §" + "\n- 책 제목 : " + title + "\n- 저자 : " + author);
-        if (isAvailable) {
-            System.out.println("- 대출가능여부 : 대출 가능\n");
-        } else if (!isAvailable) {
-            System.out.println("- 대출가능여부 : 대출 불가\n");
+        System.out.println("· 책 제목 : " + title + "\n· 작가 : " + author + "\n· ISBN 넘버 : " + isbn);
+        if (isAvailable == true) {
+            System.out.println("▶ 대출 가능\n");
+        } else if (isAvailable == false) {
+            System.out.println("▶ 대출 불가\n");
         }
     }
 }

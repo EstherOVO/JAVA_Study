@@ -14,6 +14,6 @@ public class Book_Ex03 {
 
         book2.returnBook();
 
-        book2.printInfo();
+        book2.borrowBook();
     }
 }
