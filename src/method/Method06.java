@@ -1,4 +1,4 @@
-package Method;
+package method;
 
 public class Method06 {
     public static void main(String[] args) {
