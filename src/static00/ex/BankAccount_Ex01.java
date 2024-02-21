@@ -6,19 +6,18 @@ public class BankAccount_Ex01 {
         BankAccount bankAccount1 = new BankAccount();
         bankAccount1.getDeposit(10000);
         bankAccount1.getWithdraw(5000);
-
-        System.out.println("계좌 ID : " + BankAccount.allAccount() + " | 잔액 : " + bankAccount1.getBalance());
+        bankAccount1.printAccount();
 
         BankAccount bankAccount2 = new BankAccount();
-        bankAccount1.getDeposit(15000);
-        bankAccount1.getWithdraw(5000);
-        System.out.println("계좌 ID : " + BankAccount.allAccount() + " | 잔액 : " + bankAccount1.getBalance());
+        bankAccount2.getDeposit(20000);
+        bankAccount2.getWithdraw(7000);
+        bankAccount2.printAccount();
 
         BankAccount bankAccount3 = new BankAccount();
-        bankAccount1.getDeposit(20000);
-        bankAccount1.getWithdraw(5000);
-        System.out.println("계좌 ID : " + BankAccount.allAccount() + " | 잔액 : " + bankAccount1.getBalance());
+        bankAccount3.getDeposit(15000);
+        bankAccount3.getWithdraw(3000);
+        bankAccount3.printAccount();
 
-        System.out.println("전체 계좌 수 : " + BankAccount.allAccount());
+        System.out.println("▨ 전체 계좌 수 : " + BankAccount.getAccountCount() + "개");
     }
 }

@@ -2,9 +2,9 @@ package static00.ex;
 
 public class MathArrayUtils {
 
-    private int[] array;
+    int[] array;
 
-    public static int getSum(int[] array) {
+    public static int sum(int[] array) {
         int sum = 0;
         for (int i = 0; i < array.length; i++) {
             sum += array[i];
@@ -12,16 +12,15 @@ public class MathArrayUtils {
         return sum;
     }
 
-    public static int getAvg(int[] array) {
+    public static int avg(int[] array) {
         int sum = 0;
-        int avg = 0;
         for (int i = 0; i < array.length; i++) {
             sum += array[i];
         }
         return sum / array.length;
     }
 
-    public static int getMax(int[] array) {
+    public static int max(int[] array) {
         int max = array[0];
         for (int i = 0; i < array.length; i++) {
             if (max < array[i]) {
@@ -31,7 +30,7 @@ public class MathArrayUtils {
         return max;
     }
 
-    public static int getMin(int[] array) {
+    public static int min(int[] array) {
         int min = array[0];
         for (int i = 0; i < array.length; i++) {
             if (min > array[i]) {
