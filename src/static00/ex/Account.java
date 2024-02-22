@@ -8,7 +8,7 @@ public class Account {
     private String ownerName;
     private final String accountNumber;
     private int balance;
-    private static final double interestRate = 0.2;
+    private static final double INTEREST_RATE = 0.2;
 
 //  생성자
     public Account(String ownerName, String accountNumber, int balance) {
@@ -19,7 +19,7 @@ public class Account {
 
     public double calculateRate() {
         double totalBalance;
-        totalBalance = balance + (balance * interestRate);
+        totalBalance = balance + (balance * INTEREST_RATE);
         return totalBalance;
     }
 
