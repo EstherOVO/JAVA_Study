@@ -2,7 +2,7 @@ package inheritance.ex;
 
 public class Student extends Person{
 
-    int studentId;
+    private int studentId;
 
     public Student(String name, int age, int studentId) {
         super(name, age);

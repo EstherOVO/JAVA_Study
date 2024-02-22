@@ -2,8 +2,8 @@ package inheritance.ex;
 
 public class Person {
 
-    String name;
-    int age;
+    protected String name;
+    protected int age;
 
     public Person(String name, int age) {
         this.name = name;

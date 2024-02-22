@@ -2,9 +2,9 @@ package inheritance.ex;
 
 public class MusicTrack {
 
-    String title;
-    String artist;
-    int duration;
+    protected String title;
+    protected String artist;
+    protected int duration;
 
     public MusicTrack(String title, String artist, int duration) {
         this.title = title;

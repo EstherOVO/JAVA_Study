@@ -2,7 +2,7 @@ package inheritance.ex;
 
 public class ClassicMusicTrack extends MusicTrack {
 
-    String composer;
+    private String composer;
 
     public ClassicMusicTrack(String title, String artist, int duration, String composer) {
         super(title, artist, duration);
