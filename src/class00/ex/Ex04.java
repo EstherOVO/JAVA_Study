@@ -4,6 +4,7 @@ import java.text.DecimalFormat;
 
 public class Ex04 {
     public static void main(String[] args) {
+
 /*
         3번 연습문제를 리팩토링하세요.
         createOrder 메소드를 통해 상품 주문 객체를 생성해 주세요.
