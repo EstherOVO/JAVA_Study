@@ -2,7 +2,8 @@ package static00.ex;
 
 public class MathArrayUtils {
 
-    int[] array;
+    private MathArrayUtils() {
+    }
 
     public static int sum(int[] array) {
         int sum = 0;
