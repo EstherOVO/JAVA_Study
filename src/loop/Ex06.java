@@ -5,7 +5,6 @@ import java.util.Scanner;
 public class Ex06 {
     public static void main(String[] args) {
 
-
 /*
         피보나치수열 찾기
         사용자로부터 정수 n을 입력받아,
