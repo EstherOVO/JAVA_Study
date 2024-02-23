@@ -16,6 +16,7 @@ public class Ex02 {
         5
         >> 1, 2, 3, 4, 5
 */
+
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("5개의 정수를 입력하세요");
