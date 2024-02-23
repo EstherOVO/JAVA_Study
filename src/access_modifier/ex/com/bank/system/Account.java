@@ -10,7 +10,7 @@ public class Account {
     }
 
     public double withdraw(double amount) {
-        System.out.println("출금 시도 : " + amount);
+        System.out.println("출금 시도 : " + amount + "원");
         balance -= amount;
         if (balance < amount) {
             System.out.println("출금액이 잔액을 초과하였습니다. 다시 시도해 주시기를 바랍니다.");
