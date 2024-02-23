@@ -16,7 +16,6 @@ public class Data {
     }
 
 //  세터 메소드
-
     public void setField(int field) {
         this.field = field;
     }
