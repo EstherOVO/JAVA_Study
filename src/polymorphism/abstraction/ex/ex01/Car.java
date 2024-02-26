@@ -3,9 +3,9 @@ package polymorphism.abstraction.ex.ex01;
 public class Car {
 
     Tire frontLeftTire = new Tire("앞 왼쪽 타이어", 2);
-    Tire frontRightTire = new Tire("앞 오른쪽 타이어", 4);
-    Tire backLeftTire = new Tire("뒤 왼쪽 타이어", 3);
-    Tire backRightTire = new Tire("뒤 오른쪽 타이어", 5);
+    Tire frontRightTire = new Tire("앞 오른쪽 타이어", 6);
+    Tire backLeftTire = new Tire("뒤 왼쪽 타이어", 5);
+    Tire backRightTire = new Tire("뒤 오른쪽 타이어", 3);
 
     public int run() {
         if (frontLeftTire.roll() == false) {
