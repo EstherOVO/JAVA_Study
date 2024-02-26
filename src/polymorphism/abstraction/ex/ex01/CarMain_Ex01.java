@@ -1,6 +1,6 @@
 package polymorphism.abstraction.ex.ex01;
 
-public class CarMain {
+public class CarMain_Ex01 {
     public static void main(String[] args) {
 
         Car car = new Car();
