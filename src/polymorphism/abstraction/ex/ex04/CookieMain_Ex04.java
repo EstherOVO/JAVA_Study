@@ -18,5 +18,13 @@ public class CookieMain_Ex04 {
         chocoCookie.run();
         chocoCookie.jump();
         chocoCookie.specialSkill();
+
+        System.out.println("====================");
+
+        Cookie[] cookies = {gingerbread, strawberryCookie, chocoCookie};
+
+        for (Cookie cookie : cookies) {
+            cookie.allSkills();
+        }
     }
 }

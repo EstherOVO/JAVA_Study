@@ -14,4 +14,10 @@ public class StrawberryCookie extends Cookie {
     public void specialSkill() {
         System.out.println("딸기 쿠키 맨이 딸기 꼭지로 장애물을 설치했습니다! _* ♡^♡ *_");
     }
+
+    public void allSkills() {
+        run();
+        jump();
+        specialSkill();
+    }
 }

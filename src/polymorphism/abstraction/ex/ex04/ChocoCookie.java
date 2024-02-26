@@ -14,4 +14,10 @@ public class ChocoCookie extends Cookie {
     public void specialSkill() {
         System.out.println("초코 쿠키 맨이 초콜릿을 먹고 힘을 냅니다! ♡* ●v● *♡");
     }
+
+    public void allSkills() {
+        run();
+        jump();
+        specialSkill();
+    }
 }
