@@ -6,5 +6,7 @@ public abstract class Cookie {
 
     public abstract void jump();
 
+    public abstract void specialSkill();
+
     public abstract void allSkills();
 }
