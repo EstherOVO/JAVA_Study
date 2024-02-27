@@ -1,11 +1,15 @@
-package interface00.ex.ex02;
+package interface00.ex.ex02.ex02_2;
 
 import java.text.DecimalFormat;
 
-public class BankTransfer implements Payment {
+public class BankTransfer extends Payment implements Payable {
+
+    public BankTransfer(int amount) {
+        super(amount);
+    }
 
     @Override
-    public void pay(double amount) {
+    public void pay() {
         DecimalFormat formatter = new DecimalFormat("###,###");
         System.out.println(formatter.format(amount) + "원을 은행 이체로 결제합니다.");
     }

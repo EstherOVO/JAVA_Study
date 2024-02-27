@@ -1,11 +1,15 @@
-package interface00.ex.ex02;
+package interface00.ex.ex02.ex02_2;
 
 import java.text.DecimalFormat;
 
-public class CreditCard implements Payment {
+public class CreditCard extends Payment implements Payable {
+
+    public CreditCard(int amount) {
+        super(amount);
+    }
 
     @Override
-    public void pay(double amount) {
+    public void pay() {
         DecimalFormat formatter = new DecimalFormat("###,###");
         System.out.println(formatter.format(amount) + "원을 신용 카드로 결제합니다.");
     }
