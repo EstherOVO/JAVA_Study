@@ -1,6 +1,4 @@
-package interface00.animal;
-
-import inheritance.final_keyword.A;
+package interface00.animal01;
 
 public class AnimalMain {
     public static void main(String[] args) {

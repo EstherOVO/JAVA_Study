@@ -1,4 +1,4 @@
-package interface00.animal;
+package interface00.animal01;
 
 public interface Animal {
 
