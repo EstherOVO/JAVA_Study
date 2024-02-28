@@ -1,12 +1,15 @@
 package interface00.ex.ex05;
 
-public class Observer implements Movable {
+public class Observer implements Character, Movable {
 
-    final String name = "옵저버";
+    @Override
+    public String setCharacterName() {
+        return "옵저버";
+    }
 
     @Override
     public void move() {
-        System.out.println(name + "가 떠다닙니다.");
+        System.out.println(setCharacterName() + "가 떠다닙니다.");
     }
 }
 

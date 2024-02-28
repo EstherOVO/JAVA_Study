@@ -1,11 +1,14 @@
 package interface00.ex.ex05;
 
-public class SiegeTank implements Attackable {
+public class SiegeTank implements Character, Attackable {
 
-    final String name = "시저탱크";
+    @Override
+    public String setCharacterName() {
+        return "시저탱크";
+    }
 
     @Override
     public void attack() {
-        System.out.println(name + "가 포를 쏩니다.");
+        System.out.println(setCharacterName() + "가 포를 쏩니다.");
     }
 }
