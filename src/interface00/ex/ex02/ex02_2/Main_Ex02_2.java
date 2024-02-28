@@ -5,17 +5,13 @@ public class Main_Ex02_2 {
 
         PaymentProcessor paymentProcessor = new PaymentProcessor();
 
-        Payable creditCard = new CreditCard(10000);
-        Payable bankTransfer = new BankTransfer(20000);
-        Payable mobilePay = new MobilePay(15000);
+        paymentProcessor.setAmount(10000);
+        paymentProcessor.pay(new CreditCard());
 
-        paymentProcessor.setPayable(creditCard);
-        paymentProcessor.pay();
+        paymentProcessor.setAmount(20000);
+        paymentProcessor.pay(new BankTransfer());
 
-        paymentProcessor.setPayable(bankTransfer);
-        paymentProcessor.pay();
-
-        paymentProcessor.setPayable(mobilePay);
-        paymentProcessor.pay();
+        paymentProcessor.setAmount(15000);
+        paymentProcessor.pay(new MobilePay());
     }
 }
