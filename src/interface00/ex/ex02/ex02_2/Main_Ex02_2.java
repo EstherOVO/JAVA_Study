@@ -23,12 +23,19 @@ public class Main_Ex02_2 {
         모바일 결제로 15000원 결제되었습니다.
 */
 
-        CreditCard creditCard = new CreditCard(10000);
-        BankTransfer bankTransfer = new BankTransfer(20000);
-        MobilePay mobilePay = new MobilePay(15000);
+        PaymentProcessor paymentProcessor = new PaymentProcessor();
 
-        creditCard.pay();
-        bankTransfer.pay();
-        mobilePay.pay();
+        Payable creditCard = new CreditCard(10000);
+        Payable bankTransfer = new BankTransfer(20000);
+        Payable mobilePay = new MobilePay(15000);
+
+        paymentProcessor.setPayable(creditCard);
+        paymentProcessor.pay();
+
+        paymentProcessor.setPayable(bankTransfer);
+        paymentProcessor.pay();
+
+        paymentProcessor.setPayable(mobilePay);
+        paymentProcessor.pay();
     }
 }
