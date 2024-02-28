@@ -2,7 +2,7 @@ package interface00.ex.ex02.ex02_2;
 
 import java.text.DecimalFormat;
 
-public class CreditCard extends Payment implements Payable {
+public class CreditCard extends AmountOfMoney implements Payable {
 
     public CreditCard(int amount) {
         super(amount);
