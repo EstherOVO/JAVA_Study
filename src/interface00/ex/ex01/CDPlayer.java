@@ -1,6 +1,6 @@
 package interface00.ex.ex01;
 
-public class CDPlayer implements Plyable {
+public class CDPlayer implements Playable {
     @Override
     public void play() {
         System.out.println("CD 플레이어에서 노래를 재생합니다.");

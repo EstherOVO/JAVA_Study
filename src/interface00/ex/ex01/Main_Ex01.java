@@ -39,24 +39,24 @@ public class Main_Ex01 {
 
         System.out.println("================");
 
-        Plyable[] plyables = {mp3Player, cdPlayer};
+        Playable[] playables = {mp3Player, cdPlayer};
 
-        for (Plyable plyable : plyables) {
-            plyable.play();
-            plyable.pause();
-            plyable.stop();
+        for (Playable playable : playables) {
+            playable.play();
+            playable.pause();
+            playable.stop();
         }
 
     }
-    public static void play(Plyable plyable) {
-        plyable.play();
+    public static void play(Playable playable) {
+        playable.play();
     }
 
-    public static void pause(Plyable plyable) {
-        plyable.pause();
+    public static void pause(Playable playable) {
+        playable.pause();
     }
 
-    public static void stop(Plyable plyable) {
-        plyable.stop();
+    public static void stop(Playable playable) {
+        playable.stop();
     }
 }

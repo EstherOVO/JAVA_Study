@@ -1,6 +1,6 @@
 package interface00.ex.ex01;
 
-public class MP3Player implements Plyable {
+public class MP3Player implements Playable {
     @Override
     public void play() {
         System.out.println("MP3 플레이어에서 노래를 재생합니다.");

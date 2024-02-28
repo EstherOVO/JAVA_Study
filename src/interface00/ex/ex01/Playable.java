@@ -1,6 +1,6 @@
 package interface00.ex.ex01;
 
-public interface Plyable {
+public interface Playable {
 
     void play();
     void pause();
