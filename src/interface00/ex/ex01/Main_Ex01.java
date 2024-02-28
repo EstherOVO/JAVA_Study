@@ -37,7 +37,7 @@ public class Main_Ex01 {
         pause(cdPlayer);
         stop(cdPlayer);
 
-        System.out.println("================");
+        System.out.println("=====================");
 
         Playable[] playables = {mp3Player, cdPlayer};
 
