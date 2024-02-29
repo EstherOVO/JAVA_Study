@@ -36,7 +36,7 @@ public class Ex05 {
 
         Anonymous anonymous = new Anonymous();
 
-        anonymous.workerField.work();
+        anonymous.field.work();
 
         anonymous.method1();
 

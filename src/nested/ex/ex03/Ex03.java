@@ -14,9 +14,11 @@ public class Ex03 {
 }
 */
 
-        Car.Engine engine = new Car.Engine();
-
+//      타이어 생성
         Car car = new Car();
         Car.Tire tire = car.new Tire();
+
+//      엔진 생성
+        Car.Engine engine = new Car.Engine();
     }
 }

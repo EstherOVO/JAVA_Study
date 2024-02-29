@@ -14,6 +14,10 @@ public class Button {
     }
 
     public void touch() {
+//      null일 때 예외 처리
+        if (listener == null) {
+            return;
+        }
         listener.onClick();
     }
 }

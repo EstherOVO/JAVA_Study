@@ -12,8 +12,13 @@ public class Ex01 {
         print 메소드 내에서 "Hello, World!"를 출력하는 프로그램을 작성하세요.
 */
 
-        HelloWorld helloWorld = new HelloWorld();
+        Printable printable = new Printable() {
+            @Override
+            public void print() {
+                System.out.println("Hello, World!");
+            }
+        };
 
-        helloWorld.hw.print();
+        printable.print();
     }
 }

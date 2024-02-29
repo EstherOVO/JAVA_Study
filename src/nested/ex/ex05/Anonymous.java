@@ -2,10 +2,11 @@ package nested.ex.ex05;
 
 public class Anonymous {
 
-    Worker workerField = new Worker() {
+    Worker field = new Worker() {
         public void sleep() {
             System.out.println("잠을 잡니다.");
         }
+
         @Override
         public void work() {
             System.out.println("디자인을 합니다.");
@@ -18,6 +19,7 @@ public class Anonymous {
             public void eat() {
                 System.out.println("점심을 먹습니다.");
             }
+
             @Override
             public void work() {
                 System.out.println("개발을 합니다.");

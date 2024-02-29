@@ -1,5 +1,7 @@
 package nested.ex.ex02;
 
+import access_modifier.first.B;
+
 public class Ex02 {
     public static void main(String[] args) {
 
@@ -12,8 +14,17 @@ public class Ex02 {
         버튼 클릭 시 "버튼이 클릭되었습니다!"를 출력하도록 구현하세요.
 */
 
-        Window window = new Window();
+        Button button = new Button();
 
-        window.button.touch();
+        button.touch(); // 클릭 리스너가 없는 경우 NullPointExeption(NPE)
+
+        button.setOnClickListener(new Button.OnClickListener() {
+            @Override
+            public void onClick() {
+                System.out.println("버튼이 클릭되었습니다!");
+            }
+        });
+
+        button.touch();
     }
 }
