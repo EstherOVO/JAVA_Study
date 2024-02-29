@@ -41,7 +41,7 @@ public class OuterClass {
 
 //          안쪽에서 바깥쪽을 참조
             System.out.println("=== 2. 안쪽에서 바깥족 필드와 메소드 호출 ===");
-            System.out.println(OuterClass.this.outerField);
+            System.out.println(OuterClass.this.field);
             System.out.println(outerField); // 이름이 구분된 경우 바로 호출 가능
             OuterClass.this.method();       // 이름이 같은 경우 바깥 클래스에서 this 키워드로 접근하여 호출
             outerMethod();
