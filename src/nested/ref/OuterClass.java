@@ -31,6 +31,7 @@ public class OuterClass {
 
         void call() {
 //          안쪽에서 안쪽(중첩객체)을 참조
+            System.out.println("=== 1. 안쪽에서 안쪽 필드와 메소드 호출 ===");
             System.out.println(field);      // 이름이 같을 때 → Scope이 가까운 쪽을 호출한다.
             System.out.println(this.field); // 필드의 이름이 겹칠 때 this 키워드로 명시적으로 가리킨다.
             System.out.println(innerField); // 이름이 다를 때는 this 키워드 없이 호출 가능
@@ -39,6 +40,7 @@ public class OuterClass {
             innerMethod();
 
 //          안쪽에서 바깥쪽을 참조
+            System.out.println("=== 2. 안쪽에서 바깥족 필드와 메소드 호출 ===");
             System.out.println(OuterClass.this.outerField);
             System.out.println(outerField); // 이름이 구분된 경우 바로 호출 가능
             OuterClass.this.method();       // 이름이 같은 경우 바깥 클래스에서 this 키워드로 접근하여 호출
