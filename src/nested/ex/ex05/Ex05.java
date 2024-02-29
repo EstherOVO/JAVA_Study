@@ -4,7 +4,7 @@ public class Ex05 {
     public static void main(String[] args) {
 
 /*
-        문제 5. 익명 인터페이스 활용 01
+        문제 5. 익명 활용 01
 
         다음 메인 메소드의 실행 결과를 출력하는 Worker 클래스와 Anonymous 클래스를
         익명 자식 객체를 이용하여 만들어주세요.

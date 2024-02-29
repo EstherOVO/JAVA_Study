@@ -4,7 +4,7 @@ public class Ex06 {
     public static void main(String[] args) {
 
 /*
-        문제 6. 익명 인터페이스 활용 02
+        문제 6. 익명 활용 02
 
         다음 메인 메소드의 실행결과를 출력하는 Vehicle 클래스와 Anonymous 클래스를
         익명 인터페이스 구현 객체를 이용하여 만들어주세요.

@@ -4,7 +4,7 @@ public class Ex03 {
     public static void main(String[] args) {
 
 /*
-        문제 3. Tire와 Engine 멤버 클래스 객체 생성
+        문제 3. Tire와 Engine 중첩 멤버 클래스 객체 생성
 
         Tire와 Engine이 멤버 클래스로 선언이 되어있습니다.
         Main 클래스를 생성하여 멤버 클래스의 객체를 생성하는 코드를 작성해 주세요.
