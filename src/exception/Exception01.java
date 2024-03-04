@@ -8,7 +8,7 @@ public class Exception01 {
     public static void main(String[] args) {
 
 //      ctrl + b → 클래스 상세 확인 가능
-//      ctrl + h Hierarchy → 상속 관계 확인 가능
+//      ctrl + h → Hierarchy → 상속 관계 확인 가능
 
 //      모든 발생할 수 있는 문제 클래스의 조상
         Throwable throwable;
