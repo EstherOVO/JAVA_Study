@@ -1,7 +1,7 @@
 package library.lang;
 
 public class Object01 {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
 
         Object object = new Object();
 
@@ -25,7 +25,17 @@ public class Object01 {
         System.out.println("부모클래스 : " + aClass.getSuperclass());    // null
 
 //      타입 정보를 조회 : 객체의 정확한 타입을 확인 가능
-//      런타임 도중에 다른 클래스의 메서드나 필드, 생성자 등에 접근해서 객체를 생성,
+//      런타임 도중에 다른 클래스의 메서드나 필드, 생성자 등에 접근해서 객체를 생성하거나,
 //      메서드 호출하거나 필드를 변경할 수 있다. → Reflection
+
+//      스레드와 관련되어 있는 메서드
+        object.notify();    // 객체를 기다리는 스레드 중 하나를 깨움
+        object.notifyAll(); // 객체를 기다리는 모든 스레드를 깨움
+        object.wait();      // 현재 스레드 일시 중단하고 깨울 때까지 기다림
+        object.wait(1000);  // 스레드 중단하고 n밀리초 기다림
+        object.wait(100, 100);  // 스레드 중단하고, n밀리초, n나노초 기다림
+
+//      object.clone();      객체의 복제본을 생성하는 메서드
+//      object.finalize();   더 이상 사용하지 않는 메서드 → GC(Garbage Collector)에 의해 객체가 삭제되기 전에 호출되는 메서드
     }
 }
