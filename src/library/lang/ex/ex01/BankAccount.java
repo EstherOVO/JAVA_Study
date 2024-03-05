@@ -1,4 +1,4 @@
-package library.lang.ex01;
+package library.lang.ex.ex01;
 
 public class BankAccount {
 
