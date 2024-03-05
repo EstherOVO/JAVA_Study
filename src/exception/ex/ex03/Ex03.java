@@ -23,13 +23,16 @@ public class Ex03 {
         예외 발생 : 유효하지 않은 이메일 주소입니다.
 */
 
-        try {
-            setEmail();
-            System.out.println("이메일 주소가 유효합니다.");
-        } catch (InvalidEmailException e) {
-            System.out.println(e.getMessage());
+        while (true) {
+            try {
+                setEmail();
+                System.out.println("이메일 주소가 유효합니다.");
+                break;
+            } catch (InvalidEmailException e) {
+                System.out.println(e.getMessage());
+                continue;
+            }
         }
-
     }
 
     public static String setEmail() throws InvalidEmailException {
