@@ -1,7 +1,5 @@
 package library.lang;
 
-import library.lang.ex02.Click;
-
 public class HashCode {
     public static void main(String[] args) {
 
