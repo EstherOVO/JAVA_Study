@@ -1,4 +1,4 @@
-package enum_;
+package enum00;
 
 public enum Week {
 
