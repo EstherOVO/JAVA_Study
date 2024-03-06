@@ -16,16 +16,13 @@ public class Ex05 {
         반복문 실행 시간 : 15 milliseconds
 */
 
-        long count = 0;
-
         long startTime = System.currentTimeMillis();
 
-        for (long i = 1; i < 1000000; i++) {
-            count++;
+        for (int i = 0; i < 1_000_000; i++) {
         }
 
         long endTime = System.currentTimeMillis();
 
-        System.out.println("반복문 실행 시간 : " + (endTime - startTime) + " milliseconds");
+        System.out.println("100만 번 실행 시간 : " + (endTime - startTime) + " milliseconds");
     }
 }

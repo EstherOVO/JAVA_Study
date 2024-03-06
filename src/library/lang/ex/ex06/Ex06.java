@@ -16,7 +16,8 @@ public class Ex06 {
         사용자 홈 디렉토리 : /Users/username
 */
 
+//      OS에 따라 Key 값이 다를 수 있음
         String home = System.getenv("USERPROFILE");
-        System.out.println("사용자 홈 디렉토리 : " + home);
+        System.out.println("사용자 홈 디렉터리 : " + home);
     }
 }
