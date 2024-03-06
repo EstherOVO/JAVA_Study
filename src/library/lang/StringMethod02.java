@@ -25,6 +25,5 @@ public class StringMethod02 {
         int i3 = sentence.lastIndexOf("대한");     // 끝에서부터 찾아서 발견한 인덱스 반환
 
         System.out.println("i3 = " + i3);
-
     }
 }

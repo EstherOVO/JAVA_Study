@@ -1,6 +1,6 @@
 package library.lang;
 
-public class StringMethod {
+public class StringMethod01 {
     public static void main(String[] args) {
 
 //      문자열에서 자주 사용되는 메서드
