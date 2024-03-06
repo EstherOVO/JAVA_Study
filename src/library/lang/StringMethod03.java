@@ -21,7 +21,7 @@ public class StringMethod03 {
         System.out.println("res3 = " + res3);   // true
         System.out.println("res4 = " + res4);   // true
 
-//      9. contain() : 문자 포함 여부를 확인해 준다.
+//      9. contains() : 문자 포함 여부를 확인해 준다.
         String str = "시계가 고장났을 때 하는 말은.. 똑똑";
 
         boolean res5 = str.contains("시계");  // true
@@ -35,7 +35,7 @@ public class StringMethod03 {
         boolean res10 = str.startsWith("시계", 3);    // false
         boolean res11 = str.startsWith("고장", 4);    // true
 
-//      11. endWith() : 해당 문자로 문자열이 끝나는지 확인해 준다.
+//      11. endsWith() : 해당 문자로 문자열이 끝나는지 확인해 준다.
         boolean res12 = str.endsWith("똑똑"); // true
         boolean res13 = str.endsWith("시계"); // false
 

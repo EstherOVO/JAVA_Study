@@ -5,7 +5,7 @@ public class StringMethod02 {
 
         String str = "오늘은 3월 6일이고, 곧 점심시간이네요!";
 
-//      5. chatAt() : (인덱스)번 째 '문자(char)'를 반환한다.
+//      5. charAt() : (인덱스)번 째 '문자(char)'를 반환한다.
         char c1 = str.charAt(0);
         System.out.println("c1 = " + c1);
         char c10 = str.charAt(10);
