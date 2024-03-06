@@ -14,7 +14,7 @@ public class DeepCopy implements Cloneable {
     }
 
     @Override
-    protected Object clone() throws CloneNotSupportedException {
+    public Object clone() throws CloneNotSupportedException {
         DeepCopy cloned = (DeepCopy) super.clone();
 
 //      내부 필드의 참조값(배열, 참조타입 등)을 다시 한 번 복사해야 된다.
