@@ -12,7 +12,7 @@ public class SystemTime {
         long time2 = System.currentTimeMillis();
         System.out.println("time2 = " + time2);
 
-//      현재 시간을 더 높은 정밀도 nano초(1/1,000,000,000)로 반환
+//      현재 시간을 더 높은 정밀도 nano(1/1,000,000,000)초로 반환
         long nanoTime1 = System.nanoTime();
         System.out.println("nanoTime1 = " + nanoTime1);
         long nanoTime2 = System.nanoTime();
