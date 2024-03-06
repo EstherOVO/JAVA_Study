@@ -1,4 +1,4 @@
-package library.lang.ex.ex06;
+package library.lang.ex;
 
 public class Ex06 {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package library.lang.ex.ex07;
+package library.lang.ex;
 
 public class Ex07 {
     public static void main(String[] args) {
