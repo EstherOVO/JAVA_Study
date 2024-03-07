@@ -21,5 +21,17 @@ public class MathClass {
         System.out.println("사인 : " + Math.cos(Math.PI / 2));
         System.out.println("사인 : " + Math.tan(Math.PI / 2));
         System.out.println("자연로그 : " + Math.log(Math.E));
+
+//      임의의 주사위 눈 얻기
+//      0.0 <= Math.random() < 1.0
+//      0.0 * 6 <= Math.random() * 6 < 1.0 * 6
+//      (int) (0.0 * 6) <= (int) (Math.random() * 6) < (int) (1.0 * 6)
+//      (int) (0.0 * 6) + 1 <= (int) (Math.random() * 6) + 1 < (int) (1.0 * 6) + 1
+//      1 <= (int) (Math.random() * 6) + 1 < 6 + 1
+
+        for (int i = 0; i < 10; i++) {
+            int diceNum = (int) (Math.random() * 6) + 1;
+            System.out.println("주사위 눈 : " + diceNum);
+        }
     }
 }
