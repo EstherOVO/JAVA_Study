@@ -64,7 +64,7 @@ public class Ex10 {
 
         for (int i = 0; i < splitSemiColon.length; i++) {
             if (splitSemiColon[i].contains(strMax)) {
-                System.out.println("[이름 : " + splitSemiColon[i].substring(0, 3) + " | 나이 " + max + "세]");
+                System.out.println("[이름 : " + splitSemiColon[i].substring(0, 3) + " | 나이 : " + max + "세]");
             }
         }
 

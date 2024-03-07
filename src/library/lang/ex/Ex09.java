@@ -47,10 +47,10 @@ public class Ex09 {
                     System.out.print(splitCommaLength + "개, ");
                 }
             }
+            System.out.println();
         } else {
             System.out.println("문자열에 쉼표가 없습니다.");
         }
-        System.out.println();
 
 //      4.
         System.out.print("▣ 문자열이 \"자바(Java)\"를 포함하는가(한글 및 영어 대소문자 구분 없음) : ");
@@ -72,10 +72,9 @@ public class Ex09 {
 
 //      6.
         System.out.print("▣ 문자열 중 \"a\"(혹은 \"A\")가 몇 번 등장하는가 : ");
-        int lowerACount = sentenceLength - sentence.replace("a", "").length();
-        int upperACount = sentenceLength - sentence.replace("A", "").length();
+        int aCount = sentence.toLowerCase().length() - sentence.toLowerCase().replace("a", "").length();
         if (sentence.contains("a") || sentence.contains("A")) {
-            System.out.println(lowerACount + upperACount + "번");
+            System.out.println(aCount + "번");
         } else {
             System.out.println("문자열에 해당 단어가 없습니다.");
         }
