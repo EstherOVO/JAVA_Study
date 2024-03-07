@@ -36,10 +36,11 @@ public class Ex10 {
         System.out.print("▨ 지메일 사용자 : ");
         for (int i = 0; i < splitSemiColon.length; i++) {
             if (splitSemiColon[i].contains("gmail.com")) {
+                String[] splitComma = splitSemiColon[i].split(",");
                 if (i == splitSemiColon.length - 1) {
-                    System.out.print(splitSemiColon[i].substring(0, 3));
+                    System.out.print(splitComma[0]);
                 } else {
-                    System.out.print(splitSemiColon[i].substring(0, 3) + ", ");
+                    System.out.print(splitComma[0] + ", ");
                 }
             }
         }
@@ -69,7 +70,17 @@ public class Ex10 {
         }
 
 //      5.
-        int kimCount = people.length() - people.replace("김", "").length();
-        System.out.println("▨ 김가네 : " + kimCount + "명");
+        System.out.print("▨ 김가네 : ");
+        int kimCount = 0;
+        for (int i = 0; i < splitSemiColon.length; i++) {
+            if (splitSemiColon[i].startsWith("김")) {
+                kimCount++;
+            }
+        }
+        if (kimCount == 0) {
+            System.out.println("김씨는 없습니다.");
+        } else {
+            System.out.println(kimCount + "명");
+        }
     }
 }
