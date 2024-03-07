@@ -53,7 +53,7 @@ public class Ex09 {
         System.out.println();
 
 //      4.
-        System.out.print("▣ 문자열이 \"자바(Java)\"를 포함하는가(대소문자 구분 없음) : ");
+        System.out.print("▣ 문자열이 \"자바(Java)\"를 포함하는가(한글 및 영어 대소문자 구분 없음) : ");
         boolean containsJavaEng = sentence.toLowerCase().contains("JAVA".toLowerCase());
         boolean containsJavaKor = sentence.contains("자바");
         if (containsJavaEng || containsJavaKor) {
