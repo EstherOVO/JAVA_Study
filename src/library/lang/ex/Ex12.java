@@ -32,27 +32,54 @@ public class Ex12 {
         성별 : 여성
 */
 
-        Scanner scanner = new Scanner(System.in);
+        while (true) {
 
-        System.out.print("주민등록번호를 입력해 주세요(000000-XXXXXXX) 형태 : ");
-        String ssn = scanner.next();
+            try {
+                Scanner scanner = new Scanner(System.in);
 
-        String[] split = ssn.split("-");
-        String year = split[0].substring(0, 2);
-        String month = split[0].substring(2, 4);
-        String day = split[0].substring(4, 6);
+                System.out.print("· 주민등록번호를 입력해 주세요 : ");
+                String ssn = scanner.next();
 
-        if (split[1].startsWith("1") || split[1].startsWith("2")) {
-            System.out.println("생년월일 : 19" + year + "년 " + month + "월 " + day + "일");
-        } else if (split[1].startsWith("3") || split[1].startsWith("4")) {
-            System.out.println("생년월일 : 20" + year + "년 " + month + "월 " + day + "일");
+                validateSsn(ssn);
+
+                char gender = ssn.charAt(7);
+                if (gender == '1' || gender == '3') {
+                    System.out.println("성별 : 남자");
+                } else {
+                    System.out.println("성별 : 여자");
+                }
+
+                String[] birth = ssn.split("-");
+                String year = birth[0].substring(0, 2);
+                String month = birth[0].substring(2, 4);
+                String day = birth[0].substring(4, 6);
+
+                if (birth[1].startsWith("1") || birth[1].startsWith("2")) {
+                    System.out.println("생년월일 : 19" + year + "년 " + month + "월 " + day + "일");
+                } else {
+                    System.out.println("생년월일 : 20" + year + "년 " + month + "월 " + day + "일");
+                }
+                break;
+            } catch (IllegalArgumentException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+    }
+
+    public static void validateSsn(String ssn) {
+
+        StringBuilder exceptionMessage = new StringBuilder();
+
+        if (!ssn.contains("-")) {
+            exceptionMessage.append("\"-\"를 포함해서 입력해 주세요.\n");
         }
 
-        char gender = ssn.charAt(7);
-        if (gender == '1' || gender == '3') {
-            System.out.println("성별 : 남자");
-        } else {
-            System.out.println("성별 : 여자");
+        if (ssn.length() != 14) {
+            exceptionMessage.append("주민등록번호를 다시 확인해 주시기를 바랍니다.");
+        }
+
+        if (!exceptionMessage.isEmpty()) {
+            throw new IllegalArgumentException(exceptionMessage.toString());
         }
     }
 }
