@@ -17,49 +17,59 @@ public class Ex10 {
         - 이름에 "김"이 포함된 사용자 수
 */
 
-        String str = "김철수,30,kimcs@gmail.com;이영희,25,younghee@naver.com;박보검,22,bogum@daum.net;김민아,35,mina@gmail.com";
+        String people = "김철수,30,kimcs@gmail.com;이영희,25,younghee@naver.com;박보검,22,bogum@daum.net;김민아,35,mina@gmail.com";
 
-        int memberNumber = str.split(";").length;
-        System.out.println("1. 전체 사용자 수 : " + memberNumber + "명");
+//      1.
+        int length = people.split(";").length;
+        System.out.println("▨ 전체 사용자 수 : " + length + "명");
 
-
-        System.out.println("2. 사용자 정보 : ");
-        String[] a = str.split(";");
-        for (int i = 0; i < a.length; i++) {
-            String[] b = a[i].split(",");
-            System.out.println("이름 : " + b[0] + " | 나이 : " + b[1] + " | 이메일 : " + b[2]);
+//      2.
+        System.out.println("▨ 사용자 정보 : ");
+        String[] splitSemiColon = people.split(";");
+        for (int i = 0; i < splitSemiColon.length; i++) {
+            String[] splitComma = splitSemiColon[i].split(",");
+            System.out.println("(" + (i + 1) + ")" + " 이름 : " +splitComma[0] + " | 나이 : " + splitComma[1] + "세 | 이메일 : " + splitComma[2]);
         }
 
-        System.out.println("3. \"gmail.com\" 도메인 사용자");
-        String[] aa = str.split(";");
-        for (int i = 0; i < aa.length; i++) {
-            if (aa[i].contains("gmail.com")) {
-                System.out.println(aa[i].substring(0, 3));
+        //String[] splitComma = splitSemiColon[i].split(",");
+//      3.
+        System.out.print("▨ 지메일 사용자 : ");
+        for (int i = 0; i < splitSemiColon.length; i++) {
+            if (splitSemiColon[i].contains("gmail.com")) {
+                if (i == splitSemiColon.length - 1) {
+                    System.out.print(splitSemiColon[i].substring(0, 3));
+                } else {
+                    System.out.print(splitSemiColon[i].substring(0, 3) + ", ");
+                }
             }
         }
+        System.out.println();
 
-        String[] aaa = str.split(";");
-        int[] i1 = new int[4];
-        for (int i = 0; i < a.length; i++) {
-            String[] b = a[i].split(",");
-            i1[i] = Integer.parseInt(b[1]);
+//      4.
+        System.out.print("▨ 가장 나이가 많은 사용자 : ");
+        int[] ages = new int[4];
+        for (int i = 0; i < splitSemiColon.length; i++) {
+            String[] splitComma = splitSemiColon[i].split(",");
+            ages[i] = Integer.parseInt(splitComma[1]);
         }
+
         int max = 0;
-        for (int i = 0; i < i1.length; i++) {
-            if (max < i1[i]) {
-                max = i1[i];
-            }
-        }
-        System.out.println(max);
-        String AA = String.valueOf(max);
-        for (int i = 0; i < aaa.length; i++) {
-            if (aaa[i].contains(AA)) {
-                System.out.println(aaa[i].substring(0, 3));
+        for (int j = 0; j < splitSemiColon.length; j++) {
+            if (max < ages[j]) {
+                max = ages[j];
             }
         }
 
+        String strMax = String.valueOf(max);
 
-        int aCount = str.length() - str.replace("김", "").length();
-        System.out.println("김 개수 : " + aCount);
+        for (int i = 0; i < splitSemiColon.length; i++) {
+            if (splitSemiColon[i].contains(strMax)) {
+                System.out.println("[이름 : " + splitSemiColon[i].substring(0, 3) + " | 나이 " + max + "세]");
+            }
+        }
+
+//      5.
+        int kimCount = people.length() - people.replace("김", "").length();
+        System.out.println("▨ 김가네 : " + kimCount + "명");
     }
 }

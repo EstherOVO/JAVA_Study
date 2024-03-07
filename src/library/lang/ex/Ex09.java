@@ -24,50 +24,60 @@ public class Ex09 {
 
         Scanner scanner = new Scanner(System.in);
 
-        System.out.print("문자를 입력해 주세요 : ");
-        String str = scanner.nextLine();
+        System.out.print("문자열을 입력해 주세요 : ");
+        String sentence = scanner.nextLine();
 
 //      1.
-        System.out.println("1. 입력받은 문자열의 길이 : " + str.length());
+        int sentenceLength = sentence.length();
+        System.out.println("▣ 문자열의 길이 : " + sentenceLength);
 
 //      2.
-        StringTokenizer str2 = new StringTokenizer(str," ");
-        System.out.println("2. 문자열에서 공백의 수 : " + (str2.countTokens() - 1));
+        int blankCount = sentenceLength - sentence.replace(" ", "").length();
+        System.out.println("▣ 공백의 수 : " + blankCount + "개");
 
 //      3.
-        System.out.print("3. 쉼표를 제외한 각 부분 문자열의 길이 : ");
-        if (str.contains(",")) {
-            String[] split = str.split(",");
-            for (String s : split) {
-                System.out.print(s.length() + " ");
+        System.out.print("▣ 쉼표를 기준으로 나눈 각 문자열의 길이 : " );
+        String[] splitComma = sentence.split(",");
+        if (sentence.contains(",")) {
+            for (int i = 0; i < splitComma.length; i++) {
+                int splitCommaLength = splitComma[i].length();
+                if (i == splitComma.length - 1) {
+                    System.out.print(splitCommaLength + "개");
+                } else {
+                    System.out.print(splitCommaLength + "개, ");
+                }
             }
         } else {
-            System.out.print("문자열 내에 쉼표가 없습니다.");
+            System.out.println("문자열에 쉼표가 없습니다.");
         }
+        System.out.println();
 
 //      4.
-        System.out.print("\n4. \"자바(Java)\"가 포함 되는지 여부(대소문자 상관없이 입력 가능합니다.) : ");
-        boolean contains = str.toLowerCase().contains("JAVA".toLowerCase());
-        boolean contains1 = str.contains("자바");
-        if (contains || contains1) {
-            System.out.println("포함됩니다.");
+        System.out.print("▣ 문자열이 \"자바(Java)\"를 포함하는가(대소문자 구분 없음) : ");
+        boolean containsJavaEng = sentence.toLowerCase().contains("JAVA".toLowerCase());
+        boolean containsJavaKor = sentence.contains("자바");
+        if (containsJavaEng || containsJavaKor) {
+            System.out.println("단어를 포함하고 있습니다.");
         } else {
-            System.out.println("포함되지 않습니다.");
+            System.out.println("문자열에 해당 단어가 없습니다.");
         }
 
 //      5.
-        System.out.print("5. \"프로그래밍\"이라는 단어로 끝나는지 여부 : ");
-        boolean b = str.endsWith("프로그래밍");
-        if (b) {
-            System.out.println("끝납니다.");
+        System.out.print("▣ 문자열이 \"프로그래밍\"으로 끝나는가 : ");
+        if (sentence.endsWith("프로그래밍")) {
+            System.out.println("해당 단어로 문자열이 끝납니다.");
         } else {
-            System.out.println("끝나지 않습니다.");
+            System.out.println("문자열에 해당 단어가 없습니다.");
         }
 
 //      6.
-        System.out.print("6. 문자열 중 \"a\" 문자가 몇 번 나타나는지(대소문자 상관없이 입력 가능합니다.) : ");
-        int aCount = str.length() - str.replace("a", "").length();
-        int aCount2 = str.length() - str.replace("A", "").length();
-        System.out.println(aCount + aCount2 + "번");
+        System.out.print("▣ 문자열 중 \"a\"(혹은 \"A\")가 몇 번 등장하는가 : ");
+        int lowerACount = sentenceLength - sentence.replace("a", "").length();
+        int upperACount = sentenceLength - sentence.replace("A", "").length();
+        if (sentence.contains("a") || sentence.contains("A")) {
+            System.out.println(lowerACount + upperACount + "번");
+        } else {
+            System.out.println("문자열에 해당 단어가 없습니다.");
+        }
     }
 }
