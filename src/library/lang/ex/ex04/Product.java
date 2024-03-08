@@ -29,6 +29,6 @@ public class Product {
 
     @Override
     public String toString() {
-        return "상품 : [" + name + "] | 가격 : [" + price + "원] | 수량 : [" + quantity + "개]";
+        return "상품 : [%s] | 가격 : [%,d원] | 수량 : [%,d개]".formatted(name, price, quantity);
     }
 }
