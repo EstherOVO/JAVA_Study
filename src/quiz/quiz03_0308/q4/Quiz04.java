@@ -6,12 +6,12 @@ public class Quiz04 {
     public static void main(String[] args) {
 
         while (true) {
-            Scanner scanner = new Scanner(System.in);
-
-            System.out.print("§ 이메일 주소를 입력해 주세요 : ");
-            String email = scanner.next();
 
             try {
+                Scanner scanner = new Scanner(System.in);
+
+                System.out.print("§ 이메일 주소를 입력해 주세요 : ");
+                String email = scanner.next();
 
                 validateEmail(email);
 

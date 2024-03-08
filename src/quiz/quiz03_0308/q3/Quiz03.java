@@ -8,15 +8,15 @@ public class Quiz03 {
 
         while (true) {
 
-            Scanner scanner = new Scanner(System.in);
-
-            System.out.print("· 첫 번째 정수를 입력해 주세요 : ");
-            double firstNumber = scanner.nextInt();
-
-            System.out.print("· 두 번째 정수를 입력해 주세요 : ");
-            double secondNumber = scanner.nextInt();
-
             try {
+                Scanner scanner = new Scanner(System.in);
+
+                System.out.print("· 첫 번째 정수를 입력해 주세요 : ");
+                double firstNumber = scanner.nextInt();
+
+                System.out.print("· 두 번째 정수를 입력해 주세요 : ");
+                double secondNumber = scanner.nextInt();
+
                 validateNumber(secondNumber);
 
                 double divide = firstNumber / secondNumber;
