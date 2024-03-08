@@ -6,6 +6,6 @@ public class CreditCard implements Payment {
     @Override
     public void pay(int amount) {
         DecimalFormat formatter = new DecimalFormat("###,###");
-        System.out.println("$ 신용카드로 " + formatter.format(amount) + "원 결제되었습니다!");
+        System.out.println("$ 신용카드로 " + formatter.format(amount) + "원 결제되었습니다.");
     }
 }

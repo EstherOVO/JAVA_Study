@@ -6,6 +6,6 @@ public class MobilePay implements Payment {
     @Override
     public void pay(int amount) {
         DecimalFormat formatter = new DecimalFormat("###,###");
-        System.out.println("$ 모바일로 " + formatter.format(amount) + "원 결제되었습니다!");
+        System.out.println("$ 모바일로 " + formatter.format(amount) + "원 결제되었습니다.");
     }
 }
