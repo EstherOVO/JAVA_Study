@@ -23,9 +23,9 @@ public class TimeFormat {
         LocalDateTime parsedDateTime = LocalDateTime.parse(formatted1, formatter1);
         System.out.println("parsedDateTime = " + parsedDateTime);
 
-        String str = "2024년 3월 8일 13시 16분 23초";
-        DateTimeFormatter fmt = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-        LocalDateTime parse = LocalDateTime.parse(str, fmt);
-        System.out.println("parse = " + parse);
+//      String str = "2024년 3월 8일 13시 16분 23초";
+//      DateTimeFormatter fmt = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+//      LocalDateTime parse = LocalDateTime.parse(str, fmt);
+//      System.out.println("parse = " + parse);
     }
 }

@@ -42,6 +42,7 @@ public class TimeClass {
         LocalDate fiveMonthsAgo = today.minusMonths(5);
         System.out.println("fiveMonthsAgo = " + fiveMonthsAgo);
 
+//      현재 시간 가져오기
         LocalTime now = LocalTime.now();
         System.out.println("now = " + now);
 
