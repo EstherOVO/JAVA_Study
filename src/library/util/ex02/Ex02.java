@@ -73,11 +73,10 @@ public class Ex02 {
         return sb.toString();
     }
 
-    public static int validatePassword(int length) throws InvalidPasswordException {
+    public static void validatePassword(int length) throws InvalidPasswordException {
 
         if (length <= 0) {
-            throw new InvalidPasswordException("길이는 0이상의 정수로 입력해 주시기를 바랍니다.");
+            throw new InvalidPasswordException("길이는 한 자릿수 이상의 정수로 입력해 주시기를 바랍니다.\n");
         }
-        return length;
     }
 }

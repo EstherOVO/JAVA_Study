@@ -44,8 +44,8 @@ public class Ex03 {
 
         BigDecimal add = b2.add(BigDecimal.ONE);
         BigDecimal pow = add.pow(year);
-        BigDecimal interestRate = pow.multiply(b1);
+        BigDecimal interest = pow.multiply(b1);
 
-        System.out.println(String.format("이자율 : %.2f", interestRate));
+        System.out.println(String.format("최종 금액 : %,.2f", interest) + "원");
     }
 }
