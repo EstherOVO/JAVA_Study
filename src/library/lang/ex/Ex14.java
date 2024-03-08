@@ -4,7 +4,7 @@ public class Ex14 {
     public static void main(String[] args) {
 
 /*
-        문제 : 우주 탐험가 정보 출력하기
+        연습문제 : 우주 탐험가 정보 출력하기
 
         요구사항 :
         우주 탐험가의 이름, 발견한 행성의 수, 행성을 발견하는데 걸린 평균 년도를 변수에 저장하고,

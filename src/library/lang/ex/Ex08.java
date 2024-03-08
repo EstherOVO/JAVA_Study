@@ -4,7 +4,7 @@ public class Ex08 {
     public static void main(String[] args) {
 
 /*
-        연습문제 4 : 프로그램 종료 상태 코드 설정
+        연습문제 : 프로그램 종료 상태 코드 설정
 
         요구사항 :
         프로그램에 전달된 인자(argument)의 개수에 따라 다른 종료 코드를 반환하는 프로그램을 작성하세요.

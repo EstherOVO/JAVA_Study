@@ -7,7 +7,7 @@ public class Ex09 {
     public static void main(String[] args) {
 
 /*
-        실습 문제 : 문자열 정보 처리 및 분석
+        연습문제 : 문자열 정보 처리 및 분석
 
         요구사항 :
         당신은 텍스트 기반 데이터를 처리하는 소프트웨어를 개발하고 있습니다.

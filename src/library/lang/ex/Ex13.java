@@ -4,7 +4,7 @@ public class Ex13 {
     public static void main(String[] args) {
 
 /*
-        문제 : 과일 가격표 포매팅하여 출력하기
+        연습문제 : 과일 가격표 포매팅하여 출력하기
 
         요구사항 :
         여러분은 슈퍼마켓에서 일하며

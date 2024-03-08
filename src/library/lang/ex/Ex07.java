@@ -4,7 +4,7 @@ public class Ex07 {
     public static void main(String[] args) {
 
 /*
-        연습문제 3 : 시스템 속성 출력
+        연습문제 : 시스템 속성 출력
 
         요구사항 :
         자바 버전, 운영 체제 이름, 사용자 작업 디렉토리를 출력하는 프로그램을 작성하세요.

@@ -4,7 +4,7 @@ public class Ex06 {
     public static void main(String[] args) {
 
 /*
-        연습문제 2 : 환경 변수 조회
+        연습문제 : 환경 변수 조회
 
         요구사항 :
         사용자의 홈 디렉토리 경로를 조회하는 프로그램을 작성하세요.

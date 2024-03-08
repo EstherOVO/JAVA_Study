@@ -4,7 +4,7 @@ public class Ex05 {
     public static void main(String[] args) {
 
 /*
-        연습문제 1 : 경과 시간 측정
+        연습문제 : 경과 시간 측정
 
         요구사항 :
         100만 번의 반복문을 실행하는 데 걸리는 시간(밀리초 단위)을 측정하세요.
