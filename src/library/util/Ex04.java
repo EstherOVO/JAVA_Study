@@ -3,6 +3,7 @@ package library.util;
 import java.time.Duration;
 import java.time.LocalDate;
 import java.time.Period;
+import java.time.temporal.ChronoUnit;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Scanner;
@@ -44,20 +45,18 @@ public class Ex04 {
         LocalDate thisBirthDay = LocalDate.of(now.getYear(), month, day);
         LocalDate nextBirthDay = LocalDate.of(now.getYear() + 1, month, day);
 
-        LocalDate endDate = LocalDate.of(now.getYear(), 12, 31);
-        Period nowToEnd = Period.between(now, endDate);
-        Period birthDayToEnd = Period.between(thisBirthDay, endDate);
-
         if (LocalDate.now().isBefore(thisBirthDay)) {
             Period between1 = Period.between(now, thisBirthDay);
+            long onlyDays1 = now.until(thisBirthDay, ChronoUnit.DAYS);
             int days1 = between1.getDays();
             int months1 = between1.getMonths();
-            System.out.println(String.format("생일까지 남은 기간은 %d개월 %d일입니다!", months1, days1));
+            System.out.println(String.format("생일까지 남은 기간은 %d개월 %d일입니다! (총 %d일)", months1, days1, onlyDays1));
         } else {
             Period between2 = Period.between(now, nextBirthDay);
+            long onlyDays2 = now.until(nextBirthDay, ChronoUnit.DAYS);
             int days2 = between2.getDays();
             int months2 = between2.getMonths();
-            System.out.println(String.format("다음 생일까지 남은 기간은 %d개월 %d일입니다!", months2, days2));
+            System.out.println(String.format("다음 생일까지 남은 기간은 %d개월 %d일입니다! (총 %d일)", months2, days2, onlyDays2));
         }
     }
 }
