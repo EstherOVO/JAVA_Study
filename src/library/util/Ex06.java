@@ -8,7 +8,7 @@ public class Ex06 {
     public static void main(String[] args) {
 
 /*
-        연습 문제 3 : 회의 시간대 변환하기
+        연습 문제 3 : 국제 회의 시간대 출력
 
         요구사항 : 뉴욕에서 오후 3시에 시작하는 온라인 회의가 있다고 할 때,
         이 회의가 서울과 런던에서 몇 시에 시작하는지 계산하여 출력하세요.
@@ -37,7 +37,7 @@ public class Ex06 {
         int hour = Integer.parseInt(strings2[0]);
         int mm = Integer.parseInt(strings2[1]);
 
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy년 MM월 dd일 HH시 mm분");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy년 M월 d일 a h시 m분");
 
         ZonedDateTime newYork = Year.of(year).atMonth(month).atDay(day).atTime(hour, mm).atZone(ZoneId.of("America/New_York"));
         System.out.println("(미국 뉴욕 기준) 회의 시간 : " + formatter.format(newYork));
