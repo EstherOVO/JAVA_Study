@@ -21,23 +21,24 @@ public class Ex01 {
 */
 
         while (true) {
+
             Random random = new Random();
 
             int player1 = random.nextInt(1, 7);
             int player2 = random.nextInt(1, 7);
 
-            System.out.println("플레이어 1 : " + player1);
-            System.out.println("플레이어 2 : " + player2);
+            System.out.println("▣ 첫 번째 플레이어의 주사위 눈 : " + player1);
+            System.out.println("▣ 두 번째 플레이어의 주사위 눈 : " + player2);
 
             int max = Math.max(player1, player2);
             if (player1 == player2) {
-                System.out.println("비겼습니다!");
+                System.out.println("비겼습니다. 주사위를 다시 던집니다!");
                 continue;
-            } else if (max == player1){
-                System.out.println("플레이어 1이 이겼습니다!");
+            } else if (player1 == max) {
+                System.out.println("첫 번째 플레이어가 이겼습니다!");
                 break;
             } else {
-                System.out.println("플레이어 2가 이겼습니다!");
+                System.out.println("두 번째 플레이어가 이겼습니다!");
                 break;
             }
         }

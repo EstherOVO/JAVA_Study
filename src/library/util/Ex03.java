@@ -28,24 +28,24 @@ public class Ex03 {
 
         Scanner scanner = new Scanner(System.in);
 
-        System.out.print("원금을 입력해 주세요 : ");
-        long principal = scanner.nextLong();
+        System.out.println("= 이자 계산기 =");
+        System.out.print("원금 : ");
+        int principal = scanner.nextInt();
 
-        System.out.print("연이율을 입력해 주세요 : ");
+        System.out.print("연이율 : ");
         double air = scanner.nextDouble();
 
-        System.out.print("기간을 입력해 주세요 : ");
-        int term = scanner.nextInt();
+        System.out.print("기간(년) : ");
+        int year = scanner.nextInt();
 
         BigDecimal b1 = new BigDecimal(principal);
         BigDecimal b2 = new BigDecimal(air);
-        BigDecimal b3 = new BigDecimal(term);
+        BigDecimal b3 = new BigDecimal(year);
 
         BigDecimal add = b2.add(BigDecimal.ONE);
-        BigDecimal pow = add.pow(term);
-        BigDecimal total = pow.multiply(b1);
+        BigDecimal pow = add.pow(year);
+        BigDecimal interestRate = pow.multiply(b1);
 
-        String format = String.format("이자율 : %.2f", total);
-        System.out.println(format);
+        System.out.println(String.format("이자율 : %.2f", interestRate));
     }
 }
