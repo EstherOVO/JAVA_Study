@@ -9,7 +9,6 @@ public class Quiz01_2 {
         while (true) {
 
             try {
-
                 Scanner scanner = new Scanner(System.in);
 
                 System.out.print("결제하실 금액을 입력해 주세요 : ");
