@@ -31,7 +31,6 @@ public class Ex10 {
             System.out.println("(" + (i + 1) + ")" + " 이름 : " +splitComma[0] + " | 나이 : " + splitComma[1] + "세 | 이메일 : " + splitComma[2]);
         }
 
-        //String[] splitComma = splitSemiColon[i].split(",");
 //      3.
         System.out.print("▨ 지메일 사용자 : ");
         for (int i = 0; i < splitSemiColon.length; i++) {
