@@ -9,6 +9,7 @@ public class Quiz01_2 {
         while (true) {
 
             try {
+
                 Scanner scanner = new Scanner(System.in);
 
                 System.out.print("결제하실 금액을 입력해 주세요 : ");
@@ -21,7 +22,9 @@ public class Quiz01_2 {
                 clickPayment(amount, button);
                 break;
             } catch (InputMismatchException e) {
-                System.out.println(e.getMessage());
+                System.out.println("잘못된 입력입니다. 다시 시도해 주시기를 바랍니다.\n");
+            } finally {
+                System.out.println("감사합니다.\n");
             }
         }
     }
@@ -43,8 +46,6 @@ public class Quiz01_2 {
             case 4 :
                 System.out.println("종료합니다.");
                 break;
-            default :
-                throw new InputMismatchException("다시 입력해 주시기를 바랍니다.");
         }
     }
 }
