@@ -7,7 +7,7 @@ public class TimeClass {
     public static void main(String[] args) {
 
 //      자바 8버전 이후부터 기존 날짜 시간 클래스들의 단점을 해결한 LocalDateTime 클래스를 사용
-//      java.time 패키지에 소속되고 불편(immutable) 객체를 사용
+//      java.time 패키지에 소속되고 불변(immutable) 객체를 사용
 
 //      시간대 정보를 포함하지 않는 클래스
 //      날짜와 시간을 모두 표현
