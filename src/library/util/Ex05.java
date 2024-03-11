@@ -19,15 +19,15 @@ public class Ex05 {
         다음 월드컵은 3년 8개월 21일 후에 시작합니다!
 */
 
-        LocalDate now = LocalDate.now();
         LocalDate worldCup = LocalDate.of(2026, 6, 14);
 
-        Period period = Period.between(now, worldCup);
+        Period betweenNowAndWorldCup = Period.between(LocalDate.now(), worldCup);
 
-        int years = period.getYears();
-        int months = period.getMonths();
-        int days = period.getDays();
+        int years = betweenNowAndWorldCup.getYears();
+        int months = betweenNowAndWorldCup.getMonths();
+        int days = betweenNowAndWorldCup.getDays();
 
-        System.out.printf("다음 월드컵은 %d년 %d개월 %d일 후에 시작합니다!", years, months, days);
+        System.out.println("= 북중미 월드컵 D-DAY =");
+        System.out.println(String.format("월드컵까지 %d년 %d개월 %d일 남았습니다!", years, months, days));
     }
 }
