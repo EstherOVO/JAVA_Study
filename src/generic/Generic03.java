@@ -8,7 +8,7 @@ public class Generic03 {
 /*
     일반적으로 한 글자로 표현된다.
     T : Type
-    E : Element(요로 / 컬렉션이 이용)
+    E : Element(요소 / 컬렉션이 이용)
     K : Key
     V : Value
     N : Number
