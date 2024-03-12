@@ -90,6 +90,11 @@
     - Date, Calendar, SimpleDateFormat
     - LocalDateTime, LocalDate, LocalTime
     - Period, Duration, DateTimeFormatter
+26. 제네릭
+    - \<T\> 타입 파라미터를 정의하여 타입이 필요한 자리에 유연한 타입 제공
+    - 제네릭 클래스, 제네릭 메서드(리턴 타입 앞에 선언)
+    - 제한된 타입 파라미터 <T extends 타입>
+    - 와일드 카드 <? extends 타입> <? super 타입>
 
 # ▨ 메소드(Method) ▨
 ## 메서드 정의
@@ -389,12 +394,12 @@
      - 개발자가 코드를 통해 적절하게 처리하면 정상적인 실행을 할 수 있다.
        - Checked Exception : 컴파일 시점에 체크되는 예외
        - Unchecked Exception : 실행 시점(Runtime)에 발생하는 예외
-         - 주로 RuntimeException 클래스에서 상속받음
+         - 주로 `RuntimeException` 클래스에서 상속받음
 
 # ▨ 제네릭(Generic) ▨
 ## 제네릭의 장점
 1. 타입 안전성(Type Safety)를 가짐
-    - 컴파일 시점에 타입 체크를 수행할 수 있어 ClassCastException을 방지한다.
+    - 컴파일 시점에 타입 체크를 수행할 수 있어 `ClassCastException`을 방지한다.
 2. 코드 재사용성이 향상
     - 다양한 타입의 데이터에 대해 재사용 가능하여, 코드의 양을 줄인다.
 3. 타입 캐스팅 감소
