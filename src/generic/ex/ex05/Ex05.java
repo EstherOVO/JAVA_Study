@@ -26,16 +26,19 @@ public class Ex05 {
         Media 인터페이스에는 getTitle() 메소드가 정의되어 있으며,
         Book과 Movie 클래스는 각각의 추가 정보(예: 저자, 감독)를
         출력할 수 있는 메소드를 가지고 있습니다
-
-
 */
 
         List<Media> mediaList = new ArrayList<>();
 
         mediaList.add(new Book("1984", "George Orwell"));
-        mediaList.add(new Movie("The Matrix", "Lana and Lilly Wachowski"));
+        mediaList.add(new Movie("The Matrix", "Lana and Lilly Wachowskis"));
+
+        List<Book> bookList = new ArrayList<>();
+        mediaList.add(new Book("메밀꽃 필 무렵", "황순원"));
+        mediaList.add(new Book("노인과 바다", "헤밍웨이"));
 
         printMediaDetails(mediaList);
+        printMediaDetails(bookList);
     }
 
     public static void printMediaDetails(List<? extends Media> mediaList) {
