@@ -62,6 +62,7 @@ public class Ex02 {
                 it.remove();
             }
         }
+
         System.out.println(stringList);
     }
 }
