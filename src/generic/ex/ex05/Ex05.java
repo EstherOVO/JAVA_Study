@@ -42,8 +42,26 @@ public class Ex05 {
     }
 
     public static void printMediaDetails(List<? extends Media> mediaList) {
+
+//      방법 1. 객체 지향적인 방법
         for (Media media : mediaList) {
             System.out.println(media.getDetails());
         }
+
+/*
+        방법 2. instanceof로 타입체크하는 방법
+        for (Media media : myMediaList) {
+            System.out.println("Title : " + media.getTitle());
+
+            책이면 author
+            if (media instanceof Book) {
+                System.out.println("Author : " + ((Book) media).author);
+
+            영화면 director
+            } else if (media instanceof Movie) {
+                System.out.println("Director : " + ((Movie) media).director);
+            }
+            System.out.println();
+*/
     }
 }
