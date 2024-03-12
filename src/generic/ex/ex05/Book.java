@@ -5,7 +5,8 @@ public class Book implements Media {
     String title;
     String author;
 
-    public String getInfo() {
+    @Override
+    public String getDetails() {
         return "Title : " + title + "\nAuthor : " + author;
     }
 

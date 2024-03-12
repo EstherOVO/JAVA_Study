@@ -29,12 +29,12 @@ public class Ex02 {
     public static void main(String[] args) {
 
         Integer[] intArray = {1, 2, 3, 4};
-        String[] strArray = {"Hello", "World", "Generic", "Method"};
+        String[] strArray = {"hello", "world", "generic", "method"};
 
-        int idx = findIndex(intArray, 3);
-        System.out.println("intArray에서 3의 인덱스 : " + idx);
+        int index1 = findIndex(intArray, 3);
+        int index2 = findIndex(strArray, "world");
 
-        int idx2 = findIndex(strArray, "Generic");
-        System.out.println("stringArray에서 \"Generic\"의 인덱스 : " + idx2);
+        System.out.println("intArray에서 3의 인덱스 : " + index1);
+        System.out.println("strArray에서 \"world\"의 인덱스 : " + index2);
     }
 }

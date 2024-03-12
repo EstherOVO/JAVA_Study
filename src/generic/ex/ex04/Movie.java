@@ -1,9 +1,9 @@
 package generic.ex.ex04;
 
-public class Movie implements Media<Movie> {
+public class Movie implements Media {
 
-    public String title;
-    public String director;
+    String title;
+    String director;
 
     @Override
     public String getTitle() {

@@ -1,9 +1,9 @@
 package generic.ex.ex04;
 
-public class Music implements Media<Music> {
+public class Music implements Media {
 
-    public String title;
-    public String artist;
+    String title;
+    String artist;
 
     @Override
     public String getTitle() {

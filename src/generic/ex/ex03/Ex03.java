@@ -25,10 +25,10 @@ public class Ex03 {
         정수 데이터를 두 배로 증가시키는 로직을 processData 메소드에 구현합니다.
 */
 
-        DataProcessor<String> stringProcessor = new StringDataProcessor();
-        DataProcessor<Integer> intDataProcessor = new NumberDataProcessor();
+        DataProcessor<String> stringDataProcessor = new StringDataProcessor();
+        System.out.println(stringDataProcessor.processData("hello, generics"));
 
-        System.out.println(stringProcessor.processData("Hello, Generics"));
-        System.out.println(intDataProcessor.processData(100));
+        DataProcessor<Integer> integerDataProcessor = new NumberDataProcessor();
+        System.out.println(integerDataProcessor.processData(100));
     }
 }

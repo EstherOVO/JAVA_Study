@@ -6,7 +6,7 @@ public class Movie implements Media {
     String director;
 
     @Override
-    public String getInfo() {
+    public String getDetails() {
         return "Title : " + title + "\nDirector : " + director;
     }
 

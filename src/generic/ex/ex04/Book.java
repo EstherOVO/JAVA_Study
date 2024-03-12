@@ -1,9 +1,9 @@
 package generic.ex.ex04;
 
-public class Book implements Media<Book> {
+public class Book implements Media {
 
-    public String title;
-    public String author;
+    String title;
+    String author;
 
     @Override
     public String getTitle() {
