@@ -8,12 +8,12 @@ public class List01 {
 
 /*
         컬렉션 프레임워크의 핵심 인터페이스 중 하나
-        구현 클래스
+        구현 클래스 :
         ArrayList
         LinkedList
         Vector
         Stack
-        특징
+        특징 :
         순서가 있는 데이터의 집합을 다룬다.
         중복된 요소를 허용한다.
  */
