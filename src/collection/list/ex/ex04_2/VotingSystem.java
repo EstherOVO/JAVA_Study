@@ -29,11 +29,11 @@ public class VotingSystem {
                 ※ 종료는 \'0\'번을 입력해 주세요.
                 """);
 
+        Scanner scanner = new Scanner(System.in);
+
         while (true) {
 
             try {
-                Scanner scanner = new Scanner(System.in);
-
                 System.out.println();
                 System.out.println("= 원하는 후보에게 투표해 주세요! =");
                 System.out.print("▣ 투표 번호 : ");
@@ -64,6 +64,7 @@ public class VotingSystem {
                 }
             } catch (InputMismatchException e) {
                 System.out.println("잘못된 입력입니다. 다시 시도해 주시기를 바랍니다.");
+                scanner.next();
             } catch (IllegalArgumentException e) {
                 System.out.println(e.getMessage());
             }
