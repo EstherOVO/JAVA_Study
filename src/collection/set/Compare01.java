@@ -57,7 +57,7 @@ public class Compare01 {
         personTreeSet.add(person2);
         personTreeSet.add(person3);
         personTreeSet.add(person4);
-        personTreeSet.add(new Person("홍길동", 30));   // 이름 기준 중복 불포함
+        personTreeSet.add(new Person("홍길동", 30));   // 나이 기준 중복 불포함
 
 //      요소 출력으로 확인
         for (Person person : personTreeSet) {
