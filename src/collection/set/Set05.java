@@ -1,5 +1,6 @@
 package collection.set;
 
+import java.util.Arrays;
 import java.util.SortedSet;
 import java.util.TreeSet;
 
@@ -35,5 +36,22 @@ public class Set05 {
 //      10보다 tail(오른쪽, 큰) 숫자들의 집합을 반환(요소 포함)
         SortedSet<Integer> tailSet = treeSet.tailSet(10);
         System.out.println("tailSet = " + tailSet);
+
+//      해당 요소 바로 아래 요소 리턴
+        Integer lower = treeSet.lower(10);
+        System.out.println("lower = " + lower);
+
+//      해당 요소 바로 위 요소 리턴
+        Integer higher = treeSet.higher(10);
+        System.out.println("higher = " + higher);
+
+//      문자열 자동 정렬
+        TreeSet<String> stringTreeSet = new TreeSet<>();
+
+        stringTreeSet.addAll(Arrays.asList("Banana", "Coke", "Apple", "Zebra", "Fruit"));
+        System.out.println("stringTreeSet = " + stringTreeSet);
+
+        stringTreeSet.addAll(Arrays.asList("가", "다", "나", "하", "자"));
+        System.out.println("stringTreeSet = " + stringTreeSet);
     }
 }
