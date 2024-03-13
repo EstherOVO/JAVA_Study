@@ -31,14 +31,14 @@ public class Ex04 {
         Set<String> userAFriends = new HashSet<>(Arrays.asList("B", "C", "D", "E"));
         Set<String> userBFriends = new HashSet<>(Arrays.asList("A", "C", "D", "F", "G"));
 
-        Set<String> recommendFriendToA = new HashSet<>(userBFriends);
-        recommendFriendToA.removeAll(userAFriends);
-        recommendFriendToA.remove("A"); // 자기자신 제외
-        System.out.println("A에게 추천하는 친구 : " + recommendFriendToA);
+        Set<String> recommendFriendsToA = new HashSet<>(userBFriends);
+        recommendFriendsToA.removeAll(userAFriends);
+        recommendFriendsToA.remove("A"); // 자기자신 제외
+        System.out.println("A에게 추천하는 친구 : " + recommendFriendsToA);
 
-        Set<String> recommendFriendToB = new HashSet<>(userAFriends);
-        recommendFriendToB.removeAll(userBFriends);
-        recommendFriendToB.remove("B"); // 자기자신 제외
-        System.out.println("B에게 추천하는 친구 : " + recommendFriendToB);
+        Set<String> recommendFriendsToB = new HashSet<>(userAFriends);
+        recommendFriendsToB.removeAll(userBFriends);
+        recommendFriendsToB.remove("B"); // 자기자신 제외
+        System.out.println("B에게 추천하는 친구 : " + recommendFriendsToB);
     }
 }
