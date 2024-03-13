@@ -30,20 +30,24 @@ public class Ex01 {
 
         Scanner scanner = new Scanner(System.in);
         Set<String> names = new HashSet<>();
+        int count = 1;
 
         System.out.println("= 추가할 학생 이름을 입력해 주세요.(종료는 \"종료\" 입력) =");
         while (true) {
 
-            System.out.println("- 이름 : ");
-            String name = scanner.next();
+            System.out.print("- 이름 : ");
+            String input = scanner.next();
 
-            names.add(name);
+            names.add(input);
 
             Iterator<String> it = names.iterator();
             while (it.hasNext()) {
                 if (it.next().equals("종료")) {
                     it.remove();
-                    System.out.println("최종명단 : " + names);
+                    System.out.println("최종 명단 : ");
+                    for (String name : names) {
+                        System.out.println(count++ + "번. " + name);
+                    }
                     return;
                 }
             }

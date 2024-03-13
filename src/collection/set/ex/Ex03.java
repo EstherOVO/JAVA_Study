@@ -28,7 +28,7 @@ public class Ex03 {
         Set<Integer> lotto = new HashSet<>();
 
         for (int i = 0; i < 6; i++) {
-            int randomNum = random.nextInt(1, 45);
+            int randomNum = random.nextInt(45) + 1;
             lotto.add(randomNum);
         }
 

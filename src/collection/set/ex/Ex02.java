@@ -40,22 +40,25 @@ public class Ex02 {
 */
 
         Scanner scanner = new Scanner(System.in);
-        Set<String> nations = new HashSet<>();
+        Set<String> cities = new HashSet<>();
 
         System.out.println("= 추가할 도시명을 입력해 주세요.(종료는 \"종료\" 입력) =");
         while (true) {
 
             System.out.print("- 도시명 : ");
-            String nation = scanner.next();
+            String input = scanner.next();
 
-            nations.add(nation);
+            cities.add(input);
 
-            Iterator<String> it = nations.iterator();
+            Iterator<String> it = cities.iterator();
 
             while (it.hasNext()) {
                 if (it.next().equals("종료")) {
                     it.remove();
-                    System.out.println("최종 국가 명단 : " + nations);
+                    System.out.println("최종 국가 명단 : ");
+                    for (String city : cities) {
+                        System.out.println("§ " + city);
+                    }
                     return;
                 }
             }

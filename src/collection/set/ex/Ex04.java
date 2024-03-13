@@ -33,10 +33,12 @@ public class Ex04 {
 
         Set<String> recommendFriendToA = new HashSet<>(userBFriends);
         recommendFriendToA.removeAll(userAFriends);
+        recommendFriendToA.remove("A");
         System.out.println("A에게 추천하는 친구 : " + recommendFriendToA);
 
         Set<String> recommendFriendToB = new HashSet<>(userAFriends);
         recommendFriendToB.removeAll(userBFriends);
+        recommendFriendToB.remove("B");
         System.out.println("B에게 추천하는 친구 : " + recommendFriendToB);
     }
 }
