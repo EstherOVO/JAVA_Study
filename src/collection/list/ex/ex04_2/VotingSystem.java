@@ -1,4 +1,4 @@
-package collection.list.ex.ex04;
+package collection.list.ex.ex04_2;
 
 import java.util.InputMismatchException;
 import java.util.LinkedHashMap;
@@ -19,14 +19,8 @@ public class VotingSystem {
 
     public void startVoting() {
 
-        while (true) {
-
-            try {
-                Scanner scanner = new Scanner(System.in);
-
-                System.out.println();
-                System.out.println("= 원하는 후보에게 투표해 주세요! =");
-                System.out.print("""
+        System.out.print("""
+                ━ 후보 목록 ━
                 기호 1번 : 고길동
                 기호 2번 : 둘리
                 기호 3번 : 도우너
@@ -34,6 +28,14 @@ public class VotingSystem {
                 기호 5번 : 희동이
                 ※ 종료는 \'0\'번을 입력해 주세요.
                 """);
+
+        while (true) {
+
+            try {
+                Scanner scanner = new Scanner(System.in);
+
+                System.out.println();
+                System.out.println("= 원하는 후보에게 투표해 주세요! =");
                 System.out.print("▣ 투표 번호 : ");
                 int number = scanner.nextInt();
 
@@ -87,7 +89,7 @@ public class VotingSystem {
 
         StringBuilder exceptionMessage = new StringBuilder();
 
-        if (number < 0 || number > 5) {
+        if (number < 0 || number > map.size()) {
             exceptionMessage.append("기호 번호를 확인 후 입력해 주세요.");
         }
 
