@@ -62,8 +62,9 @@ public class Ex06 {
         public String toString() {
             DateTimeFormatter formatter1 = DateTimeFormatter.ofPattern("yyyy년 M월 d일 a h시 mm분");
             DateTimeFormatter formatter2 = DateTimeFormatter.ofPattern("a h시 mm분");
-            return "예약시간 : " + formatter1.format(start) + "(" +
-                    "종료 시간 : " + formatter2.format(start.plusHours(usingHour).plusMinutes(usingMinute)) + ") | 예약자 : " + name + " | 장소 : " + place;
+            return "예약시간 : " + formatter1.format(start) +
+                    "(" + "종료 시간 : " + formatter2.format(start.plusHours(usingHour).plusMinutes(usingMinute)) +
+                    ") | 예약자 : " + name + " | 장소 : " + place;
         }
     }
 
