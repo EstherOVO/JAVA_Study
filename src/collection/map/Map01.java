@@ -1,9 +1,6 @@
 package collection.map;
 
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 public class Map01 {
 //  Key 와 Value 의 값으로 구성되는 Map.Entry 객체를 저장하는 구조
@@ -63,5 +60,31 @@ public class Map01 {
             System.out.println(entry.getKey() + " → " + entry.getValue());
             System.out.println("entry = " + entry); // 사과=1500 toString() 되어있음
         }
+
+//      4. 반복자를 통한 순회
+//      map.iterator()  Map에서는 반복자 사용 불기
+//      Iterator<Map.Entry<String, Integer>> iterator = map.entrySet().iterator();
+        System.out.println("=============");
+        var iterator = map.entrySet().iterator();
+        while (iterator.hasNext()) {
+            Map.Entry<String, Integer> nextEntry = iterator.next();
+            if (nextEntry.getValue() < 2000) {  // value 기준 2000원 이하 삭제
+                iterator.remove();              // 안전 제거(사이즈에 상관없이)
+            }
+        }
+
+//      5. 객체 삭제(Key를 기준으로 삭제 가능)
+        System.out.println("== \"바나나\" 삭제 ==");
+        map.remove("바나나");
+        for (Map.Entry<String, Integer> entry : entries) {
+            System.out.println("entry = " + entry);
+        }
+
+//      6. 객체 비우기 : 모든 요소 삭제
+        map.clear();
+
+//      7. 비어있는지 여부 확인
+        boolean mapEmpty = map.isEmpty();
+        System.out.println("mapEmpty = " + mapEmpty);
     }
 }
