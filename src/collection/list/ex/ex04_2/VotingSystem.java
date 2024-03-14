@@ -76,6 +76,8 @@ public class VotingSystem {
         int votes = 0;
         String electedPerson = "";
 
+//      map.forEach((key, value) -> System.out.println(key + " : " + value));
+
         for (Map.Entry<String, Integer> entry : map.entrySet()) {
             System.out.println(entry.getKey() + " : " + entry.getValue() + "표");
             if (votes < entry.getValue()) {
