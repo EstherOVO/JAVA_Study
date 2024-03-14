@@ -41,13 +41,13 @@ public class Ex02 {
         }
 
         for (int i = 0; i < split.length; i++) {
-            if (!Pattern.matches("[^ㄱ-ㅣ가-힣]", split[i])) {
+            if (!Pattern.matches("[^ㄱ-ㅣ-가-힣]", split[i])) {
                 map.replace(split[i], map.get(split[i]) + 1);
             }
         }
 
-        for (Map.Entry<String, Integer> entry : map.entrySet()) {
-            System.out.println(entry.getKey() + " : " + entry.getValue());
+        for (String string : map.keySet()) {
+            System.out.println(string + " : " + map.get(string));
         }
     }
 }

@@ -23,16 +23,26 @@ public class Ex01 {
         학생 "Charlie"의 점수는 88점입니다.
 */
 
-        Map<String, Integer> map = new HashMap<>();
+        Map<String, Integer> studentsScoreMap = new HashMap<>();
 
-        map.put("Alice", 85);
-        map.put("Bob", 92);
-        map.put("Charlie", 88);
+        studentsScoreMap.put("Alice", 85);
+        studentsScoreMap.put("Bob", 92);
+        studentsScoreMap.put("Charlie", 88);
 
-        System.out.println("= 특정 학생의 점수 조회 =");
-        System.out.println("학생 \"Alice\"의 점수는 " + map.get("Alice") + "점입니다.\n");
+        System.out.println("=======================");
+        System.out.println("학생 \"Alice\"의 점수는 " + studentsScoreMap.get("Alice") + "점입니다.");
 
-        System.out.println("= 전체 학생의 점수 조회 =");
-        map.forEach((key, value) -> System.out.println("학생 " + key + "의 점수는 " + value + "점입니다."));
+        System.out.println("=======================");
+        for (String string : studentsScoreMap.keySet()) {
+            System.out.println(String.format("학생 \"%s\"의 점수는 %d점입니다.", string, studentsScoreMap.get(string)));
+        }
+
+        System.out.println("=======================");
+        for (Map.Entry<String, Integer> entry : studentsScoreMap.entrySet()) {
+            System.out.println("학생 \"" + entry.getKey() + "\"의 점수는 " + entry.getValue() + "점입니다.");
+        }
+
+        System.out.println("=======================");
+        studentsScoreMap.forEach((key, value) -> System.out.println("학생 \"" + key + "\"의 점수는 " + value + "점입니다."));
     }
 }

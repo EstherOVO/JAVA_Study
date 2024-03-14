@@ -1,5 +1,7 @@
 package collection.map.ex;
 
+import access_modifier.first.B;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -29,14 +31,19 @@ public class Ex03 {
 
         Map<Integer, Boolean> map = new HashMap<>();
 
-        map.putAll(Map.of(91011, false, 1234, true, 5678, true));
+        map.put(9101, true);
+        map.put(1234, true);
+        map.put(5678, true);
 
-//      상태 변경
-        map.put(1234, false);
+        for (Map.Entry<Integer, Boolean> entry : map.entrySet()) {
+            System.out.println("도서 ID : " + entry.getKey() + " ┃ 도서 상태 : " + (entry.getValue() ? "대출 가능" : "대출 불가"));
+        }
 
-//      책 상태출력
-        for (Integer key : map.keySet()) {
-            System.out.println("도서 ID : " + key + " | 대출 가능 여부 : " + ((map.get(key)) ? "대출 가능" : "대출 불가능"));
+        System.out.println("=== 도서 상태 변경 ===");
+        map.replace(1234, false);
+
+        for (Integer integer : map.keySet()) {
+            System.out.println("도서 ID : " + integer + " ┃ 도서 상태 : " + (map.get(integer) ? "대출 가능" : "대출 불가"));
         }
     }
 }
