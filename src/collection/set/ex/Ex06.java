@@ -70,10 +70,10 @@ public class Ex06 {
 
         Set<Reservation> treeSet = new TreeSet<>();
 
-        Reservation reservation1 = new Reservation(LocalDateTime.of(2024, 3, 13, 18, 30), 1, 30, "김자바", "중앙 회의실");
-        Reservation reservation2 = new Reservation(LocalDateTime.of(2024, 3, 13, 13, 00), 1, 50, "홍길동", "중앙 회의실");
-        Reservation reservation3 = new Reservation(LocalDateTime.of(2024, 3, 13, 15, 30), 2, 40, "임꺽정", "중앙 회의실");
-        Reservation reservation4 = new Reservation(LocalDateTime.of(2024, 3, 13, 10, 00), 2, 00, "카페인", "중앙 회의실");
+        Reservation reservation1 = new Reservation(LocalDateTime.of(2024, 3, 13, 18, 30), 1, 30, "김자바", "컨벤션홀");
+        Reservation reservation2 = new Reservation(LocalDateTime.of(2024, 3, 13, 13, 00), 1, 50, "홍길동", "컨벤션홀");
+        Reservation reservation3 = new Reservation(LocalDateTime.of(2024, 3, 13, 15, 30), 2, 40, "임꺽정", "컨벤션홀");
+        Reservation reservation4 = new Reservation(LocalDateTime.of(2024, 3, 13, 10, 00), 2, 00, "카페인", "컨벤션홀");
 
         treeSet.add(reservation1);
         treeSet.add(reservation2);
