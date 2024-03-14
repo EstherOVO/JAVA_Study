@@ -8,7 +8,7 @@ import java.util.Set;
 public class Ex04 {
     public static void main(String[] args) {
 
- /*
+/*
         연습문제 4. 친구 추천 시스템 구현하기
 
         소셜 네트워크에서 자주 볼 수 있는 기능 중 하나는 "친구 추천"입니다.

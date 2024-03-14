@@ -4,13 +4,12 @@ import java.sql.Time;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Set;
 import java.util.TreeSet;
 
 public class Ex06 {
 
-    public static class Reservation implements Comparable<Reservation> {
-
-/*
+    /*
         연습문제 6. 회의실 예약 시스템
 
         온라인 회의실 예약 시스템을 구현해 봅니다.
@@ -39,49 +38,51 @@ public class Ex06 {
         "예약 시간: 2023-10-11T10:00, 회의실, 홍길남"
 */
 
+    public static class Reservation implements Comparable<Reservation> {
+
         LocalDateTime start;
-        int usingHour;
-        int usingMinute;
+        int usingHours;
+        int usingMinutes;
         String name;
         String place;
 
-        public Reservation(LocalDateTime start, int usingHour, int usingMinute, String name, String place) {
+        public Reservation(LocalDateTime start, int usingHours, int usingMinutes, String name, String place) {
             this.start = start;
-            this.usingHour = usingHour;
-            this.usingMinute = usingMinute;
+            this.usingHours = usingHours;
+            this.usingMinutes = usingMinutes;
             this.name = name;
             this.place = place;
         }
 
         @Override
         public int compareTo(Reservation reservation) {
-            return this.start.compareTo(reservation.start);
+            return start.compareTo(reservation.start);
         }
 
-        @Override
         public String toString() {
             DateTimeFormatter formatter1 = DateTimeFormatter.ofPattern("yyyy년 M월 d일 a h시 mm분");
             DateTimeFormatter formatter2 = DateTimeFormatter.ofPattern("a h시 mm분");
-            return "예약시간 : " + formatter1.format(start) +
-                    "(" + "종료 시간 : " + formatter2.format(start.plusHours(usingHour).plusMinutes(usingMinute)) +
-                    ") | 예약자 : " + name + " | 장소 : " + place;
+            return "▣ 예약자 : " + name + " | ▣ 예약장소 : " + place +
+                    " | ▣ 예약일시 : " + formatter1.format(start) +
+                    "(종료시간 : " + formatter2.format(start.plusHours(usingHours).plusMinutes(usingMinutes)) + ")";
         }
     }
 
     public static void main(String[] args) {
 
-        Reservation reservation1 = new Reservation(LocalDateTime.of(2024, 3, 13, 10, 00), 3, 30, "홍길동", "회의실");
-        Reservation reservation2 = new Reservation(LocalDateTime.of(2024, 3, 13, 19, 00), 2, 00, "홍길남", "회의실");
-        Reservation reservation3 = new Reservation(LocalDateTime.of(2024, 3, 13, 16, 00), 2, 30, "김자바", "회의실");
-        Reservation reservation4 = new Reservation(LocalDateTime.of(2024, 3, 13, 14, 00), 1, 50, "임꺽정", "회의실");
+        Set<Reservation> treeSet = new TreeSet<>();
 
-        TreeSet<Reservation> treeSet = new TreeSet<>();
+        Reservation reservation1 = new Reservation(LocalDateTime.of(2024, 3, 13, 18, 30), 1, 30, "김자바", "중앙 회의실");
+        Reservation reservation2 = new Reservation(LocalDateTime.of(2024, 3, 13, 13, 00), 1, 50, "홍길동", "중앙 회의실");
+        Reservation reservation3 = new Reservation(LocalDateTime.of(2024, 3, 13, 15, 30), 2, 40, "임꺽정", "중앙 회의실");
+        Reservation reservation4 = new Reservation(LocalDateTime.of(2024, 3, 13, 10, 00), 2, 00, "카페인", "중앙 회의실");
 
         treeSet.add(reservation1);
         treeSet.add(reservation2);
         treeSet.add(reservation3);
         treeSet.add(reservation4);
 
+        System.out.println("= 예약 현황 =");
         for (Reservation reservation : treeSet) {
             System.out.println(reservation);
         }
