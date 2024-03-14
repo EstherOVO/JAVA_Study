@@ -8,6 +8,8 @@ public class Set05 {
 //  TreeSet
 //  자동으로 정렬되는 중복을 불허하는 자료구조
 //  Red-Black Tree 알고리즘을 기반으로 사용
+//  Comparable이 구현되었거나, Comparator을 통해 순서를 확인할 수 없으면
+//  TreeSet에 요소를 추가할 수 없음
 
     public static void main(String[] args) {
 
