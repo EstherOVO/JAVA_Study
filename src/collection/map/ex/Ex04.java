@@ -58,12 +58,22 @@ public class Ex04 {
         Employee employee1 = new Employee("001", "Alice");
         Employee employee2 = new Employee("002", "Bob");
         Employee employee3 = new Employee("003", "Charlie");
+        Employee employee4 = new Employee("003", "Madison");
 
         Map<Employee, String> map = new HashMap<>();
 
         map.put(employee1, "개발팀");
         map.put(employee2, "디자인팀");
         map.put(employee3, "마케팅팀");
+        map.put(employee4, "영업팀");
+
+        System.out.println("== 직원 출력 ==");
+        for (Employee employee : map.keySet()) {
+            System.out.println(employee.toString() + " | 부서 : " + map.get(employee));
+        }
+
+        System.out.println("== 직원 삭제 ==");
+        map.remove(employee1);
 
         for (Employee employee : map.keySet()) {
             System.out.println(employee.toString() + " | 부서 : " + map.get(employee));
