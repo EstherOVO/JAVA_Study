@@ -1,15 +1,13 @@
 package collection.set.ex;
 
-import java.sql.Time;
 import java.time.LocalDateTime;
-import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Set;
 import java.util.TreeSet;
 
 public class Ex06 {
 
-    /*
+/*
         연습문제 6. 회의실 예약 시스템
 
         온라인 회의실 예약 시스템을 구현해 봅니다.
