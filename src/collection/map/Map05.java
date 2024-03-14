@@ -12,6 +12,7 @@ public class Map05 {
 //      Entry 키의 낮은 것은 왼쪽, Entry Key 높은 것은 오른쪽
 //      효율적으로 정렬하고, O(log n) 시간 복잡도로 검색할 수 있다. → binarySearch
 //      정렬 범위로 특정 범위를 잘라서 subMap을 생성
+//      전화번호부, 사전 등과 같은 자료를 저장할 때 유용하게 사용된다.
         TreeMap<String, Integer> treeMap = new TreeMap<>();
 
 //      무작위로 삽입

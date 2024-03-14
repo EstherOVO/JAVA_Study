@@ -50,7 +50,7 @@ public class StudentMain {
         System.out.println("== Comparator<> 나이순 / 키순 내림차순 정렬 ==");
         TreeSet[] treeSets2 = {
                 new TreeSet<Student>(new StudentComparator(StudentComparator.SortBy.AGE, StudentComparator.SortDirection.DESC)),
-                new TreeSet(new StudentComparator(StudentComparator.SortBy.HEIGHT, StudentComparator.SortDirection.DESC))};
+                new TreeSet<Student>(new StudentComparator(StudentComparator.SortBy.HEIGHT, StudentComparator.SortDirection.DESC))};
 
         for (TreeSet<Student> treeSet : treeSets2) {
             treeSet.addAll(Arrays.asList(student1, student2, student3, student4));
