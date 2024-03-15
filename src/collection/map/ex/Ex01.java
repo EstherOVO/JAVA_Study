@@ -29,7 +29,6 @@ public class Ex01 {
         studentsScoreMap.put("Bob", 92);
         studentsScoreMap.put("Charlie", 88);
 
-        System.out.println("=======================");
         System.out.println("학생 \"Alice\"의 점수는 " + studentsScoreMap.get("Alice") + "점입니다.");
 
         System.out.println("=======================");
