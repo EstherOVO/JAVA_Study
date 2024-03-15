@@ -1,9 +1,7 @@
 package quiz.quiz04_0315.q03;
 
-import java.time.Duration;
 import java.time.LocalDate;
 import java.time.Period;
-import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 
 public class Quiz03 {
