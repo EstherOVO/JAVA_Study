@@ -9,6 +9,7 @@ public class CollectionUtil {
 //      Collections 클래스 : 다양한 컬렉션을 다루기 위해 제공하는 메서드들의 모음
         List<Integer> numberList = new ArrayList<>();
 
+//      addAll(List)
         numberList.addAll(Arrays.asList(3, 1, 4, 1, 5, 9, 2, 6, 5, 3));
         System.out.println("numberList = " + numberList);
 
