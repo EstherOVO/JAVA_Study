@@ -1,4 +1,4 @@
-package quiz.quiz03_0308.q2;
+package quiz.quiz03_0308.q02;
 
 public class Quiz02 {
 

@@ -1,4 +1,4 @@
-package quiz.quiz03_0308.q1;
+package quiz.quiz03_0308.q01;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;

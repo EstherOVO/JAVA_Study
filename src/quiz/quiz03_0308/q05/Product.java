@@ -1,7 +1,5 @@
-package quiz.quiz03_0308.q5;
+package quiz.quiz03_0308.q05;
 
-import java.text.DecimalFormat;
-import java.time.format.DateTimeFormatter;
 import java.util.Objects;
 
 public class Product {
