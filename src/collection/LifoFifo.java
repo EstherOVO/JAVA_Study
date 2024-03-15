@@ -1,8 +1,6 @@
 package collection;
 
-import java.util.LinkedList;
-import java.util.Queue;
-import java.util.Stack;
+import java.util.*;
 
 public class LifoFifo {
     public static void main(String[] args) {
@@ -71,5 +69,42 @@ public class LifoFifo {
         System.out.println("peekGuest = " + peekGuest);
 
         System.out.println("queue = " + queue);
+
+/*
+        Deque(데크) : Double Ended Queue
+        Queue 자료 구조에서 양쪽 끝 요소를 추가하거나 제거할 수 있는 유연한 자료 구조
+        FIFO와 LIFO 방식을 모두 지원
+
+        구현 클래스 : LinkedList, ArrayDeque
+*/
+
+        Deque<Integer> deque = new ArrayDeque<>(Arrays.asList(3, 4, 5));
+
+        System.out.println("deque = " + deque);
+
+//      앞 쪽에 요소 추가
+        deque.addFirst(2);
+        deque.offerFirst(1);
+
+        System.out.println("deque = " + deque);
+
+//      뒤 쪽에 요소 추가
+        deque.addLast(6);
+        deque.offerLast(7);
+
+        System.out.println("deque = " + deque);
+
+//      앞 쪽에서 요소 제거(FIFO)
+        deque.removeFirst();
+        deque.pollFirst();
+
+        System.out.println("deque = " + deque);
+
+//      뒤 쪽에서 요소 제거(LIFO)
+        deque.removeLast();
+        deque.pollLast();
+        deque.pop();
+
+        System.out.println("deque = " + deque);
     }
 }
