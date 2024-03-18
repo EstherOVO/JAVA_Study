@@ -38,11 +38,11 @@ public class Ex04 {
 
         System.out.println("=== 프린트 현황 ===");
         String peek1 = print.peek();
-        String poll1 = print.poll();
+        print.poll();
         String peek2 = print.peek();
-        String poll2 = print.poll();
+        print.poll();
         String peek3 = print.peek();
-        String poll3 = print.poll();
+        print.poll();
         String peek4 = print.peek();
 
         System.out.println("프린트 현황 : " + peek1 + " 인쇄 중...");
