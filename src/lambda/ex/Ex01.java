@@ -27,10 +27,18 @@ public class Ex01 {
 
         Map<String, Integer> userScores = Map.of("Alice", 75, "Bob", 45, "Charlie", 85);
 
-        BiFunction<String, Integer, Boolean> isPassed = (name, score) -> score > 80;
+        System.out.println("== BiFunction 활용 ==");
+        BiFunction<String, Integer, String> isPassed1 = (name, score) -> name + " : " + (score >= 50 ? "합격" : "불합격");
+        userScores.forEach((name, score) -> System.out.println(isPassed1.apply(name, score)));
 
+        BiFunction<String, Integer, String> isPassed2 = (name, score) -> score >= 50 ? "합격" : "불합격";
+
+        System.out.println("== forEach문 사용 ==");
+        userScores.forEach((name, score) -> System.out.println(name + " : " + isPassed2.apply(name, score)));
+
+        System.out.println("== 반복문 사용 ==");
         for (String string : userScores.keySet()) {
-            System.out.println(string + " : " + (isPassed.apply(string, userScores.get(string)) ? "합격" : "불합격"));
+            System.out.println(string + " : " + isPassed2.apply(string, userScores.get(string)));
         }
     }
 }

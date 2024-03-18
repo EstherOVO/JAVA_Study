@@ -7,18 +7,6 @@ import java.util.function.Function;
 public class Ex03_2 {
     public static void main(String[] args) {
 
-/*
-        문제 3.  나이 계산기
-
-        요구사항 : 사용자의 생년월일(예: "19900315")을 입력받아 현재 나이를 계산합니다.
-        현재 연도 2024년으로 가정합니다. Function<String, Integer>을 사용하여 나이를 계산하고 출력하세요.
-
-        입력 데이터
-        "19900315"
-
-        출력 예시 : 34
-*/
-
         Scanner scanner = new Scanner(System.in);
 
         System.out.print("생년월일을 입력하세요(YYYYMMDD) : ");
