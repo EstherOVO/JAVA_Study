@@ -39,11 +39,9 @@ public class Ex05 {
         System.out.println("초대된 명단 : ");
         for (Person attendee : attendees) {
             if (isAdult.test(attendee)) {
-                inviteList.add(attendee.getName());
+                inviteList.add(names.apply(attendee));
+                System.out.println(names.apply(attendee));
             }
-        }
-        for (String string : inviteList) {
-            System.out.println(string);
         }
     }
 }
