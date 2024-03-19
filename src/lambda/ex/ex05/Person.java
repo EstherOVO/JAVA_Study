@@ -1,8 +1,5 @@
 package lambda.ex.ex05;
 
-import java.util.function.Consumer;
-import java.util.function.Predicate;
-
 public class Person {
 
     private String name;

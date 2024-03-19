@@ -11,6 +11,12 @@ import java.util.function.Supplier;
 public class Ex05 {
     public static void main(String[] args) {
 
+/*
+        - Consumer<Person>를 사용하여 각 참석자에 대한 환영 메시지를 출력하세요.
+        - Predicate<Person>를 사용하여 특정 조건(예: 나이가 18세 이상)을 만족하는 참석자를 필터링하세요.
+        - Function<Person, String>을 사용하여 참석자의 이름을 반환하세요.
+        - Supplier<List<String>>를 사용하여 최종 초대 명단을 생성하고 반환하세요.
+*/
         List<Person> attendees = Arrays.asList(
                 new Person("둘리", 22),
                 new Person("희동이", 3),
@@ -18,29 +24,34 @@ public class Ex05 {
                 new Person("영희", 16)
         );
 
-        Consumer<Person> welcome = person -> System.out.println("환영합니다. " + person.getName() + "님!");
-        attendees.forEach(welcome);
+//      1. Consumer<Person> 환영 메시지 출력
+        Consumer<Person> welcomeMessage = person -> System.out.println(person.getName() + "님! 환영합니다~");
+        attendees.forEach(welcomeMessage);
 
+//      2. Predicate<Person> 성인 참석자 필터링
+        System.out.println("■ 18세 이상 참석자 명단 : ");
         Predicate<Person> isAdult = person -> person.getAge() >= 18;
-        System.out.println("18세 이상 : ");
         for (Person attendee : attendees) {
             if (isAdult.test(attendee)) {
-                System.out.println(attendee.getName());
+                System.out.println("- " + attendee.getName());
             }
         }
 
-        System.out.println("전체 명단 : ");
-        Function<Person, String> names = Person::getName;
-        attendees.forEach((attendee) -> System.out.println(names.apply(attendee)));
+//      3. Function<Person, String> 전체 참석자 명단 출력
+        System.out.println("■ 전체 참석자 명단 : ");
+        Function<Person, String> getNames = Person::getName;
+        attendees.forEach(person -> System.out.println("- " + getNames.apply(person)));
 
-        Supplier<List<String>> inviteListSupplier = ArrayList::new;
-        List<String> inviteList = inviteListSupplier.get();
+//      4. Supplier<List<String>> 최종 초대 명단을 생성
+        System.out.println("■ 최종 초대 명단 : ");
+        Supplier<List<String>> finalInvitationList = ArrayList::new;
 
-        System.out.println("초대된 명단 : ");
+        List<String> list = finalInvitationList.get();
+
         for (Person attendee : attendees) {
             if (isAdult.test(attendee)) {
-                inviteList.add(names.apply(attendee));
-                System.out.println(names.apply(attendee));
+                list.add(getNames.apply(attendee));
+                System.out.println("- " + getNames.apply(attendee));
             }
         }
     }
