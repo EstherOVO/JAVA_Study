@@ -20,14 +20,14 @@ public class Stream03 {
                 .distinct() // 중간 연산 : 중복 요소 제거
                 .forEach(System.out::println);  // 최종 연산
 
-        System.out.println("======================");
+        System.out.println("===============");
 
 //      filter() : 매개변수로 Predicate을 받아 조건을 만족하는 데이터만 필터링
         list.stream()
                 .filter(name -> name.startsWith("홍"))   // 중간 연산
                 .forEach(System.out::println);  // 최종 연산
 
-        System.out.println("======================");
+        System.out.println("===============");
 
 //      파이프라인 연결하기 : 중복 요소가 제거되며, "홍"씨 성을 가진 사람 필터링
         list.stream()
