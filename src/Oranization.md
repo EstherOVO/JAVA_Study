@@ -95,6 +95,22 @@
     - 제네릭 클래스, 제네릭 메서드(리턴 타입 앞에 선언)
     - 제한된 타입 파라미터 <T extends 타입>
     - 와일드 카드 <? extends 타입> <? super 타입>
+27. 컬렉션 프레임워크
+    - 알랴진 자료 구조를 사용해서 데이터를 C(생성), R(조회), U(수정), D(삭제)
+    - java.util 패키지 Collection → List, Set
+    - List : 순서가 있고(index), 중복 저장 가능
+    - Set : 순서가 없고, 중복 저장 불가
+    - Map : 키와 값으로 구성된 Entry, Key는 중복이 안 된다.(Set)
+    - Iterator, Comparable, Comparator
+    - Stack(LIFO), Queue(FIFO)
+    - Collections, Arrays
+28. 람다식
+    - 함수형 프로그래밍(Functional Programming, FP)
+    - `() -> {}` : `매개변수 -> 변수`
+    - 함수형 인터페이스 : SAM(단 하나의 추상 메서드를 가진다.)
+    - 매개변수가 있는 람다식, 없는 람다식, 리턴 값이 있고, 없는 람다식이 있다.
+    - 메서드 참조(Method Reference), 생성자 참조
+29. 스트림 API
 
 # ▨ 메소드(Method) ▨
 ## 메서드 정의
@@ -438,7 +454,7 @@
   - 외부 상태를 변경하지 않기 때문에, 멀티코어, 분산 시스테므 병렬처리에 효율적이다.
 
 ## 함수형 인터페이스
-- @FunctionalInterface
+- `@FunctionalInterface`
   - 단일 추상 메서드(Single Abstract Method) : SAM
   - 추상 메서드가 단 하나만 있는 인터페이스
   - 디폴트 메서드, 정적 메서드(본문이 있는 메서드)는 있어도 된다.
