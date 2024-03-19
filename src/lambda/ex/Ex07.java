@@ -30,6 +30,20 @@ public class Ex07 {
                 getNames.accept(employee);
             }
         }
+
+//      람다식을 사용하지 않는다면...
+        for (Employee employee : employees) {
+            if (employee.getSalary() > 50000) {
+                System.out.println(employee.getName());
+            }
+        }
+
+//      람다식을 사용하는 이유는 스트림 API를 함께 사용하기 위해!
+        employees.  // 컬렉션 프레임워크에서(자료 리스트)
+                stream().   // 데이터 흐름을 만들어서
+                filter(isHighestPaidPerson). // 필요한 데이터를 걸러서(연봉 50,000 이상)
+                forEach(getNames);           // 출력해라.
+
     }
 
     public static class Employee {
