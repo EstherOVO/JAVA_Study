@@ -1,9 +1,6 @@
 package stream;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class Stream06 {
@@ -27,5 +24,18 @@ public class Stream06 {
                 .sorted(Comparator.reverseOrder())
                 .map(Student::getName)
                 .forEach(System.out::println);
+
+//      최종 연산 : collect()
+//      스트림 요소를 수집해서 컬렉션으로 변환
+        List<String> nameList = studentsList.stream()
+                .sorted()
+                .map(Student::getName)
+                .toList();
+//              .collect(Collectors.toList());
+
+        Set<Integer> scoreSet = studentsList.stream()
+                .sorted()
+                .map(Student::getScore)
+                .collect(Collectors.toSet());
     }
 }
