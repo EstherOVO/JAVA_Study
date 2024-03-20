@@ -24,11 +24,12 @@ public class Ex01 {
 
         List<String> catNames = Arrays.asList("Leo", "Milo", "Luna", "Oli", "Zoe", "Bella");
 
-        String catsName = catNames.stream()
+        String collect = catNames.stream()
                 .filter(name -> name.length() >= 4)
                 .map(String::toUpperCase)
-                .collect(Collectors.joining(", "));
+                .sorted()
+                .collect((Collectors.joining(", ")));
 
-        System.out.print("네 글자 이상인 고양이 이름 : " + catsName);
+        System.out.println("^..^ 네 글자 이상의 이름을 가진 고양이 : " + collect);
     }
 }

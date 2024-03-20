@@ -1,13 +1,6 @@
 package stream.ex;
 
-import javax.swing.*;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
-
-import static java.util.stream.Collectors.toList;
 
 public class Ex04 {
     public static void main(String[] args) {
@@ -30,12 +23,9 @@ public class Ex04 {
 
         Map<String, Integer> movieRatings = Map.of("The Shawshank Redemption", 9, "The Godfather", 9, "The Dark Knight", 8, "Pulp Fiction", 8, "Fight Club", 7);
 
-        List<String> list = movieRatings.entrySet().stream()
+        movieRatings.entrySet().stream()
                 .filter(entry -> entry.getValue() >= 8)
-                .sorted(Map.Entry.comparingByKey())
-                .map(entry -> entry.getKey() + " - " + entry.getValue())
-                .toList();
-
-        list.forEach(System.out::println);
+                .sorted(Map.Entry.comparingByValue())
+                .forEach(entry -> System.out.println(entry.getKey() + " - " +  entry.getValue()));
     }
 }

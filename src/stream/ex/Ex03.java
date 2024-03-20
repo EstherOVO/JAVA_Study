@@ -1,7 +1,6 @@
 package stream.ex;
 
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
@@ -33,7 +32,7 @@ public class Ex03 {
         List<String> alphabets = Arrays.asList("b", "A", "d", "C", "f", "e", "D", "c", "F", "B", "E");
 
         List<String> list = alphabets.stream()
-                .sorted(String.CASE_INSENSITIVE_ORDER)
+                .sorted(String.CASE_INSENSITIVE_ORDER.thenComparing(Comparator.reverseOrder()))
                 .toList();
 
         list.forEach(System.out::println);

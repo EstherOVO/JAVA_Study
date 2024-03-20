@@ -1,9 +1,7 @@
 package stream.ex;
 
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class Ex02 {
     public static void main(String[] args) {
@@ -25,11 +23,11 @@ public class Ex02 {
 
         List<Integer> scores = Arrays.asList(16, -9, 4, 1, -16, 9, 25);
 
-        List<Double> list = scores.stream()
-                .filter(number1 -> number1 > 0)
+        scores.stream()
+                .filter(number -> number > 0)
+                .sorted()
+                .peek(number -> System.out.print(number + " : "))
                 .map(Math::sqrt)
-                .toList();
-
-        list.forEach(System.out::println);
+                .forEach(System.out::println);
     }
 }
