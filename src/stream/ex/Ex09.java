@@ -43,18 +43,20 @@ public class Ex09 {
 
         System.out.println("전체 대여된 책의 수량 : " + sum + "권");
 
-        BookRental bookRental = rentals.stream()
+        String userId1 = rentals.stream()
                 .max(Comparator.comparing(BookRental::quantity))
-                .get();
+                .get().userId;
 
-        System.out.println("가장 많은 책을 대여한 사람 : " + bookRental);
+        System.out.println("가장 많은 책을 대여한 사람 : " + userId1);
+
+//      Optional의 map은 변환된 Optional을 반환함
+        String userId2 = rentals.stream()
+                .max(Comparator.comparing(BookRental::quantity))
+                .map(book -> book.userId)
+                .orElse("찾지 못했습니다.");
+
+        System.out.println("가장 많은 책을 대여한 사람 : " + userId2);
     }
 
-    record BookRental(String userId, int quantity) {
-
-        @Override
-        public String toString() {
-            return userId + "(대여 권수 : " + quantity + "권)";
-        }
-    }
+    record BookRental(String userId, int quantity) {}
 }

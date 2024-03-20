@@ -2,7 +2,6 @@ package stream.ex;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.IntStream;
 
 public class Ex10 {
     public static void main(String[] args) {
@@ -34,12 +33,12 @@ public class Ex10 {
 
         System.out.println(String.format("평균 성적 : %.1f점", average));
 
-        int maxGrade = grades.stream()
+        int highest = grades.stream()
                 .mapToInt(Integer::intValue)
                 .max()
                 .orElse(0);
 
-        System.out.println("최고 성적 : " + maxGrade + "점");
+        System.out.println("최고 성적 : " + highest + "점");
 
         long hasHighScore = grades.stream()
                 .filter(grade -> grade >= 83.6)

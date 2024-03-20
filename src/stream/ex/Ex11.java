@@ -49,7 +49,7 @@ public class Ex11 {
         double average = reviews.stream()
                 .mapToInt(ProductReview::score)
                 .average()
-                .orElse(0);
+                .orElse(Double.NaN);
 
         System.out.println("= 평균 리뷰 점수 : %.1f점 =".formatted(average));
 
@@ -71,7 +71,7 @@ public class Ex11 {
 
         @Override
         public String toString() {
-            return "[제품명 : " + productName + " | 점수 : " + score + "점]";
+            return "- 제품명 : " + productName + " | 점수 : " + score + "점";
         }
     }
 }
