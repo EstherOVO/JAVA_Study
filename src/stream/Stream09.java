@@ -16,6 +16,7 @@ public class Stream09 {
 
 //      count() : 요소의 개수를 반환
         long count = Stream.of("홍길동", "김철수", "둘리", "장사장").count();
+        System.out.println("count = " + count);
 
 //      max() : 최댓값을 반환 → Optional 타입 변환
         int[] intArray = {1, 2, 3, 4, 5};
@@ -52,9 +53,5 @@ public class Stream09 {
                 .filter(n -> n % 11 == 0)
                 .findFirst();
         System.out.println("50이후 11의 배수 중 첫 번째 = " + first.getAsInt());
-
-//      Optional 클래스
-//      Java 8버전부터 도입되었다. 값이 있거나, 없을 수 있는 컨테이너 객체
-//      NPE을 방지한다. 메서드가 결과를 반환할 수 없을 때 null 대신 사용
     }
 }
