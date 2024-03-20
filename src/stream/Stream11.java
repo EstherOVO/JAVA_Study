@@ -1,6 +1,7 @@
 package stream;
 
 import java.util.*;
+import java.util.stream.Collector;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -54,10 +55,46 @@ public class Stream11 {
         String join3 = Stream.of("자바", "스트림", "람다식").collect(Collectors.joining(" // ", "[", "]"));
         System.out.println("접두사와 접미사를 사용해서 조인한 문자열 = " + join3);
 
-//      요소 그루핑
+//      groupingBy() : 요소 그루핑
+//      분류기(Function 람다식)를 기준으로 타입T를 Key로 매핑하고
+//      List<T>를 V value로 갖는 Map 컬렉션을 생성
         Map<String, List<Student>> genderMap = studentList.stream()
                 .collect(Collectors.groupingBy(Student::gender));
 
         System.out.println("genderMap = " + genderMap);
+
+//      Key를 기준으로 List를 분류할 수 있다.
+        List<Student> malesList = genderMap.get("남");
+        List<Student> femalesList = genderMap.get("여");
+
+        System.out.println("malesList = " + malesList);
+        System.out.println("femalesList = " + femalesList);
+
+//      두 번째 매개변수에 Collector를 사용해서 집계 메서드를 사용할 수 있다.
+//      summing, averaging, counting
+        Map<String, Double> genderAgeMap = studentList.stream()
+//              성별 그룹별로 나이를 평균한 값
+                .collect(Collectors.groupingBy(Student::gender,
+                        Collectors.averagingDouble(Student::age)));
+
+        System.out.println("genderAgeMap = " + genderAgeMap);
+
+//      mapping() : 스트림의 요소를 변환한 후, 다른 컬렉터에서 수집
+//      인자 1 : mapper - 변환
+//      인자 2 : collector - 컬렉션으로 수집
+        List<String> nameList = studentList.stream()
+                .collect(Collectors.mapping(Student::name, Collectors.toList()));
+
+        System.out.println("nameList = " + nameList);
+
+//      partitioningBy() : 스트림 요소를 특정한 기준에 따라 true와 false 양족 리스트로 나누는 Map을 반환한다.
+        Map<Boolean, List<Student>> age25Map = studentList.stream()
+                .collect(Collectors.partitioningBy(student -> student.age >= 25));
+
+        List<Student> over25students = age25Map.get(true);
+        List<Student> under25students = age25Map.get(false);
+
+        System.out.println("over25students = " + over25students);
+        System.out.println("under25students = " + under25students);
     }
 }
