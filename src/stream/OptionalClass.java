@@ -49,7 +49,7 @@ public class OptionalClass {
                 () -> System.out.println("ifPresentOrElse / 평균 : 요소가 없습니다."));
 
 //      4. orElseThrow() : 값이 존재하지 않을 경우 예외 발생시키기
-        double avg2 = optional.orElseThrow();
-        double avg3 = optional.orElseThrow(() -> new IllegalArgumentException(("배열에 아무 요소가 없습니다.")));
+//      double avg2 = optional.orElseThrow();
+        double avg3 = optional.orElseThrow(() -> new IllegalArgumentException("배열에 아무 요소가 없습니다."));
     }
 }
