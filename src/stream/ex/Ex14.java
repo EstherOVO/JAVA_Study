@@ -34,6 +34,7 @@ public class Ex14 {
                 System.out.println();
                 System.out.print("실행할 작업의 번호를 입력해 주세요 : ");
                 int number = scanner.nextInt();
+                scanner.nextLine();
 
                 validateNumber(number);
 
@@ -46,7 +47,7 @@ public class Ex14 {
                         break;
                     case 2 :
                         System.out.print("평균 출판연도를 계산할 장르를 입력하세요 : ");
-                        String genre = scanner.next();
+                        String genre = scanner.nextLine();
                         specificGenrePublishYear(genre);
                         break;
                     case 3 :
@@ -71,11 +72,12 @@ public class Ex14 {
                         Map<String, Long> collect2 = books.stream()
                                 .collect(Collectors.groupingBy(Book::genre, Collectors.counting()));
 
-                        String string = collect2.entrySet().stream()
+                        String famousGenre = collect2.entrySet().stream()
                                 .max(Map.Entry.comparingByValue())
                                 .map(Map.Entry::getKey)
-                                .orElse("찾지 못했습니다.");
-                        System.out.println("♬ 가장 많은 책이 출판된 장르 : " + string);
+                                .orElse("정보를 찾을 수 없습니다.");
+
+                        System.out.println("♬ 가장 많은 책이 출판된 장르 : " + famousGenre);
                         break;
 
                     case 0 :
@@ -84,7 +86,7 @@ public class Ex14 {
                 }
             } catch (InputMismatchException e) {
                 System.out.println("잘못된 입력입니다. 다시 시도해 주시기를 바랍니다.");
-                scanner.next();
+                scanner.nextLine();
             } catch (IllegalArgumentException e) {
                 System.out.println(e.getMessage());
             }
