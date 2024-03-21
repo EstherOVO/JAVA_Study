@@ -13,14 +13,14 @@ public class Thread02 {
         Thread threadAnonymous = new Thread(new Runnable() {
             @Override
             public void run() {
-                for (int i = 0; i < 30; i++) {
+                for (int i = 0; i < 5; i++) {
                     System.out.println("익명!");
                 }
             }
         });
 
         Thread threadLambda = new Thread(() -> {
-            for (int i = 0; i < 30; i++) {
+            for (int i = 0; i < 5; i++) {
                 System.out.println("람다!");
             }
         });
@@ -42,7 +42,7 @@ public class Thread02 {
 
 //      start() 메서드는 각 스레드 인스턴스에 대해서 한 번만 호출될 수 있다.
 //      두 번 호출하게 될 경우 IllegalArgumentException 발생(run은 여러 번 가능)
-        myThread.start();
+//      myThread.start();
     }
 }
 
@@ -50,7 +50,7 @@ class MyThread2 extends Thread {
 
     @Override
     public void run() {
-        for (int i = 0; i < 30; i++) {
+        for (int i = 0; i < 5; i++) {
             System.out.println("상속!");
         }
     }
@@ -60,7 +60,7 @@ class MyRunnable2 implements Runnable {
 
     @Override
     public void run() {
-        for (int i = 0; i < 30; i++) {
+        for (int i = 0; i < 5; i++) {
             System.out.println("러너!");
         }
     }
