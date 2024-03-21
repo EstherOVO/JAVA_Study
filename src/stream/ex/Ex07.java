@@ -3,6 +3,7 @@ package stream.ex;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Ex07 {
     public static void main(String[] args) {
@@ -36,17 +37,17 @@ public class Ex07 {
                 new MovieRating("Some Movie", 2)
         );
 
-        List<String> list = ratings.stream()
-                .filter(movie -> movie.getRating() >= 4)
+        String highestRatedMovies = ratings.stream()
+                .filter(movieRating -> movieRating.getRating() >= 4)
                 .peek(System.out::println)
                 .map(MovieRating::getMovieName)
                 .sorted()
-                .toList();
+                .collect(Collectors.joining(" // ", "[", "]"));
 
-        list.forEach(System.out::println);
+        System.out.println("Highest Rated Movie Lists : " + highestRatedMovies);
     }
 
-    static class MovieRating {
+    public static class MovieRating {
 
         String movieName;
         int rating;
@@ -66,7 +67,7 @@ public class Ex07 {
 
         @Override
         public String toString() {
-            return "<" + movieName + "> | Rating : " + rating;
+            return "Rating : " + rating + " | <" + movieName + ">";
         }
     }
 }

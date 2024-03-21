@@ -39,25 +39,22 @@ public class Ex13 {
                 new CityPopulation("Chicago", 2600000)
         );
 
-        Map<String, Double> cityPopulationMap = cityPopulations.stream()
-                .collect(Collectors.groupingBy(CityPopulation::city, Collectors.averagingInt(CityPopulation::population)));
+        System.out.println("+ 도시별 전체 인구 +");
+        Map<String, Integer> collect1 = cityPopulations.stream()
+                .collect(Collectors.groupingBy(CityPopulation::city, Collectors.summingInt(CityPopulation::population)));
 
-        List<Map.Entry<String, Double>> list = cityPopulationMap.entrySet().stream()
-                .sorted(Map.Entry.comparingByKey())
-                .toList();
+        collect1.entrySet().stream()
+                .sorted(Map.Entry.comparingByValue())
+                .forEach(entry -> System.out.println(String.format("%s : %,d명", entry.getKey(), entry.getValue())));
 
-        cityPopulationMap.forEach((city, pop) -> System.out.println(String.format("%s 평균 인구 수 : %,.0f명", city, pop)));
+        System.out.println("+ 도시별 평균 인구 +");
+        Map<String, Double> collect2 = cityPopulations.stream()
+                .collect(Collectors.groupingBy(CityPopulation::city, Collectors.averagingDouble(CityPopulation::population)));
 
-        System.out.println("=== 정렬 후 ===");
-
-        list.forEach(entry -> System.out.println(String.format("%s 평균 인구 수 : %,.0f명", entry.getKey(), entry.getValue())));
+        collect2.entrySet().stream()
+                .sorted(Map.Entry.comparingByValue())
+                .forEach(entry -> System.out.println(String.format("%s : %,.0f명", entry.getKey(), entry.getValue())));
     }
 
-    record CityPopulation(String city, int population) {
-
-        @Override
-        public String toString() {
-            return "도시 : " + city + " 인구 : " + population;
-        }
-    }
+    record CityPopulation(String city, int population) {}
 }

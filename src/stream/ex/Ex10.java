@@ -19,31 +19,28 @@ public class Ex10 {
 
         출력예시
         ===
-        평균 성적: 83.625
-        최고 성적: 100
-        평균 이상 성적 학생 수: 5
+        평균 성적 : 83.625
+        최고 성적 : 100
+        평균 이상 성적 학생 수 : 5
 */
 
         List<Integer> grades = Arrays.asList(88, 92, 75, 65, 97, 85, 100, 67);
 
-        double average = grades.stream()
+        double avg = grades.stream()
                 .mapToInt(Integer::intValue)
                 .average()
-                .orElse(0);
+                .orElse(Double.NaN);
+        System.out.println(String.format("& 평균 성적 : %.1f점", avg));
 
-        System.out.println(String.format("평균 성적 : %.1f점", average));
-
-        int highest = grades.stream()
+        int highestScore = grades.stream()
                 .mapToInt(Integer::intValue)
                 .max()
                 .orElse(0);
-
-        System.out.println("최고 성적 : " + highest + "점");
+        System.out.println("& 최고 성적 : " + highestScore + "점");
 
         long hasHighScore = grades.stream()
-                .filter(grade -> grade >= 83.6)
+                .filter(grade -> grade >= avg)
                 .count();
-
-        System.out.println("평균 이상 성적 학생 수 : " + hasHighScore + "명");
+        System.out.println("& 평균 이상 성적 학생 수 : " + hasHighScore + "명");
     }
 }

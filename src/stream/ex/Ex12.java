@@ -29,6 +29,8 @@ public class Ex12 {
         출력예시
         ===
         총 급여 : 26000
+        Developer 평균 급여 : 5500.0
+        Manager 평균 급여 : 7500.0
 */
 
         List<Employee> employees = Arrays.asList(
@@ -41,16 +43,11 @@ public class Ex12 {
         int totalSalary = employees.stream()
                 .mapToInt(Employee::salary)
                 .sum();
-
         System.out.println(String.format("직원들의 총 급여 : %,d만 원", totalSalary));
 
         Map<String, Double> roleSalaryMap = employees.stream()
                 .collect(Collectors.groupingBy(Employee::role, Collectors.averagingDouble(Employee::salary)));
-
-        Double developer = roleSalaryMap.get("Developer");
-        Double manager = roleSalaryMap.get("Manager");
-
-        roleSalaryMap.forEach((role, salary) -> System.out.println(role + " : 평균 연봉 " + salary + "만 원"));
+        roleSalaryMap.forEach((role, salary) -> System.out.println("%s 평균 급여 : %,.0f만 원".formatted(role, salary)));
     }
 
     record Employee(String name, String role, int salary) {}

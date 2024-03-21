@@ -26,8 +26,8 @@ public class Ex09 {
 
         출력예시
         ===
-        전체 대여된 책의 수량: 11
-        가장 많은 책을 대여한 사용자: user2
+        전체 대여된 책의 수량 : 11
+        가장 많은 책을 대여한 사용자 : user2
 */
 
         List<BookRental> rentals = Arrays.asList(
@@ -40,22 +40,19 @@ public class Ex09 {
         int sum = rentals.stream()
                 .mapToInt(BookRental::quantity)
                 .sum();
-
-        System.out.println("전체 대여된 책의 수량 : " + sum + "권");
+        System.out.println("- 전체 대여된 책의 수량 : " + sum + "권");
 
         String userId1 = rentals.stream()
                 .max(Comparator.comparing(BookRental::quantity))
                 .get().userId;
-
-        System.out.println("가장 많은 책을 대여한 사람 : " + userId1);
+        System.out.println("- 가장 많은 책을 대여한 사람 : " + userId1);
 
 //      Optional의 map은 변환된 Optional을 반환함
         String userId2 = rentals.stream()
                 .max(Comparator.comparing(BookRental::quantity))
                 .map(book -> book.userId)
                 .orElse("찾지 못했습니다.");
-
-        System.out.println("가장 많은 책을 대여한 사람 : " + userId2);
+        System.out.println("- 가장 많은 책을 대여한 사람 : " + userId2);
     }
 
     record BookRental(String userId, int quantity) {}
