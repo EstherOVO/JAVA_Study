@@ -3,6 +3,7 @@ package stream;
 import java.util.*;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 public class Stream11 {
@@ -96,5 +97,39 @@ public class Stream11 {
 
         System.out.println("over25students = " + over25students);
         System.out.println("under25students = " + under25students);
+
+//      summarizing() : 숫자 요소에 대한 요약 통계 제공
+
+//      기본타입
+        IntSummaryStatistics intSummaryStatistics = IntStream.rangeClosed(1, 100)
+                .summaryStatistics();
+
+        double average1 = intSummaryStatistics.getAverage();
+        int max1 = intSummaryStatistics.getMax();
+        int min1 = intSummaryStatistics.getMin();
+        long count1 = intSummaryStatistics.getCount();
+        long sum1 = intSummaryStatistics.getSum();
+
+        System.out.println("average1 = " + average1);
+        System.out.println("max1 = " + max1);
+        System.out.println("min1 = " + min1);
+        System.out.println("count1 = " + count1);
+        System.out.println("sum1 = " + sum1);
+
+//      객체타입
+        IntSummaryStatistics collect = studentList.stream()
+                .collect(Collectors.summarizingInt(Student::age));
+
+        double average2 = collect.getAverage();
+        int max2 = collect.getMax();
+        int min2 = collect.getMin();
+        long count2 = collect.getCount();
+        long sum2 = collect.getSum();
+
+        System.out.println("average2 = " + average2);
+        System.out.println("max2 = " + max2);
+        System.out.println("min2 = " + min2);
+        System.out.println("count2 = " + count2);
+        System.out.println("sum2 = " + sum2);
     }
 }
