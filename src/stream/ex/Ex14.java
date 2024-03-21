@@ -63,12 +63,21 @@ public class Ex14 {
                         list.forEach(book -> System.out.println("♬ 책 제목 : \"" + book.title + "\"(페이지 수 : " + book.pages + " 페이지)"));
                         break;
                     case 4 :
-                        Map<String, Long> collect = books.stream()
+                        Map<String, Long> collect1 = books.stream()
                                 .collect(Collectors.groupingBy(Book::genre, Collectors.counting()));
-                        collect.forEach((g, p) -> System.out.println("♬ 장르 : %s | 보유 권수 : %d권".formatted(g, p)));
+                        collect1.forEach((g, p) -> System.out.println("♬ 장르 : %s | 보유 권수 : %d권".formatted(g, p)));
                         break;
                     case 5 :
+                        Map<String, Long> collect2 = books.stream()
+                                .collect(Collectors.groupingBy(Book::genre, Collectors.counting()));
+
+                        String string = collect2.entrySet().stream()
+                                .max(Map.Entry.comparingByValue())
+                                .map(Map.Entry::getKey)
+                                .orElse("찾지 못했습니다.");
+                        System.out.println("♬ 가장 많은 책이 출판된 장르 : " + string);
                         break;
+
                     case 0 :
                         System.out.println("프로그램을 종료합니다.");
                         return;
