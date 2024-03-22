@@ -20,23 +20,22 @@ public class Quiz01 {
         }
 
         for (int i = 0; i < cadidatesList.size(); i++) {
-            System.out.println("(" + (i + 1) + "번) " + cadidatesList.get(i));
+            System.out.println("(" + (i + 1) + "번 후보) " + cadidatesList.get(i));
         }
 
         Scanner scanner = new Scanner(System.in);
 
         while (true) {
 
-            System.out.print("투표하고 싶은 후보의 번호를 입력해 주세요 : ");
+            System.out.print("- 투표하고 싶은 후보의 번호를 입력해 주세요(종료는 \"0\"번 입력) : ");
             int number = scanner.nextInt();
 
-            if (number == 0) {
-                break;
-            } else if (number > 0 && number <= cadidatesList.size()) {
+            if (number == 0) break;
+            else if (number > 0 && number <= cadidatesList.size()) {
                 Integer vote = votesList.get(number - 1);
                 votesList.set(number - 1, vote + 1);
             } else {
-                System.out.println("번호를 확인해 주시기를 바랍니다.");
+                System.out.println("※ 번호를 확인해 주시기를 바랍니다.");
             }
         }
 
