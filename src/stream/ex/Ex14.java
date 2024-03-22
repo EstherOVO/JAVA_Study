@@ -21,7 +21,7 @@ public class Ex14 {
         System.out.print("""
                 1. 도서 검색
                 2. 모든 책의 평균 페이지 수 계산
-                3. 특정 장르 책의 평균 출판년도 계산
+                3. 특정 장르 책의 평균 출판연도 계산
                 4. 특정 연도 이후 출판된, 최소 페이지 이상 책의 제목 출력
                 5. 각 장르별 책의 수 계산
                 6. 가장 많은 책이 출판된 장르 찾기
@@ -58,7 +58,7 @@ public class Ex14 {
                         System.out.print("평균 출판연도를 계산할 장르를 입력하세요 : ");
                         String genre = scanner.nextLine();
 //                      2. (Enter) ← 엔더 한 줄을 입력받음
-                        specificGenrePublishYear(genre);
+                        getPublishYearAvg(genre);
                         break;
                     case 4 :
                         System.out.print("조회할 최소 연도를 입력하세요 : ");
@@ -104,7 +104,7 @@ public class Ex14 {
 
     public record Book(String title, String genre, String author, int publishYear, int pages) {}
 
-    public static void specificGenrePublishYear(String genre) {
+    public static void getPublishYearAvg(String genre) {
 
         List<Book> books = Arrays.asList(
                 new Book("Java의 정석", "컴퓨터 과학", "남궁성", 2013, 1024),
@@ -134,6 +134,17 @@ public class Ex14 {
                 break;
         }
     }
+
+//  평균 출판연도 찾는 다른 방법!
+//  public static void getPublishYearAvg(List<Book> books, String genre) {
+//
+//      double publishYearAvg = books.stream()
+//              .filter(book -> book.genre.contains(genre))
+//              .mapToInt(Book::publishYear)
+//              .average()
+//              .orElse(Double.NaN);
+//      System.out.println(String.format("♬ [%s] 평균 출판연도 : %.0f년", genre, publishYearAvg));
+//  }
 
     private static void searchBook(List<Book> books, String query) {
 
