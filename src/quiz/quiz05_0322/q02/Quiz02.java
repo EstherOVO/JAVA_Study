@@ -9,11 +9,15 @@ public class Quiz02 {
 
         Set<Integer> lottoNumber = new HashSet<>();
 
-        for (int i = 0; i < 6; i++) {
-            lottoNumber.add(new Random().nextInt(45) + 1);
-        }
+        while (true) {
 
-        System.out.println("♣ 로또 번호 ♣ ");
-        lottoNumber.forEach(System.out::println);
+            if (lottoNumber.size() != 6) {
+                lottoNumber.add(new Random().nextInt(45) + 1);
+            } else {
+                System.out.println("♣ 로또 번호 ♣");
+                lottoNumber.forEach(System.out::println);
+                return;
+            }
+        }
     }
 }
