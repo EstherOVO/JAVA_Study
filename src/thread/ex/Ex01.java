@@ -24,13 +24,17 @@ public class Ex01 {
         차량 2이 경주 마침!
 */
 
-        Thread car1 = new Thread(new MyCar("차량 1"));
-        Thread car2 = new Thread(new MyCar("차량 2"));
-        Thread car3 = new Thread(new MyCar("차량 3"));
+        Thread thread1 = new Thread(new MyCar("일"));
+        Thread thread2 = new Thread(new MyCar("이"));
+        Thread thread3 = new Thread(new MyCar("삼"));
 
-        car1.start();
-        car2.start();
-        car3.start();
+        thread1.setName("일차");
+        thread2.setName("이차");
+        thread3.setName("삼차");
+
+        thread1.start();
+        thread2.start();
+        thread3.start();
     }
 
     public static class MyCar implements Runnable {
@@ -44,18 +48,18 @@ public class Ex01 {
         @Override
         public void run() {
 
-            System.out.println(carName + "이(가) 출발했습니다!");
+            System.out.println(carName + " 차량이 출발했습니다!");
 
             for (int i = 0; i < 5; i++) {
                 try {
                     Thread.sleep(new Random().nextInt(1000, 2000));
-                    System.out.println(String.format("%s이(가) %dm 달렸습니다.", carName, (i + 1) * 100));
+                    System.out.println(String.format("[%s] %s 차량이 %dm 달렸습니다.", Thread.currentThread().getName(), carName, (i + 1) * 100));
                 } catch (InterruptedException e) {
                     throw new RuntimeException(e);
                 }
             }
 
-            System.out.println(carName + "이(가) 결승선을 통과했습니다!");
+            System.out.println(carName + " 차량이 결승선에 도달했습니다!");
         }
     }
 }
