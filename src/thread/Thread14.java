@@ -89,6 +89,7 @@ class CoffeeMachine {
         System.out.println(String.format("[컵 : %d] : 커피 컵 채워 넣습니다.", cups));
         cups = CUP_MAX;
         notifyAll();
+
         try {
             wait();
         } catch (InterruptedException e) {
