@@ -40,11 +40,13 @@ public class Ex03 {
         Thread thread = new Thread(new Countdown());
 
         thread.start();
+
         try {
             Thread.sleep(new Random().nextInt(10) * 1000 + 2);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
+
         thread.interrupt();
     }
 
