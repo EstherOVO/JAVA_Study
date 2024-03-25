@@ -39,7 +39,7 @@ public class Ex06 {
         cook.start();
 
         try {
-            Thread.sleep(5000);
+            Thread.sleep(10000);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
@@ -59,42 +59,30 @@ public class Ex06 {
 
     public static class Restaurant {
 
-        public synchronized void placeOrder() {
+        public synchronized void placeOrder() throws InterruptedException {
 
-            try {
+            Thread.sleep(500);
 
-                Thread.sleep(500);
+            System.out.println("[고객] : 주문을 합니다.");
 
-                System.out.println("[고객] : 주문을 합니다.");
+            notifyAll();
 
-                notifyAll();
-
-                wait();
-
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
-            }
+            wait();
         }
 
-        public synchronized void prepareOrder() {
+        public synchronized void prepareOrder() throws InterruptedException {
 
-            try {
+            Thread.sleep(500);
 
-                Thread.sleep(500);
+            System.out.println("[요리사] : 주문을 받아 음식을 준비합니다.");
 
-                System.out.println("[요리사] : 주문을 받아 음식을 준비합니다.");
+            Thread.sleep(2000);
 
-                Thread.sleep(2000);
+            System.out.println("음식 준비 완료~! 서빙합니다.");
 
-                System.out.println("음식 준비 완료~! 서빙합니다.");
+            notifyAll();
 
-                notifyAll();
-
-                wait();
-
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
-            }
+            wait();
         }
     }
 
@@ -110,8 +98,10 @@ public class Ex06 {
         public void run() {
 
             while (true) {
-                restaurant.placeOrder();
-                if (Thread.interrupted()) {
+
+                try {
+                    restaurant.placeOrder();
+                } catch (InterruptedException e) {
                     return;
                 }
             }
@@ -130,8 +120,10 @@ public class Ex06 {
         public void run() {
 
             while (true) {
-                restaurant.prepareOrder();
-                if (Thread.interrupted()) {
+
+                try {
+                    restaurant.prepareOrder();
+                } catch (InterruptedException e) {
                     return;
                 }
             }
