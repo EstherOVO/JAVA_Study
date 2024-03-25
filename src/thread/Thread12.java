@@ -19,7 +19,6 @@ public class Thread12 {
 //              stop 플래그의 변경이 반영되지 않는다.
                 System.out.println(count);
             }
-
             System.out.println("스레드가 종료되었습니다.");
         }).start();
 
