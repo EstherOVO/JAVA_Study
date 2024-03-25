@@ -5,6 +5,7 @@ public class Thread08 {
 //      플래그를 사용한 종료 방법
         boolean exit = false;
 
+
         @Override
         public void run() {
 
