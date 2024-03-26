@@ -59,7 +59,7 @@ public class Ex03 {
 
             while (countdown > 0) {
 
-                System.out.println("카운트 다운 : " + countdown);
+                System.out.println("카운트다운 : " + countdown);
 
                 try {
                     Thread.sleep(1000);

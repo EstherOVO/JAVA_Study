@@ -69,10 +69,10 @@ public class Ex05 {
                 while (true) {
 
                     long endTime = System.currentTimeMillis();
-                    long time = endTime - startTime;
-                    double v = time / 1000.0;
+                    long timeInt = endTime - startTime;
+                    double time = timeInt / 1000.0;
 
-                    System.out.println(String.format("[%.1f초] %s가 %s 마법을 사용했습니다!", v, name, skill));
+                    System.out.println(String.format("[%.1f초] %s가 %s 마법을 사용했습니다!", time, name, skill));
 
                     Thread.sleep(interval);
                 }
