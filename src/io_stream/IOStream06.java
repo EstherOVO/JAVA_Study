@@ -14,6 +14,7 @@ public class IOStream06 {
 
 //          한 문자씩 읽기 → int로 반환
             int readCharacter = reader.read();
+
             if (readCharacter == -1) break;
 
 //          캐스팅을 통해 문자로 변환
