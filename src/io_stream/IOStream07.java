@@ -1,7 +1,6 @@
 package io_stream;
 
 import java.io.*;
-import java.nio.charset.Charset;
 
 public class IOStream07 {
 //  보조 스트림 : 다른 스트림과 연결되어서 다양한 기능을 추가하는 스트림
