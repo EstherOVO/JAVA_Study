@@ -1,6 +1,7 @@
 package io_stream.file;
 
 import java.io.IOException;
+import java.nio.file.FileAlreadyExistsException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -48,14 +49,52 @@ public class File03 {
         Path fileName = path5.getFileName();
         System.out.println("fileName = " + fileName);
 
+        System.out.println("==========");
+
 //      Files
         Path currentPath = path1;
+        Path newFilePath = currentPath.resolve("test.txt");
 
 //      파일 생성
         try {
+            Files.createFile(newFilePath);
+        } catch (FileAlreadyExistsException e) {
+//          파일이 존재할 경우 덮어쓰기 하는 대신 예외 발생
+            System.out.println("파일이 이미 존재합니다.");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
 
-            Files.createFile(currentPath.resolve("test.txt"));
+//      파일 복사
+        Path targetPath = currentPath.resolve("copyFile.txt");
+        try {
+            Files.copy(newFilePath, targetPath);
+            System.out.println("파일을 성공적으로 복사했습니다.");
+        } catch (FileAlreadyExistsException e) {
+            System.out.println("파일이 이미 존재합니다.");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
 
+//      파일 삭제
+        try {
+            Files.deleteIfExists(newFilePath);
+            System.out.println("파일을 성공적으로 삭제했습니다.");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+//      디렉터리 생성
+//      중간 경로가 없으면 함께 생성
+        try {
+            Files.createDirectories(currentPath.resolve(Paths.get("new", "sub", "deep")));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+//      파일 이동
+        try {
+            Files.move(targetPath, currentPath.resolve(Paths.get("new", "copyFile.txt")));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
