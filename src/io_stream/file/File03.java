@@ -5,6 +5,9 @@ import java.nio.file.FileAlreadyExistsException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Stream;
 
 public class File03 {
 //  java.nio 패키지 : 기존 java.io 패키지보다 다양한 기능을 제공
@@ -95,6 +98,31 @@ public class File03 {
 //      파일 이동
         try {
             Files.move(targetPath, currentPath.resolve(Paths.get("new", "copyFile.txt")));
+        } catch (IOException e) {
+            System.out.println("이미 존재하는 파일입니다.");
+        }
+
+//      Files를 이용한 파일 쓰기
+        try {
+            Files.write(targetPath, "안녕하세요".getBytes());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        List<String> stringList = Arrays.asList("안녕하세요", "반갑습니다.", "여러 줄 텍스트입니다.", "문자열이 나누어져 들어가 있습니다.");
+
+        try {
+            Files.write(targetPath, stringList);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+//      파일에서 문자열을 줄별로 읽어 Stream API로 활용
+        try {
+            Stream<String> lines = Files.lines(targetPath);
+            lines.map(s -> "> " + s)
+                    .limit(2)
+                    .forEach(System.out::println);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
