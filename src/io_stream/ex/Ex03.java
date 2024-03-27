@@ -58,31 +58,31 @@ public class Ex03 {
 
     public static void analyzeTalking(Reader reader, Writer writer) {
 
-        BufferedReader br = new BufferedReader(reader);
-        BufferedWriter bw = new BufferedWriter(writer);
-
-        int count1 = 0;
-        int count2 = 0;
-        int count3 = 0;
-        int count4 = 0;
-
         try {
 
-            while (true) {
+            BufferedReader br = new BufferedReader(reader);
+            BufferedWriter bw = new BufferedWriter(writer);
 
-                String string = br.readLine();
+            int count1 = 0;
+            int count2 = 0;
+            int count3 = 0;
+            int count4 = 0;
+            String line = "";
 
-                if (string == null) break;
+            while ((line = br.readLine()) != null) {
+
+//              String string = br.readLine();
+//              if (string == null) break;
 
 //////////////////////////////////////////////////////////////
 
-                if (string.contains("박진수")) {
+                if (line.contains("박진수")) {
                     count1++;
-                } else if (string.contains("길동씨")) {
+                } else if (line.contains("길동씨")) {
                     count2++;
-                } else if (string.contains("무대리")) {
+                } else if (line.contains("무대리")) {
                     count3++;
-                } else if (string.contains("강감찬")) {
+                } else if (line.contains("강감찬")) {
                     count4++;
                 }
             }
@@ -99,6 +99,7 @@ public class Ex03 {
             bw.write("강감찬 : " + count4 + "번");
 
             br.close();
+            bw.flush();
             bw.close();
 
         } catch (IOException e) {

@@ -26,14 +26,16 @@ public class Ex03_2 {
 
             List<String> names = new ArrayList<>();
 
-            while (true) {
+            String line = "";
 
-                String str = br.readLine();
-                if (str == null) break;
+            while ((line = br.readLine()) != null) {
+
+//              String str = br.readLine();
+//              if (str == null) break;
 
 //////////////////////////////////////////////////////////////
 
-                String[] split = str.split(" ");
+                String[] split = line.split(" ");
 
                 names.add(split[1]);
             }
