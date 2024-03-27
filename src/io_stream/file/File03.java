@@ -1,5 +1,7 @@
 package io_stream.file;
 
+import java.io.IOException;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
@@ -45,5 +47,17 @@ public class File03 {
 //      끝단 파일 이름
         Path fileName = path5.getFileName();
         System.out.println("fileName = " + fileName);
+
+//      Files
+        Path currentPath = path1;
+
+//      파일 생성
+        try {
+
+            Files.createFile(currentPath.resolve("test.txt"));
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
