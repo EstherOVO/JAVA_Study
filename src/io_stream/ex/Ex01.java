@@ -37,30 +37,23 @@ public class Ex01 {
 
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("입력할 문장(혹은 단어)을 입력해 주세요(종료는 \"종료\" 입력)");
+        System.out.println("입력할 문장(혹은 단어)을 입력해 주세요.(종료는 \"종료\" 입력)");
 
-        try {
-
-            Writer writer = new FileWriter("src/io_stream/ex/output.txt");
-
-            BufferedWriter bw = new BufferedWriter(writer);
-
+        try (Writer writer = new FileWriter("src/io_stream/ex/output.txt");
+             BufferedWriter bw = new BufferedWriter(writer)) {
 
             while (true) {
 
                 System.out.print("- 입력 : ");
-                String input = scanner.nextLine();
+                String str = scanner.nextLine();
 
-                if (input.equals("종료")) {
-                    break;
-                }
+                if (str.equals("종료")) break;
 
-                bw.write(input);
+                bw.write(str);
                 bw.newLine();
             }
 
             bw.flush();
-            bw.close();
 
         } catch (IOException e) {
             throw new RuntimeException(e);

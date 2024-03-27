@@ -1,7 +1,6 @@
 package io_stream.ex;
 
 import java.io.*;
-import java.util.Arrays;
 
 public class Ex02 {
     public static void main(String[] args) {
@@ -23,9 +22,8 @@ public class Ex02 {
         - 분석 결과 출력: 에러 로그의 총 개수와 함께 사용자에게 분석이 완료되었음을 알립니다.
 */
 
-        try {
-            Reader reader = new FileReader("src/io_stream/ex/server.log");
-            Writer writer = new FileWriter("src/io_stream/ex/errorLogs.txt");
+        try (Reader reader = new FileReader("src/io_stream/ex/server.log");
+             Writer writer = new FileWriter("src/io_stream/ex/errorLogs.txt")) {
 
             findError(reader, writer);
 
@@ -34,26 +32,28 @@ public class Ex02 {
         }
     }
 
-    public static void findError(Reader reader, Writer writer) throws IOException {
+    public static void findError(Reader reader, Writer writer) {
 
-        BufferedReader br = new BufferedReader(reader);
-        BufferedWriter bw = new BufferedWriter(writer);
+        try (BufferedReader br = new BufferedReader(reader);
+             BufferedWriter bw = new BufferedWriter(writer);) {
 
-        while (true) {
+            while (true) {
 
-            String line = br.readLine();
-
-            if (line == null) break;
+                String str = br.readLine();
+                if (str == null) break;
 
 //////////////////////////////////////////////////////////////
 
-            if (line.contains("ERROR")) {
-                bw.write(line);
-                bw.newLine();
-            }
-        }
+                if (str.contains("ERROR")) {
+                    bw.write(str);
+                    bw.newLine();
+                }
 
-        br.close();
-        bw.close();
+                bw.flush();
+
+            }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
