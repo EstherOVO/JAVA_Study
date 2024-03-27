@@ -5,6 +5,7 @@ import java.nio.file.FileAlreadyExistsException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.nio.file.attribute.BasicFileAttributes;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Stream;
@@ -58,7 +59,7 @@ public class File03 {
         Path currentPath = path1;
         Path newFilePath = currentPath.resolve("test.txt");
 
-//      파일 생성
+//      createFile() : 파일 생성
         try {
             Files.createFile(newFilePath);
         } catch (FileAlreadyExistsException e) {
@@ -68,7 +69,7 @@ public class File03 {
             throw new RuntimeException(e);
         }
 
-//      파일 복사
+//      copy() : 파일 복사
         Path targetPath = currentPath.resolve("copyFile.txt");
         try {
             Files.copy(newFilePath, targetPath);
@@ -79,7 +80,7 @@ public class File03 {
             throw new RuntimeException(e);
         }
 
-//      파일 삭제
+//      delete() & deleteIfExists() : 파일 삭제
         try {
             Files.deleteIfExists(newFilePath);
             System.out.println("파일을 성공적으로 삭제했습니다.");
@@ -87,7 +88,7 @@ public class File03 {
             throw new RuntimeException(e);
         }
 
-//      디렉터리 생성
+//      createDirectories() : 디렉터리 생성
 //      중간 경로가 없으면 함께 생성
         try {
             Files.createDirectories(currentPath.resolve(Paths.get("new", "sub", "deep")));
@@ -95,14 +96,14 @@ public class File03 {
             throw new RuntimeException(e);
         }
 
-//      파일 이동
+//      move() : 파일 이동
         try {
             Files.move(targetPath, currentPath.resolve(Paths.get("new", "copyFile.txt")));
         } catch (IOException e) {
             System.out.println("이미 존재하는 파일입니다.");
         }
 
-//      Files를 이용한 파일 쓰기
+//      write() : Files를 이용한 파일 쓰기
         try {
             Files.write(targetPath, "안녕하세요".getBytes());
         } catch (IOException e) {
@@ -117,12 +118,32 @@ public class File03 {
             throw new RuntimeException(e);
         }
 
-//      파일에서 문자열을 줄별로 읽어 Stream API로 활용
+//      lines() : 파일에서 문자열을 줄별로 읽어 Stream API로 활용
         try {
             Stream<String> lines = Files.lines(targetPath);
             lines.map(s -> "> " + s)
                     .limit(2)
                     .forEach(System.out::println);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+//      walk() : 시작 경로로부터 깊이우선탐색(DFS) 방식으로 Path의 스트림을 반환
+//      시작 경로로부터 모든 하위 파일과 디렉터리를 탐색할 때 사용한다.
+        try {
+            Stream<Path> src = Files.walk(Paths.get("src"));
+            src.forEach(System.out::println);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+//      readAttributes() : 파일 관련 속성 읽기
+        try {
+            BasicFileAttributes attrs = Files.readAttributes(targetPath, BasicFileAttributes.class);
+
+            System.out.println("파일 생성 시간 : " + attrs.creationTime());
+            System.out.println("마지막 접근 시간 : " + attrs.lastAccessTime());
+            System.out.println("파일 크기 : " + attrs.size());
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
