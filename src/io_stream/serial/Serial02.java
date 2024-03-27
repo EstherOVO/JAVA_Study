@@ -7,7 +7,6 @@ public class Serial02 {
 
         String filePath = "src/io_stream/serial/person.ser";
 
-
         try (FileInputStream fis = new FileInputStream(filePath);
              BufferedInputStream bis = new BufferedInputStream(fis);
              ObjectInputStream ois = new ObjectInputStream(bis);) {
