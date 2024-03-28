@@ -689,7 +689,7 @@
        - [공식 등록 포트 번호 일람] (https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml)
 
 ## URL(Uniform Resource Locator)
-- URI(Uniform Resource Indicator)
+- URI(Uniform Resource Identifier)
   - 자원을 식별하는 데 사용되는 고유의 식별자
   - 특정한 자원의 이름이나 위치를 나타낼 수 있음
   - URL과 URN을 포함하는 개념
