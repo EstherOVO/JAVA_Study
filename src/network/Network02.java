@@ -54,5 +54,9 @@ public class Network02 {
 
         String file = url.getFile();
         System.out.println("file = " + file);   // path + query 반환
+
+//      URL은 부분적으로 연결하여 생성 가능
+        URL naverEntUrl = new URL("https://entertain.naver.com");
+        URL connectedUrl = new URL(naverEntUrl, "/ranking/read?oid=408&aid=0000218993");
     }
 }
