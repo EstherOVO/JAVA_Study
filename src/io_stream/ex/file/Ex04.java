@@ -39,14 +39,14 @@ public class Ex04 {
 //          1. 총 파일 개수
             long countFiles = Files.walk(path)
                     .filter(p -> p.toFile().isFile())
-                    .filter(p -> p.getFileName().toString().endsWith(".java"))
+                    .filter(p -> p.toFile().toString().endsWith(".java"))
                     .count();
 
 //          2. 총 코드 라인 수
 
             long countLines1 = Files.walk(path)
                     .filter(p -> p.toFile().isFile())
-                    .filter(p -> p.toString().endsWith(".java"))
+                    .filter(p -> p.getFileName().toString().endsWith(".java"))
                     .mapToLong(p -> {
                         try {
                             return Files.lines(p).count();
@@ -59,7 +59,7 @@ public class Ex04 {
 
             List<Path> list1 = Files.walk(path)
                     .filter(p -> !Files.isDirectory(p))
-                    .filter(p -> p.toString().endsWith(".java"))
+                    .filter(p -> p.toFile().toString().endsWith(".java"))
                     .toList();
 
             long countLines2 = 0;
@@ -74,6 +74,8 @@ public class Ex04 {
                     .filter(p -> p.toFile().isFile())
                     .filter(p -> p.getFileName().toString().startsWith("Ex"))
                     .count();
+
+            System.out.println("-------");
 
             System.out.println("▶ 자바 프로젝트 코드 분석 결과 ◀");
             System.out.println("- 총 파일 개수 : " + countFiles + " 개");
