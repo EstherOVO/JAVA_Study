@@ -25,13 +25,15 @@ public class Ex01_2 {
                 System.out.print("■ 번호 : ");
                 int number = scanner.nextInt();
 
+                scanner.nextLine();
+
                 switch (number) {
                     case 1 :
                         System.out.print("□ 이름 : ");
-                        String name = scanner.next();
+                        String name = scanner.nextLine();
 
                         System.out.print("□ 이메일 : ");
-                        String email = scanner.next();
+                        String email = scanner.nextLine();
 
                         System.out.print("□ 나이 : ");
                         int age = scanner.nextInt();
