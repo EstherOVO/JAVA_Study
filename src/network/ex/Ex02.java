@@ -45,15 +45,21 @@ public class Ex02 {
 
                 if (lines.contains("<title>")) {
 
-                    Pattern pattern = Pattern.compile("[>](.*?)[<]");
-                    Matcher matcher = pattern.matcher(lines);
+                    System.out.println(lines);
 
-                    while (matcher.find()) {
+                    String substring = lines.substring(lines.indexOf(">") + 1, lines.indexOf("</"));
+                    System.out.println(substring);
 
-                        System.out.println(matcher.group(1));
+//                    Pattern pattern = Pattern.compile("[>](.*?)[<]");
+//                    Matcher matcher = pattern.matcher(lines);
+//
+//                    while (matcher.find()) {
+//
+//                        System.out.println(matcher.group(1));
+//
+//                        if (matcher.group(1) == null) break;
 
-                        if (matcher.group(1) == null) break;
-                    }
+                    //}
                 }
             }
         } catch (IOException e) {
