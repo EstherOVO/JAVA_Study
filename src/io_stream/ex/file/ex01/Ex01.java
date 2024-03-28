@@ -69,6 +69,9 @@ public class Ex01 {
                         Writer writer = new FileWriter(finalPath.toFile());
 
                         saveInfo(name, email, age, writer);
+
+                        writer.close();
+
                         break;
                     case 2 :
                         Stream<Path> list = Files.list(path);
