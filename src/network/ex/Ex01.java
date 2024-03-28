@@ -49,8 +49,14 @@ public class Ex01 {
             System.out.println("= 호스트(Host) : " + url.getHost());
             System.out.println("= 포트(Port) : " + url.getDefaultPort());
             System.out.println("= 경로(Path) : " + url.getPath());
-            System.out.println("= 쿼리(Query) : " + url.getQuery());
-            System.out.println("= 참조(Reference) : " + url.getRef());
+
+            System.out.println("= 쿼리(Query) : ");
+            String[] queryPair = url.getQuery().split("&");
+            for (String string : queryPair) {
+                System.out.println("- " + string);
+            }
+
+            System.out.println(url.getRef() == null ? "= 참조(Reference) : 참조가 없습니다." : "= 참조(Reference) : " + url.getRef());
 
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);
