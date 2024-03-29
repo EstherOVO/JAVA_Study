@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.regex.Matcher;
@@ -57,8 +58,10 @@ public class Ex02 {
 //                  }
                 }
             }
+        } catch (MalformedURLException e) {
+            System.out.println("잘못된 URL 형식입니다.");
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            System.out.println("입출력에 문제가 발생하였습니다.");
         }
     }
 }
