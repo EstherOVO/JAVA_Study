@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class ChatClient {
     public static void main(String[] args) {
 
-        String hostName = "localHost";
+        String hostName = "localHost"; // 10.100.203.3
         int port = 12345;
 
         try (Socket socket = new Socket(hostName, port);
