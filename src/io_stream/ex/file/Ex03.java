@@ -33,22 +33,21 @@ public class Ex03 {
 
         Scanner scanner = new Scanner(System.in);
 
-        System.out.print("& 디렉터리 경로를 입력해 주세요 : ");
-        String str = scanner.next();
+        System.out.print("& 파일 경로를 입력해 주세요 : ");
+        String str = scanner.nextLine();
 
         Path path = Paths.get(str);
 
         try {
 
-            Stream<Path> walk = Files.walk(path);
-
-            long sum = walk.filter(p -> p.toFile().isFile())
+            long sum = Files.walk(path)
+                    .filter(p -> p.toFile().isFile())
                     .mapToLong(p -> p.toFile().length())
                     .sum();
 
-            long kb = sum / 1024;
+            long totalFileSize = sum / 1024;
 
-            System.out.println("& 총 크기 : " + kb + " KB");
+            System.out.println("& 모든 파일 크기의 합 : " + totalFileSize + " KB");
 
         } catch (IOException e) {
             throw new RuntimeException(e);

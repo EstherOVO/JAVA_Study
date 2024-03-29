@@ -29,23 +29,30 @@ public class Ex04 {
         자바 프로젝트 코드 분석 결과
         - 총 자바 파일 개수 : xxx개
         - 총 코드 라인 수 : xxxxx줄
-        - 실습문제 풀이 수 : xxx개
+        - 실습 문제 풀이 수 : xxx개
 */
 
+        long totalFiles = 0;
+        long totalCodeLines1 = 0;
+        long totalCodeLines2 = 0;
+        long totalEx = 0;
+
         Path path = Paths.get("src");
+
+        System.out.println("= 자바 프로젝트 코드 분석 결과 =");
 
         try {
 
 //          1. 총 파일 개수
-            long countFiles = Files.walk(path)
-                    .filter(p -> p.toFile().isFile())
-                    .filter(p -> p.toFile().toString().endsWith(".java"))
+            totalFiles = Files.walk(path)
+                    .filter(p -> !Files.isDirectory(p))
                     .count();
 
-//          2. 총 코드 라인 수
+            System.out.println("§ 총 파일 개수 : " + totalFiles + "개");
 
-            long countLines1 = Files.walk(path)
-                    .filter(p -> p.toFile().isFile())
+//          2. 총 코드 라인 수
+            totalCodeLines1 = Files.walk(path)
+                    .filter(p -> !Files.isDirectory(p))
                     .filter(p -> p.getFileName().toString().endsWith(".java"))
                     .mapToLong(p -> {
                         try {
@@ -55,32 +62,27 @@ public class Ex04 {
                         }
                     }).sum();
 
-////////////////////////////////////////////////////////////////////
-
-            List<Path> list1 = Files.walk(path)
-                    .filter(p -> !Files.isDirectory(p))
+            List<Path> list = Files.walk(path)
+                    .filter(p -> p.toFile().isFile())
                     .filter(p -> p.toFile().toString().endsWith(".java"))
                     .toList();
 
-            long countLines2 = 0;
-            for (Path pt : list1) {
-                long countLines = Files.lines(pt).count();
-                if (countLines == 1 ) break;
-                countLines2 += countLines;
+            for (Path pt : list) {
+                long codeLineCount = Files.lines(pt)
+                        .count();
+                if (codeLineCount == 1) break;
+                totalCodeLines2 += codeLineCount;
             }
 
+            System.out.println(String.format("§ 총 코드 라인 수 : %d(%d)줄", totalCodeLines1, totalCodeLines2));
+
 //          3. 실습 문제 풀이 수
-            long countEx = Files.walk(path)
-                    .filter(p -> p.toFile().isFile())
+            totalEx = Files.walk(path)
+                    .filter(p -> !Files.isDirectory(p))
                     .filter(p -> p.getFileName().toString().startsWith("Ex"))
                     .count();
 
-            System.out.println("-------");
-
-            System.out.println("▶ 자바 프로젝트 코드 분석 결과 ◀");
-            System.out.println("- 총 파일 개수 : " + countFiles + " 개");
-            System.out.println("- 총 코드 라인 수 : " + countLines1 + " " + countLines2 + " 줄");
-            System.out.println("- 실습문제 풀이 수 : " + countEx + " 개");
+            System.out.println("§ 실습 문제 풀이 수 : " + totalEx + "개");
 
         } catch (IOException e) {
             throw new RuntimeException(e);
