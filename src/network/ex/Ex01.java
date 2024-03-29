@@ -39,24 +39,24 @@ public class Ex01 {
         Scanner scanner = new Scanner(System.in);
 
         System.out.print("URL 주소를 입력해 주세요 : ");
-        String strUrl = scanner.nextLine();
+        String urlStr = scanner.next();
 
         try {
 
-            URL url = new URL(strUrl);
+            URL url = new URL(urlStr);
 
-            System.out.println("= 프로토콜(Protocol) : " + url.getProtocol());
-            System.out.println("= 호스트(Host) : " + url.getHost());
-            System.out.println("= 포트(Port) : " + url.getDefaultPort());
-            System.out.println("= 경로(Path) : " + url.getPath());
+            System.out.println("◇ 프로토콜(Protocol) : " + url.getProtocol());
+            System.out.println("◇ 호스트(Host) : " + url.getHost());
+            System.out.println(url.getPort() == -1 ? "◇ 포트 번호(Port) : " + url.getDefaultPort() : "◇ 포트 번호(Port) : " + url.getPort()) ;
+            System.out.println("◇ 경로(Path) : " + url.getPath());
 
-            System.out.println("= 쿼리(Query) : ");
-            String[] queryPair = url.getQuery().split("&");
-            for (String string : queryPair) {
-                System.out.println("- " + string);
+            System.out.println("◇ 쿼리(Query) : ");
+            String[] split = url.getQuery().split("&");
+            for (String query : split) {
+                System.out.println("- " + query);
             }
 
-            System.out.println(url.getRef() == null ? "= 참조(Reference) : 참조가 없습니다." : "= 참조(Reference) : " + url.getRef());
+            System.out.println(url.getRef() == null ? "◇ 참조(Reference) : 참조가 없습니다." : "◇ 참조(Reference) : " + url.getRef());
 
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);

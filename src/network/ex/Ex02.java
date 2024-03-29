@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.ArrayList;
@@ -39,32 +40,28 @@ public class Ex02 {
             InputStreamReader isr = new InputStreamReader(is);
             BufferedReader br = new BufferedReader(isr);
 
-            String lines = "";
+            String line = "";
 
-            while ((lines = br.readLine()) != null) {
+            while ((line = br.readLine()) != null) {
 
-                if (lines.contains("<title>")) {
+                if (line.contains("<title>")) {
 
-                    System.out.println(lines);
+                    String title = line.substring(line.indexOf(">") + 1, line.indexOf("</"));
+                    System.out.println(title);
 
-                    String substring = lines.substring(lines.indexOf(">") + 1, lines.indexOf("</"));
-                    System.out.println(substring);
-
-//                    Pattern pattern = Pattern.compile("[>](.*?)[<]");
-//                    Matcher matcher = pattern.matcher(lines);
+//                  Pattern pattern = Pattern.compile("[>](.*?)[<]");
+//                  Matcher matcher = pattern.matcher(line);
 //
-//                    while (matcher.find()) {
+//                  while (matcher.find()) {
 //
-//                        System.out.println(matcher.group(1));
+//                      System.out.println(matcher.group(1));
 //
-//                        if (matcher.group(1) == null) break;
-
-                    //}
+//                      if (matcher.group(1) == null) break;
+//                  }
                 }
             }
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-
     }
 }
