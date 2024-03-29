@@ -23,9 +23,9 @@ public class ChatClient {
 
                     while (true) {
 
-//                  서버로 부터 입력 받기
+//                      서버로 부터 입력 받기
                         String fromServer = in.readLine();
-                        if (fromServer == null) break;
+                        if (fromServer == null) break;      // null 처리
                         System.out.println(fromServer);     // 사용자에게 출력
                     }
                 } catch (IOException e) {
