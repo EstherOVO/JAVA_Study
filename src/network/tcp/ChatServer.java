@@ -79,7 +79,6 @@ public class ChatServer {
                     String fromUser = in.readLine();
                     String chatMsg = String.format("[%s : %s] %s", name, hostAddress, fromUser);
                     System.out.println(chatMsg);
-                    out.println(chatMsg);
 
 //                  접속한 모두에게 메시지 전송
                     for (ClientHandler client : clients) {
