@@ -12,8 +12,8 @@ public class JDBC02 {
 //      데이터베이스 연결하기
 //      URL (jdbc:서브프로토콜://호스트이름:포트번호/데이터베이스이름)
         String url = "jdbc:mysql://localhost:3306/scott";
-        String user = "root";       // 사용자 이름
-        String password = "1234";   // 비밀번호
+        String user = "root";           // 사용자 이름
+        String password = "1234";       // 비밀번호
 
 //      DriverManager에서 연결 객체 가져오기
 //      Java SE 6.0 이상에서는 자동으로 드라이버(서비스 제공자)를 로드

@@ -7,8 +7,8 @@ public class JDBC04 {
 
 //      try-with-resource 구문으로 자원 정리하기
         String url = "jdbc:mysql://localhost:3306/scott";
-        String user = "root";       // 사용자 이름
-        String password = "1234";   // 비밀번호
+        String user = "root";           // 사용자 이름
+        String password = "1234";       // 비밀번호
 
         try (Connection conn = DriverManager.getConnection(url, user, password);
              Statement stmt = conn.createStatement();
