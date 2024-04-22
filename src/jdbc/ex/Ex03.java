@@ -1,9 +1,6 @@
 package jdbc.ex;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.Scanner;
 
 public class Ex03 {
@@ -31,7 +28,7 @@ public class Ex03 {
         String user = "root";
         String password = "1234";
 
-        String updateSql = "UPDATE users SET name = ?, password = ?, age = ?, email = ? WHERE userID = ?";
+        StringBuilder updateSql = new StringBuilder();
 
         Scanner scanner = new Scanner(System.in);
 
@@ -45,20 +42,60 @@ public class Ex03 {
         String pw = scanner.nextLine();
 
         System.out.print("- 사용자의 나이를 입력하세요 : " );
-        int age = scanner.nextInt();
-
-        scanner.nextLine();
+        String age = scanner.nextLine();
 
         System.out.print("- 사용자의 이메일 주소를 입력하세요 : " );
         String email = scanner.nextLine();
 
-        try (Connection conn = DriverManager.getConnection(url, user, password);
-             PreparedStatement pstmt = conn.prepareStatement(updateSql)) {
+/////////////////////////////////////////////////////////////////////
 
-            pstmt.setString(1, name);
-            pstmt.setString(2, pw);
-            pstmt.setInt(3, age);
-            pstmt.setString(4, email);
+        boolean isFirst = true;
+
+        updateSql.append("UPDATE users SET ");
+
+        if (!name.isEmpty()) {
+            if (!isFirst) {
+                updateSql.append(", ");
+            }
+            updateSql.append("name = ? ");
+            isFirst = false;
+        }
+
+        if (!pw.isEmpty()) {
+            if (!isFirst) {
+                updateSql.append(", ");
+            }
+            updateSql.append("password = ? ");
+            isFirst = false;
+        }
+
+        if (!email.isEmpty()) {
+            if (!isFirst) {
+                updateSql.append(", ");
+            }
+            updateSql.append("email = ? ");
+            isFirst = false;
+        }
+
+        if (age.isEmpty()) {
+            if (!isFirst) {
+                updateSql.append(", ");
+            }
+            updateSql.append("age = ? ");
+            isFirst = false;
+        }
+
+        updateSql.append("WHERE userID = ?");
+
+        int index = 1;
+
+        try (Connection conn = DriverManager.getConnection(url, user, password);
+             PreparedStatement pstmt = conn.prepareStatement(updateSql.toString())) {
+
+            if (!name.isEmpty()) pstmt.setString(index++, name);
+            if (!pw.isEmpty()) pstmt.setString(index++, pw);
+            if (!email.isEmpty()) pstmt.setString(index++, email);
+            if (age.isEmpty()) pstmt.setInt(index++, Integer.valueOf(age));
             pstmt.setString(5, id);
 
             int rows = pstmt.executeUpdate();
