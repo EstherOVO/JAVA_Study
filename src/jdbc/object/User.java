@@ -63,12 +63,7 @@ public class User {
 
     @Override
     public String toString() {
-        return "User{" +
-                "userId='" + userId + '\'' +
-                ", name='" + name + '\'' +
-                ", password='" + password + '\'' +
-                ", age=" + age +
-                ", email='" + email + '\'' +
-                '}';
+        return String.format("ID : %s | Name : %s | Password : %s | Age : %d | email : %s",
+                userId, name, password, age, email);
     }
 }

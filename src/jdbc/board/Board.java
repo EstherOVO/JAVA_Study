@@ -1,7 +1,5 @@
-package jdbc.object;
+package jdbc.board;
 
-import java.sql.Blob;
-import java.time.LocalDate;
 import java.util.Date;
 import java.util.Objects;
 
@@ -12,17 +10,19 @@ public class Board {
     private String content;
     private String writer;
     private Date date;
-    private String filename;
-    private Blob filedata;
 
-    public Board(int boardNo, String title, String content, String writer, Date date, String filename, Blob filedata) {
+    public Board(int boardNo, String title, String content, String writer, Date date) {
         this.boardNo = boardNo;
         this.title = title;
         this.content = content;
         this.writer = writer;
         this.date = date;
-        this.filename = filename;
-        this.filedata = filedata;
+    }
+
+    public Board(String title, String content, String writer) {
+        this.title = title;
+        this.content = content;
+        this.writer = writer;
     }
 
     public int getBoardNo() {
@@ -45,19 +45,25 @@ public class Board {
         return date;
     }
 
-    public String getFilename() {
-        return filename;
+//  Setter 추가
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-    public Blob getFiledata() {
-        return filedata;
+    public void setContent(String content) {
+        this.content = content;
     }
 
+    public void setWriter(String writer) {
+        this.writer = writer;
+    }
+
+    @Override
     public boolean equals(Object obj) {
         if (this == obj) return true;
-        if (obj == null || getClass() != obj.getClass());
+        if (obj == null || getClass() != obj.getClass()) return false;
         Board board = (Board) obj;
-        return Objects.equals(boardNo, board.boardNo);
+        return boardNo == board.boardNo;
     }
 
     @Override
@@ -67,7 +73,12 @@ public class Board {
 
     @Override
     public String toString() {
-        return String.format("Board No. : %d | Title : %s | Content : %s | Writer : %s | Date : %s | File Name : %s",
-                boardNo, title, content, writer, date, filename);
+        return "Board{" +
+                "boardNo=" + boardNo +
+                ", title='" + title + '\'' +
+                ", content='" + content + '\'' +
+                ", writer='" + writer + '\'' +
+                ", date=" + date +
+                '}';
     }
 }
