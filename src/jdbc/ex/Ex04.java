@@ -1,50 +1,65 @@
 package jdbc.ex;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.Scanner;
 
 public class Ex04 {
     public static void main(String[] args) {
 
 /*
-        연습 문제 4. 사용자 삭제
+        연습 문제 4. 사용자 삭제하기
 
         요구사항 :
         사용자로부터 userId를 입력받아 해당 userId를 가진 사용자의 데이터를 데이터베이스에서 삭제하세요.
 
         - 사용자로부터 userId를 입력받습니다.
         - 해당 userId를 가진 사용자의 데이터를 users 테이블에서 삭제합니다.
-
-
  */
 
         String url = "jdbc:mysql://localhost:3306/jdbc";
         String user = "root";
         String password = "1234";
 
-        String deleteSql = "DELETE FROM users WHERE userId = ?";
-
         Scanner scanner = new Scanner(System.in);
 
-        System.out.print("- 삭제할 유저의 아이디를 입력해 주세요 : ");
+        System.out.print("● 삭제할 유저의 아이디를 입력해 주세요 : ");
         String id = scanner.next();
+
+        String sql = "SELECT * FROM users WHERE userID = '" + id + "'";
+        String deleteSql = "DELETE FROM users WHERE userID = ?";
 
         try (Connection conn = DriverManager.getConnection(url, user, password);
              PreparedStatement pstmt = conn.prepareStatement(deleteSql);) {
 
-            pstmt.setString(1, id);
+            ResultSet rs = pstmt.executeQuery(sql);
+
+            if (rs.next()) {
+                System.out.println("○ 아이디(ID) : " + rs.getString("userID"));
+                System.out.println("○ 이름 : " + rs.getString("name"));
+                System.out.println("○ 나이 : " + rs.getInt("age"));
+                System.out.println("○ 이메일 : " + rs.getString("email"));
+            } else {
+                System.out.println("※ 사용자를 찾을 수 없습니다.");
+                return;
+            }
+
+            System.out.print("※ 사용자의 정보를 정말 삭제하시겠습니까 (Y / N) : ");
+            String answer = scanner.nextLine();
+
+            if (answer.toUpperCase().equals("Y")) {
+                pstmt.setString(1, id);
+            } else {
+                System.out.println("프로그램을 종료합니다.");
+                return;
+            }
 
             int rows = pstmt.executeUpdate();
+            System.out.println("▶ 사용자 아이디(ID) <" + id + ">님의 정보가 정상적으로 삭제 되었습니다. ◀");
 
-            if (rows == 1) {
-                System.out.println(rows + "개가 삭제 되었습니다.");
-            }
+            rs.close();
+
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-
     }
 }

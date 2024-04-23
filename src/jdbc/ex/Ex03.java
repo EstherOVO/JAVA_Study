@@ -7,7 +7,7 @@ public class Ex03 {
     public static void main(String[] args) {
 
 /*
-        연습 문제 3. 사용자 정보 업데이트
+        연습 문제 3. 사용자 정보 업데이트하기
 
         요구사항 :
         사용자로부터 userId, name, password, age, email을 입력받아
@@ -28,64 +28,65 @@ public class Ex03 {
         String user = "root";
         String password = "1234";
 
-        StringBuilder updateSql = new StringBuilder();
-
         Scanner scanner = new Scanner(System.in);
 
-        System.out.print("- 사용자의 ID를 입력하세요 : " );
+        System.out.println("◎ 업데이트할 사용자의 정보를 입력해 주세요.(업데이트 내용이 없다면 엔터를 입력해 주세요.) ◎");
+
+        System.out.print("● 사용자의 아이디(ID)를 입력하세요 : " );
         String id = scanner.nextLine();
 
-        System.out.print("- 사용자의 이름을 입력하세요 : " );
+        System.out.print("● 사용자의 이름을 입력하세요 : " );
         String name = scanner.nextLine();
 
-        System.out.print("- 사용자의 비밀번호를 입력하세요 : " );
+        System.out.print("● 사용자의 비밀번호를 입력하세요 : " );
         String pw = scanner.nextLine();
 
-        System.out.print("- 사용자의 나이를 입력하세요 : " );
+        System.out.print("● 사용자의 나이를 입력하세요 : " );
         String age = scanner.nextLine();
 
-        System.out.print("- 사용자의 이메일 주소를 입력하세요 : " );
+        System.out.print("● 사용자의 이메일 주소를 입력하세요 : " );
         String email = scanner.nextLine();
 
 /////////////////////////////////////////////////////////////////////
 
-        boolean isFirst = true;
+        StringBuilder updateSql = new StringBuilder();
 
-        updateSql.append("UPDATE users SET ");
+        updateSql.append("UPDATE users SET");
+        boolean isFirst = true;
 
         if (!name.isEmpty()) {
             if (!isFirst) {
-                updateSql.append(", ");
+                updateSql.append(",");
             }
-            updateSql.append("name = ? ");
+            updateSql.append(" name = ?");
             isFirst = false;
         }
 
         if (!pw.isEmpty()) {
             if (!isFirst) {
-                updateSql.append(", ");
+                updateSql.append(",");
             }
-            updateSql.append("password = ? ");
+            updateSql.append(" password = ?");
+            isFirst = false;
+        }
+
+        if (!age.isEmpty()) {
+            if (!isFirst) {
+                updateSql.append(",");
+            }
+            updateSql.append(" age = ?");
             isFirst = false;
         }
 
         if (!email.isEmpty()) {
             if (!isFirst) {
-                updateSql.append(", ");
+                updateSql.append(",");
             }
-            updateSql.append("email = ? ");
+            updateSql.append(" email = ?");
             isFirst = false;
         }
 
-        if (age.isEmpty()) {
-            if (!isFirst) {
-                updateSql.append(", ");
-            }
-            updateSql.append("age = ? ");
-            isFirst = false;
-        }
-
-        updateSql.append("WHERE userID = ?");
+        updateSql.append(" WHERE userID = ?");
 
         int index = 1;
 
@@ -94,17 +95,17 @@ public class Ex03 {
 
             if (!name.isEmpty()) pstmt.setString(index++, name);
             if (!pw.isEmpty()) pstmt.setString(index++, pw);
+            if (!age.isEmpty()) pstmt.setInt(index++, Integer.valueOf(age));
             if (!email.isEmpty()) pstmt.setString(index++, email);
-            if (age.isEmpty()) pstmt.setInt(index++, Integer.valueOf(age));
-            pstmt.setString(5, id);
+
+            pstmt.setString(index, id);
 
             int rows = pstmt.executeUpdate();
 
-            if (rows == 1) {
-                System.out.println(rows + "개가 업데이트 되었습니다.");
-            }
+            System.out.println("▶ 사용자 아이디(ID) <" + id + ">님의 정보가 정상적으로 업데이트 되었습니다. ◀");
+
         } catch (SQLException e) {
-            System.out.println("다시 시도해 주시기를 바랍니다.");
+            throw new RuntimeException(e);
         }
     }
 }
