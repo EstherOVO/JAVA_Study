@@ -67,7 +67,7 @@ public class Board {
 
     @Override
     public String toString() {
-        return String.format("Board No. : %d - Title : %s | Content : %s | Writer : %s | Date : %s | File Name : %s | Data : %s",
-                boardNo, title, content, writer, date, filename, filedata);
+        return String.format("Board No. : %d - Title : %s | Content : %s | Writer : %s | Date : %s | File Name : %s",
+                boardNo, title, content, writer, date, filename);
     }
 }
