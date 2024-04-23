@@ -1,6 +1,6 @@
 package jdbc.board;
 
-// Step 1. 콘솔 게시판 앱 메뉴
+// Step 1. 콘솔 게시판 구상
 public class BoardEx01 {
 
     public void list() {

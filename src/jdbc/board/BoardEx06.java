@@ -11,8 +11,6 @@ public class BoardEx06 {
     private Connection conn;
 
 //  생성자
-
-
     public BoardEx06() {
 //      인스턴스 생성되면서 객체 연결하고 예외가 생기면 메시지 출력 후 종료
         String url = "jdbc:mysql://localhost:3306/jdbc";
@@ -218,14 +216,12 @@ public class BoardEx06 {
 
     public void delete(Board board) {
 
-
     }
 
     public void clear() {
         System.out.println("BoardEx02.clear");
         list();
     }
-
 
     public void exit() {
         try {

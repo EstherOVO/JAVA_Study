@@ -3,15 +3,15 @@ package jdbc.board;
 import java.sql.*;
 import java.util.Scanner;
 
-// Step 7. Read - Delete 기능 추가
-public class BoardEx07 {
+// Step 8. Clear 게시글 일괄 삭제 기능 추가
+public class BoardEx08 {
 
 //  필드
     private Scanner scanner = new Scanner(System.in);
     private Connection conn;
 
 //  생성자
-    public BoardEx07() {
+    public BoardEx08() {
 //      인스턴스 생성되면서 객체 연결하고 예외가 생기면 메시지 출력 후 종료
         String url = "jdbc:mysql://localhost:3306/jdbc";
         String user = "root";
@@ -235,7 +235,29 @@ public class BoardEx07 {
     }
 
     public void clear() {
-        System.out.println("BoardEx02.clear");
+
+//      보조 메뉴 출력
+        System.out.println("-------------------------------------------------");
+        System.out.println("모든 게시글을 삭제합니다. 정말 삭제하시겠습니까?");
+        System.out.println("보조 메뉴 : 1. Ok | 2. Cancel");
+        System.out.print("보조 선택 : ");
+        String menu = scanner.nextLine();
+
+        if (menu.equals("1")) {
+
+            String sql = "TRUNCATE TABLE boards";
+
+            try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+
+                int rows = pstmt.executeUpdate();
+                System.out.println("모두 " + rows + "개의 게시글이 삭제되었습니다.");
+
+            } catch (SQLException e) {
+                e.printStackTrace();
+                exit();
+            }
+        }
+
         list();
     }
 
@@ -253,7 +275,7 @@ public class BoardEx07 {
 
     public static void main(String[] args) {
 
-        BoardEx07 boardEx = new BoardEx07();
+        BoardEx08 boardEx = new BoardEx08();
         boardEx.list();
     }
 }

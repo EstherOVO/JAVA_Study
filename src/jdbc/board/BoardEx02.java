@@ -2,7 +2,7 @@ package jdbc.board;
 
 import java.util.Scanner;
 
-// Step 2. 메인 메뉴 선택 기능 추가
+// Step 2. 메인 메뉴 기능 추가
 public class BoardEx02 {
 
     Scanner scanner = new Scanner(System.in);
