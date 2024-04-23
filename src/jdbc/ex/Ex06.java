@@ -291,7 +291,7 @@ public class Ex06 {
 
                 ResultSet rs1 = pstmt1.executeQuery();
 
-                if (rs1.next()) {
+                while (rs1.next()) {
                     String checkSql = "SELECT boardNo, title, date, writer FROM boards WHERE writer = ?";
                     PreparedStatement pstmt2 = conn.prepareStatement(checkSql);
 
@@ -313,10 +313,13 @@ public class Ex06 {
 
                         System.out.println(String.format("%-6s%-12s%-16s%-40s", boardNo, writer, date, title));
                     }
-                } else {
+                }
+
+                if (!rs1.next()) {
                     System.out.println("로그인에 실패하였습니다.");
                     login();
                 }
+
             } catch (SQLException e) {
                 e.printStackTrace();
                 exit();
