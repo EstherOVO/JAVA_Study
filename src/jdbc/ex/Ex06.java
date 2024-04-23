@@ -8,6 +8,8 @@ public class Ex06 {
     private Scanner scanner = new Scanner(System.in);
     private Connection conn;
     private String[] arr = new String[5];
+    String loginId = "";
+
 
     public Ex06() {
 
@@ -42,6 +44,10 @@ public class Ex06 {
             throw new RuntimeException(e);
         }
 
+        if (!loginId.isEmpty()) {
+            mainMenuForLogIn();
+        }
+
         mainMenu();
     }
 
@@ -66,7 +72,7 @@ public class Ex06 {
         }
     }
 
-    public void mainMenuForLogOut() {
+    public void mainMenuForLogIn() {
 
         System.out.println("---------------------------------");
         System.out.println("[Main]");
@@ -291,7 +297,7 @@ public class Ex06 {
 
                 ResultSet rs1 = pstmt1.executeQuery();
 
-                while (rs1.next()) {
+                if (rs1.next()) {
                     String checkSql = "SELECT boardNo, title, date, writer FROM boards WHERE writer = ?";
                     PreparedStatement pstmt2 = conn.prepareStatement(checkSql);
 
@@ -299,7 +305,9 @@ public class Ex06 {
 
                     ResultSet rs2 = pstmt2.executeQuery();
 
-                    if (rs2.next()) {
+                    loginId = user.getUserID();
+
+                    while (rs2.next()) {
 
                         System.out.println("[게시물 목록] User : " + user.getUserID());
                         System.out.println("---------------------------------");
@@ -313,9 +321,7 @@ public class Ex06 {
 
                         System.out.println(String.format("%-6s%-12s%-16s%-40s", boardNo, writer, date, title));
                     }
-                }
-
-                if (!rs1.next()) {
+                } else {
                     System.out.println("로그인에 실패하였습니다.");
                     login();
                 }
@@ -326,12 +332,13 @@ public class Ex06 {
             }
         }
 
-        mainMenuForLogOut();
+        mainMenuForLogIn();
     }
 
     public void logout() {
 
-        mainMenu();
+        loginId = "";
+        list();
     }
 
     public void exit() {
