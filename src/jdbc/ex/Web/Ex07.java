@@ -3,13 +3,13 @@ package jdbc.ex.Web;
 import java.sql.*;
 import java.util.Scanner;
 
-public class Ex06 {
+public class Ex07 {
 
     private Scanner scanner = new Scanner(System.in);
     private Connection conn;
     private String loginId = null;
 
-    public Ex06() {
+    public Ex07() {
 
         String url = "jdbc:mysql://localhost:3306/jdbc";
         String user = "root";
@@ -418,7 +418,7 @@ public class Ex06 {
 
     public static void main(String[] args) {
 
-        Ex06 ex = new Ex06();
+        Ex07 ex = new Ex07();
         ex.list();
 
     }
