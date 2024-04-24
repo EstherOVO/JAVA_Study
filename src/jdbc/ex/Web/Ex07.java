@@ -392,7 +392,16 @@ public class Ex07 {
 
                     System.out.println("▶ 로그인에 실패하였습니다. ◀");
                     loginId = null;
-                    login();
+
+                    System.out.println("Sub Menu : 1. Join | 2. Login");
+                    System.out.print("Choice : ");
+                    String choice2 = scanner.nextLine();
+
+                    if (choice2.equals("1")) {
+                        join();
+                    } else if (choice2.equals("2")) {
+                        login();
+                    }
                 }
                 rs1.close();
             } catch (SQLException e) {

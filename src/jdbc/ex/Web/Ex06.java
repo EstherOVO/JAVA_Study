@@ -76,7 +76,7 @@ public class Ex06 {
         } else {
 
             System.out.println("[Main]");
-            System.out.println("1. Create | 2. Read | 3. Clear | 4. Logout | 5. Exit)");
+            System.out.println("1. Create | 2. Read | 3. Clear | 4. Logout | 5. Exit");
             System.out.println("-------------------------------------------------");
             System.out.print("Number : ");
             String number =  scanner.nextLine();
@@ -344,9 +344,9 @@ public class Ex06 {
 
         System.out.println("Sub Menu : 1. Ok | 2. Cancel");
         System.out.print("Choice : ");
-        String choice = scanner.nextLine();
+        String choice1 = scanner.nextLine();
 
-        if (choice.equals("1")) {
+        if (choice1.equals("1")) {
             User user = new User(id, password);
 
             String sql = "SELECT userID, password FROM users WHERE userID = ? AND password = ?";
@@ -389,7 +389,16 @@ public class Ex06 {
 
                     System.out.println("▶ 로그인에 실패하였습니다. ◀");
                     loginId = null;
-                    login();
+
+                    System.out.println("Sub Menu : 1. Join | 2. Login");
+                    System.out.print("Choice : ");
+                    String choice2 = scanner.nextLine();
+
+                    if (choice2.equals("1")) {
+                        join();
+                    } else if (choice2.equals("2")) {
+                        login();
+                    }
                 }
                 rs1.close();
             } catch (SQLException e) {
