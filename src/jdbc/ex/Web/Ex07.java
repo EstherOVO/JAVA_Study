@@ -76,7 +76,7 @@ public class Ex07 {
         } else {
 
             System.out.println("[Main]");
-            System.out.println("1. Create | 2. Read | 3. Clear | 4. Logout | 5. Exit)");
+            System.out.println("1. Create | 2. Read | 3. Clear | 4. Logout | 5. Exit");
             System.out.println("-------------------------------------------------");
             System.out.print("Number : ");
             String number =  scanner.nextLine();
@@ -101,8 +101,14 @@ public class Ex07 {
         System.out.print("Content : ");
         String content = scanner.nextLine();
 
-        System.out.print("Writer : ");
-        String writer = scanner.nextLine();
+        Board board;
+        if (loginId == null) {
+            System.out.print("Writer : ");
+            String writer = scanner.nextLine();
+            board = new Board(title, content, writer);
+        } else {
+            board = new Board(title, content, loginId);
+        }
 
         System.out.println("-------------------------------------------------");
         System.out.println("Sub Menu : 1. Ok | 2. Cancel");
@@ -114,8 +120,6 @@ public class Ex07 {
             String createSql = "INSERT INTO boards (title, content, writer) VALUES (?, ?, ?)";
 
             try (PreparedStatement pstmt = conn.prepareStatement(createSql)) {
-
-                Board board = new Board(title, content, writer);
 
                 pstmt.setString(1, board.getTitle());
                 pstmt.setString(2, board.getContent());
@@ -164,14 +168,17 @@ public class Ex07 {
                 System.out.println("Date : " + board.getDate());
                 System.out.println("-------------------------------------------------");
 
-                System.out.println("Sub Menu : 1. Update | 2. Delete | 3. List");
-                System.out.print("Choice : ");
-                String choice = scanner.nextLine();
+                if (loginId != null && loginId.equals(board.getWriter())) {
 
-                if (choice.equals("1")) {
-                    update(board);
-                } else if (choice.equals("2")) {
-                    delete(board);
+                    System.out.println("Sub Menu : 1. Update | 2. Delete | 3. List");
+                    System.out.print("Choice : ");
+                    String choice = scanner.nextLine();
+
+                    if (choice.equals("1")) {
+                        update(board);
+                    } else if (choice.equals("2")) {
+                        delete(board);
+                    }
                 }
             }
             rs.close();
@@ -193,10 +200,6 @@ public class Ex07 {
         System.out.print("Content : ");
         String content = scanner.nextLine();
         if (!content.isEmpty()) board.setContent(content);
-
-        System.out.print("Writer : ");
-        String writer = scanner.nextLine();
-        if (!writer.isEmpty()) board.setWriter(writer);
 
         System.out.println("-------------------------------------------------");
         System.out.println("Sub Menu : 1. Ok | 2. Cancel");
