@@ -1,4 +1,4 @@
-package jdbc.ex;
+package jdbc.ex.Web;
 
 import java.util.Objects;
 
@@ -14,13 +14,6 @@ public class User {
         this.userID = userID;
         this.name = name;
         this.password = password;
-        this.age = age;
-        this.email = email;
-    }
-
-    public User(String userID, String name, int age, String email) {
-        this.userID = userID;
-        this.name = name;
         this.age = age;
         this.email = email;
     }
