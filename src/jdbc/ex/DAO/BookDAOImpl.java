@@ -36,71 +36,91 @@ public class BookDAOImpl implements BookDAO {
     }
 
     @Override
-    public BookDTO select(int number, String str) {
+    public List<BookDTO> select(int number, String str) {
 
         String selectSqlByIsbn = "SELECT isbn, title, author, publish_year, genre FROM books WHERE isbn = ?";
         String selectSqlByAuthor = "SELECT isbn, title, author, publish_year, genre FROM books WHERE author = ?";
         String selectSqlByTitle = "SELECT isbn, title, author, publish_year, genre FROM books WHERE title = ?";
 
-        try {
+        switch (number) {
 
-            switch (number) {
-                case 1 :
-                    PreparedStatement pstmt1 = conn.prepareStatement(selectSqlByIsbn);
+            case 1:
+                List<BookDTO> bookListByIsbn = new ArrayList<>();
+
+                try (PreparedStatement pstmt1 = conn.prepareStatement(selectSqlByIsbn);) {
 
                     pstmt1.setString(1, str);
 
                     ResultSet rs1 = pstmt1.executeQuery();
 
                     if (rs1.next()) {
-                        return new BookDTO(
+                        BookDTO book = new BookDTO(
                                 rs1.getString("isbn"),
                                 rs1.getString("title"),
                                 rs1.getString("author"),
                                 rs1.getInt("publish_year"),
                                 rs1.getString("genre"));
+
+                        bookListByIsbn.add(book);
                     }
                     rs1.close();
-                    pstmt1.close();
 
-                case 2 :
-                    PreparedStatement pstmt2 = conn.prepareStatement(selectSqlByAuthor);
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+                return bookListByIsbn;
+
+            case 2:
+                List<BookDTO> bookListByAuthor = new ArrayList<>();
+
+                try (PreparedStatement pstmt2 = conn.prepareStatement(selectSqlByAuthor);) {
 
                     pstmt2.setString(1, str);
 
                     ResultSet rs2 = pstmt2.executeQuery();
 
-                    if (rs2.next()) {
-                        return new BookDTO(
+                    while (rs2.next()) {
+                        BookDTO book = new BookDTO(
                                 rs2.getString("isbn"),
                                 rs2.getString("title"),
                                 rs2.getString("author"),
                                 rs2.getInt("publish_year"),
                                 rs2.getString("genre"));
+
+                        bookListByAuthor.add(book);
                     }
                     rs2.close();
-                    pstmt2.close();
 
-                case 3 :
-                    PreparedStatement pstmt3 = conn.prepareStatement(selectSqlByTitle);
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+                return bookListByAuthor;
+
+            case 3:
+                List<BookDTO> bookListByWriter = new ArrayList<>();
+
+                try (PreparedStatement pstmt3 = conn.prepareStatement(selectSqlByTitle);) {
 
                     pstmt3.setString(1, str);
 
                     ResultSet rs3 = pstmt3.executeQuery();
 
-                    if (rs3.next()) {
-                        return new BookDTO(
+                    while (rs3.next()) {
+                        BookDTO book = new BookDTO(
                                 rs3.getString("isbn"),
                                 rs3.getString("title"),
                                 rs3.getString("author"),
                                 rs3.getInt("publish_year"),
                                 rs3.getString("genre"));
+
+                        bookListByWriter.add(book);
                     }
                     rs3.close();
-                    pstmt3.close();
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
+
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+                return bookListByWriter;
         }
         return null;
     }
@@ -145,7 +165,7 @@ public class BookDAOImpl implements BookDAO {
     public List<BookDTO> selectAllBooks() {
 
         List<BookDTO> bookList = new ArrayList<>();
-        String selectSql = "SELECT * FROM books";
+        String selectSql = "SELECT * FROM books ORDER BY genre, isbn";
 
         try (PreparedStatement pstmt = conn.prepareStatement(selectSql)) {
 

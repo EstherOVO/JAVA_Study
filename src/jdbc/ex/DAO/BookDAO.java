@@ -6,7 +6,7 @@ public interface BookDAO {
 
     void insert(BookDTO bookDTO);
 
-    BookDTO select(int number, String str);
+    List<BookDTO> select(int number, String str);
 
     void update(BookDTO bookDTO);
 
