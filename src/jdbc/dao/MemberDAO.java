@@ -7,8 +7,8 @@ public interface MemberDAO {
 //  DB 테이블에 추가, 조회, 수정, 삭제 등을 진행
 
 //  CRUD
-    void insert(MemberDTO member);  // C 데이터 생성
-    MemberDTO getMemberById(String id);  // R 아이디(식별자)로 조회
-    void update(MemberDTO member);  // U 데이터 수정
-    void delete(String id);  // D 아이디(식별자)로 삭제
+    void insert(MemberDTO member);  // C (Create) 데이터 생성
+    MemberDTO getMemberById(String id);  // R (Read) 아이디(식별자)로 조회
+    void update(MemberDTO member);  // U (Update) 데이터 수정
+    void delete(String id);  // D (Delete) 아이디(식별자)로 삭제
 }

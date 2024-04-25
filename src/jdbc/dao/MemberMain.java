@@ -4,11 +4,10 @@ import java.util.Scanner;
 
 public class MemberMain {
 
+    private static Scanner scanner = new Scanner(System.in);
 
 //  메인 실행 계층에서는 데이터 접근과 관련된 모든 코드를 DAO에게 위임
     public static void main(String[] args) {
-
-        Scanner scanner = new Scanner(System.in);
 
 //      데이터베이스 접근 객체 생성
         MemberDAO memberDAO = new MemberDAOImpl();
@@ -26,14 +25,14 @@ public class MemberMain {
 
     private static void insert(MemberDAO memberDAO) {
 
-        Scanner scanner = new Scanner(System.in);
-
 //      회원 가입
         System.out.println("[회원 생성]");
         System.out.print("ID : ");
         String id = scanner.nextLine();
+
         System.out.print("Name : ");
         String name = scanner.nextLine();
+
         System.out.print("Email : ");
         String email = scanner.nextLine();
 
@@ -45,8 +44,6 @@ public class MemberMain {
     }
 
     private static void select(MemberDAO memberDAO) {
-
-        Scanner scanner = new Scanner(System.in);
 
         System.out.println("[회원 조회]");
         System.out.print("ID : ");
@@ -60,8 +57,6 @@ public class MemberMain {
     }
 
     private static void update(MemberDAO memberDAO) {
-
-        Scanner scanner = new Scanner(System.in);
 
         System.out.println("[회원 조회]");
         System.out.print("ID : ");
@@ -94,8 +89,6 @@ public class MemberMain {
     }
 
     private static void delete(MemberDAO memberDAO) {
-
-        Scanner scanner = new Scanner(System.in);
 
         System.out.println("[회원 삭제]");
         System.out.print("ID : ");

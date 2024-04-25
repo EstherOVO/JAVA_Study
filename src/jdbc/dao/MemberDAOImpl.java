@@ -89,8 +89,6 @@ public class MemberDAOImpl implements MemberDAO {
 
             pstmt.executeUpdate();
 
-            conn.close();
-
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
