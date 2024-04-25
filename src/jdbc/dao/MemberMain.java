@@ -5,25 +5,31 @@ import java.util.Scanner;
 public class MemberMain {
 
     private static Scanner scanner = new Scanner(System.in);
+    private static MemberDAO memberDAO;  // 데이터베이스 접근 객체 생성
+
 
 //  메인 실행 계층에서는 데이터 접근과 관련된 모든 코드를 DAO에게 위임
     public static void main(String[] args) {
 
-//      데이터베이스 접근 객체 생성
-        MemberDAO memberDAO = new MemberDAOImpl();
+//      연결 객체 초기화
+        memberDAO = new MemberDAOImpl(DatabaseUtil.getConnection());
 
-        System.out.print("1. Insert | 2. Select | 3. Update | 4. Delete > ");
-        String menu = scanner.nextLine();
+        while (true) {
 
-        switch (menu) {
-            case "1" -> insert(memberDAO);
-            case "2" -> select(memberDAO);
-            case "3" -> update(memberDAO);
-            case "4" -> delete(memberDAO);
+            System.out.print("1. Insert | 2. Select | 3. Update | 4. Delete | 5. Exit > ");
+            String menu = scanner.nextLine();
+
+            switch (menu) {
+                case "1" -> insert();
+                case "2" -> select();
+                case "3" -> update();
+                case "4" -> delete();
+                case "5" -> {DatabaseUtil.close(); return;}
+            }
         }
     }
 
-    private static void insert(MemberDAO memberDAO) {
+    private static void insert() {
 
 //      회원 가입
         System.out.println("[회원 생성]");
@@ -43,7 +49,7 @@ public class MemberMain {
         memberDAO.insert(member);
     }
 
-    private static void select(MemberDAO memberDAO) {
+    private static void select() {
 
         System.out.println("[회원 조회]");
         System.out.print("ID : ");
@@ -56,7 +62,7 @@ public class MemberMain {
         System.out.println("Email : " + member.getEmail());
     }
 
-    private static void update(MemberDAO memberDAO) {
+    private static void update() {
 
         System.out.println("[회원 조회]");
         System.out.print("ID : ");
@@ -88,7 +94,7 @@ public class MemberMain {
         }
     }
 
-    private static void delete(MemberDAO memberDAO) {
+    private static void delete() {
 
         System.out.println("[회원 삭제]");
         System.out.print("ID : ");

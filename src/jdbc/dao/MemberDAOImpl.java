@@ -10,8 +10,8 @@ public class MemberDAOImpl implements MemberDAO {
     Connection conn;
 
 //  DAO 생성과 동시에 접근 객체 생성
-    public MemberDAOImpl() {
-        this.conn = DatabaseUtil.getConnection();
+    public MemberDAOImpl(Connection conn) {
+        this.conn = conn;
     }
 
     @Override
