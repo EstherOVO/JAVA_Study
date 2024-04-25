@@ -5,7 +5,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class MemberDAOImpl implements MemberDAO {
@@ -53,7 +52,6 @@ public class MemberDAOImpl implements MemberDAO {
                         rs.getString("name"),
                         rs.getString("email"));
             }
-
             rs.close();
 
         } catch (SQLException e) {

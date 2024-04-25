@@ -18,6 +18,7 @@ public class MemberMain {
 
         while (true) {
 
+            System.out.println();
             System.out.print("1. Create | 2. Select | 3. Update | 4. Delete | 5. Select All | 6. Exit > ");
             String menu = scanner.nextLine();
 
@@ -27,7 +28,11 @@ public class MemberMain {
                 case "3" -> update();
                 case "4" -> delete();
                 case "5" -> list();
-                case "6" -> {DatabaseUtil.close(); return;}
+                case "6" -> {
+                    System.out.println("프로그램을 종료합니다.");
+                    DatabaseUtil.close();
+                    return;
+                }
             }
         }
     }
