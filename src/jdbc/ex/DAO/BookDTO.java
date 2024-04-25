@@ -58,6 +58,6 @@ public class BookDTO {
 
     @Override
     public String toString() {
-        return String.format("[%s] [%s] Title : %s | Author : %s | Publish Year : %d", genre, isbn, title, author, publish_year);
+        return String.format("[%s] [%s] 제목 : %s | 저자 : %s | 출판연도 : %d", genre, isbn, title, author, publish_year);
     }
 }

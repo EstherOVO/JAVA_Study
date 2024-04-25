@@ -1,6 +1,5 @@
 package jdbc.ex.DAO;
 
-import javax.swing.text.html.HTMLDocument;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
@@ -36,7 +35,10 @@ public class BookMain {
                 case "2" -> select();
                 case "3" -> update();
                 case "4" -> delete();
-                case "5" -> {DatabaseUtil.close(); return;}
+                case "5" -> {
+                    System.out.println("◐ 프로그램을 종료합니다. ◑");
+                    DatabaseUtil.close(); return;
+                }
                 default -> System.out.println("※ 번호를 다시 확인해 주시기 바랍니다.");
             }
         }
@@ -98,7 +100,7 @@ public class BookMain {
 
     public static void update() {
 
-        System.out.println("[§ 도서 정보 수정 §]");
+        System.out.println("[§ 도서 조회 §]");
         System.out.print("○ ISBN : ");
         String isbn = scanner.nextLine();
 
@@ -111,7 +113,8 @@ public class BookMain {
         System.out.println("○ 장르 : " + book.getGenre());
 
         if (book != null) {
-            System.out.println("\n-- 수정 내용을 아래에 입력하세요. --");
+            System.out.println("\n[§ 도서 정보 수정 §]");
+            System.out.println("- 수정 내용을 아래에 입력하세요.(변경 사항이 없을 경우 Enter) -");
             System.out.print("○ 제목 : ");
             String title = scanner.nextLine();
             if (!title.isEmpty()) book.setTitle(title);
@@ -138,7 +141,7 @@ public class BookMain {
 
     public static void delete() {
 
-        System.out.println("[§ 도서 삭제 §]");
+        System.out.println("[§ 도서 조회 §]");
         System.out.print("○ ISBN : ");
         String isbn = scanner.nextLine();
 
@@ -152,6 +155,7 @@ public class BookMain {
 
         if (book != null) {
 
+            System.out.println("\n[§ 도서 삭제 §]");
             bookDAO.delete(isbn);
 
             System.out.println("● 도서 삭제가 완료되었습니다. ●");
