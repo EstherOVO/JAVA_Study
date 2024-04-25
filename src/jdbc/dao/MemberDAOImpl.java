@@ -4,6 +4,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class MemberDAOImpl implements MemberDAO {
 
@@ -92,5 +95,34 @@ public class MemberDAOImpl implements MemberDAO {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public List<MemberDTO> getAllMembers() {
+
+        List<MemberDTO> members = new ArrayList<>();
+
+        String sql = "SELECT * FROM members";
+
+        try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+
+            ResultSet rs = pstmt.executeQuery();
+
+//          여러 개의 SQL문 결과 셋 반복(커서 이동)
+            while (rs.next()) {
+
+//              DTO 객체를 생성하여 빈 컬렉션에 추가
+                MemberDTO member = new MemberDTO(rs.getString("id"),
+                        rs.getString("name"),
+                        rs.getString("email"));
+
+                members.add(member);
+            }
+            rs.close();
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+//      결과 셋을 담은 컬렉션을 반환
+        return members;
     }
 }

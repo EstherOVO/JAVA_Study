@@ -37,4 +37,9 @@ public class MemberDTO {
     public void setEmail(String email) {
         this.email = email;
     }
+
+    @Override
+    public String toString() {
+        return String.format("ID : %s | Name : %s | Email : %s", id, name, email);
+    }
 }

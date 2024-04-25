@@ -1,5 +1,7 @@
 package jdbc.dao;
 
+import java.util.Iterator;
+import java.util.List;
 import java.util.Scanner;
 
 public class MemberMain {
@@ -16,7 +18,7 @@ public class MemberMain {
 
         while (true) {
 
-            System.out.print("1. Insert | 2. Select | 3. Update | 4. Delete | 5. Exit > ");
+            System.out.print("1. Create | 2. Select | 3. Update | 4. Delete | 5. Select All | 6. Exit > ");
             String menu = scanner.nextLine();
 
             switch (menu) {
@@ -24,7 +26,8 @@ public class MemberMain {
                 case "2" -> select();
                 case "3" -> update();
                 case "4" -> delete();
-                case "5" -> {DatabaseUtil.close(); return;}
+                case "5" -> list();
+                case "6" -> {DatabaseUtil.close(); return;}
             }
         }
     }
@@ -109,6 +112,17 @@ public class MemberMain {
 
         } else {
             System.out.println("존재하지 않는 회원입니다.");
+        }
+    }
+
+    private static void list() {
+
+        List<MemberDTO> memberList = memberDAO.getAllMembers();
+
+        Iterator<MemberDTO> iter = memberList.iterator();
+
+        while (iter.hasNext()) {
+            System.out.println(iter.next());
         }
     }
 }
