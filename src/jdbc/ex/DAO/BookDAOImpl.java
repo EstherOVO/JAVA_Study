@@ -60,6 +60,8 @@ public class BookDAOImpl implements BookDAO {
                                 rs1.getInt("publish_year"),
                                 rs1.getString("genre"));
                     }
+                    rs1.close();
+                    pstmt1.close();
 
                 case 2 :
                     PreparedStatement pstmt2 = conn.prepareStatement(selectSqlByAuthor);
@@ -76,6 +78,8 @@ public class BookDAOImpl implements BookDAO {
                                 rs2.getInt("publish_year"),
                                 rs2.getString("genre"));
                     }
+                    rs2.close();
+                    pstmt2.close();
 
                 case 3 :
                     PreparedStatement pstmt3 = conn.prepareStatement(selectSqlByTitle);
@@ -92,6 +96,8 @@ public class BookDAOImpl implements BookDAO {
                                 rs3.getInt("publish_year"),
                                 rs3.getString("genre"));
                     }
+                    rs3.close();
+                    pstmt3.close();
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -155,6 +161,7 @@ public class BookDAOImpl implements BookDAO {
 
                 bookList.add(book);
             }
+            rs.close();
 
         } catch (SQLException e) {
             throw new RuntimeException(e);
