@@ -1,6 +1,10 @@
 package javadoc;
 
 
+/**
+ * 다각형을 나타내는 클래스입니다.
+ * 다각형의 각 변의 길이는 동일합니다.
+ */
 public class Polygon {
 
     /**
