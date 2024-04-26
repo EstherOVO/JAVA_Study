@@ -13,168 +13,122 @@ public class BookMain {
 
         bookDAO = new BookDAOImpl(DatabaseUtil.getConnection());
 
-        System.out.println("""
-                ---------------
-                1. 도서 추가
-                2. 도서 조회
-                3. 도서 정보 수정
-                4. 도서 삭제
-                5. 종료
-                ---------------
-                """);
-
         while (true) {
-
-            System.out.println();
-            System.out.print("◑ 메뉴 선택 : ");
+            System.out.print("1. Insert | 2. Select | 3. Select All | 4. Update | 5. Delete | 6. Exit > ");
             String number = scanner.nextLine();
-            System.out.println();
 
             switch (number) {
                 case "1" -> insert();
                 case "2" -> select();
-                case "3" -> update();
-                case "4" -> delete();
-                case "5" -> {
-                    System.out.println("◐ 프로그램을 종료합니다. ◑");
-                    DatabaseUtil.close(); return;
+                case "3" -> selectAllBooks();
+                case "4" -> update();
+                case "5" -> delete();
+                case "6" -> {
+                    System.out.println("Thank You! I Hope To See You Again. :)");
+                    DatabaseUtil.close();
+                    return;
                 }
-                default -> System.out.println("※ 번호를 다시 확인해 주시기 바랍니다.");
             }
         }
     }
 
     public static void insert() {
 
-        System.out.println("[§ 도서 추가 §]");
-        System.out.print("○ ISBN : ");
+        System.out.println("[Insert]");
+        System.out.print("ISBN : ");
         String isbn = scanner.nextLine();
 
-        System.out.print("○ 제목 : ");
+        System.out.print("Title : ");
         String title = scanner.nextLine();
 
-        System.out.print("○ 저자 : ");
+        System.out.print("Author : ");
         String author = scanner.nextLine();
 
-        System.out.print("○ 출판연도 : ");
-        int publish_year = scanner.nextInt();
+        System.out.print("Publish Year : ");
+        int publish_year = Integer.parseInt(scanner.nextLine());
 
-        scanner.nextLine();
-
-        System.out.print("○ 장르 : ");
+        System.out.print("Genre : ");
         String genre = scanner.nextLine();
 
         BookDTO book = new BookDTO(isbn, title, author, publish_year, genre);
 
         bookDAO.insert(book);
-
-        System.out.println("● 도서 추가가 완료되었습니다. ●");
     }
 
     public static void select() {
 
-        System.out.println("[§ 도서 조회 §]");
-        System.out.print("1. ISBN으로 검색 | 2. 저자로 검색 | 3. 제목으로 검색 | 4. 모든 도서 목록 조회 > 번호 : ");
-        int number = scanner.nextInt();
+        System.out.println("[Select]");
+        System.out.print("1. Search By ISBN | 2. Search By Title | 3. Search By Author > ");
+        String number = scanner.nextLine();
 
-        scanner.nextLine();
+        switch (number) {
 
-        if (number == 4) {
-            selectAllBooks();
-        } else {
-            System.out.print("▶ 검색 키워드 : ");
-            String word = scanner.nextLine();
+            case "1" -> {
+                System.out.print("ISBN : ");
+                String isbn = scanner.nextLine();
 
-            List<BookDTO> bookList = bookDAO.select(number, word);
+                BookDTO book = bookDAO.getBookByIsbn(isbn);
 
-            System.out.println("--------------------------------");
-            for (BookDTO book : bookList) {
+                System.out.println("------------------");
                 if (book != null) {
-                    System.out.println("○ ISBN : " + book.getIsbn());
-                    System.out.println("○ 제목 : " + book.getTitle());
-                    System.out.println("○ 저자 : " + book.getAuthor());
-                    System.out.println("○ 출판연도 : " + book.getPublish_year());
-                    System.out.println("○ 장르 : " + book.getGenre());
-                    System.out.println("--------------------------------");
+                    System.out.println("ISBN : " + book.getIsbn());
+                    System.out.println("Title : " + book.getTitle());
+                    System.out.println("Author : " + book.getAuthor());
+                    System.out.println("Publish Year : " + book.getPublish_year());
+                    System.out.println("Genre : " + book.getGenre());
+                    System.out.println("------------------");
                 } else {
-                    System.out.println("● 도서를 찾을 수 없습니다. ●");
+                    System.out.println("Sorry, the book could not be found.");
+                }
+            }
+
+            case "2" -> {
+                System.out.print("Title : ");
+                String title = scanner.nextLine();
+
+                List<BookDTO> bookList = bookDAO.getBookByTitle(title);
+
+                System.out.println("------------------");
+                for (BookDTO book : bookList) {
+                    if (book != null) {
+                        System.out.println("ISBN : " + book.getIsbn());
+                        System.out.println("Title : " + book.getTitle());
+                        System.out.println("Author : " + book.getAuthor());
+                        System.out.println("Publish Year : " + book.getPublish_year());
+                        System.out.println("Genre : " + book.getGenre());
+                        System.out.println("------------------");
+                    } else {
+                        System.out.println("Sorry, the book could not be found.");
+                    }
+                }
+            }
+
+            case "3" -> {
+                System.out.print("Author : ");
+                String author = scanner.nextLine();
+
+                List<BookDTO> bookList = bookDAO.getBookByAuthor(author);
+
+                System.out.println("------------------");
+                for (BookDTO book : bookList) {
+                    if (book != null) {
+                        System.out.println("ISBN : " + book.getIsbn());
+                        System.out.println("Title : " + book.getTitle());
+                        System.out.println("Author : " + book.getAuthor());
+                        System.out.println("Publish Year : " + book.getPublish_year());
+                        System.out.println("Genre : " + book.getGenre());
+                        System.out.println("------------------");
+                    } else {
+                        System.out.println("Sorry, the book could not be found.");
+                    }
                 }
             }
         }
     }
 
-    public static void update() {
-
-        System.out.println("[§ 도서 조회 §]");
-        System.out.print("○ ISBN : ");
-        String isbn = scanner.nextLine();
-
-        List<BookDTO> bookList = bookDAO.select(1, isbn);
-
-        for (BookDTO book : bookList) {
-            System.out.println("○ ISBN : " + book.getIsbn());
-            System.out.println("○ 제목 : " + book.getTitle());
-            System.out.println("○ 저자 : " + book.getAuthor());
-            System.out.println("○ 출판연도 : " + book.getPublish_year());
-            System.out.println("○ 장르 : " + book.getGenre());
-
-            if (book != null) {
-                System.out.println("\n[§ 도서 정보 수정 §]");
-                System.out.println("- 수정 내용을 아래에 입력하세요.(변경 사항이 없을 경우 Enter) -");
-                System.out.print("○ 제목 : ");
-                String title = scanner.nextLine();
-                if (!title.isEmpty()) book.setTitle(title);
-
-                System.out.print("○ 저자 : ");
-                String author = scanner.nextLine();
-                if (!author.isEmpty()) book.setAuthor(author);
-
-                System.out.print("○ 출판연도 : ");
-                String publish_year = scanner.nextLine();
-                if (!publish_year.isEmpty()) book.setPublish_year(Integer.parseInt(publish_year));
-
-                System.out.print("○ 장르 : ");
-                String genre = scanner.nextLine();
-                if (!genre.isEmpty()) book.setGenre(genre);
-
-                bookDAO.update(book);
-
-                System.out.println("● 도서 정보 수정이 완료되었습니다. ●");
-            } else {
-                System.out.println("● 도서를 찾을 수 없습니다. ●");
-            }
-        }
-    }
-
-    public static void delete() {
-
-        System.out.println("[§ 도서 조회 §]");
-        System.out.print("○ ISBN : ");
-        String isbn = scanner.nextLine();
-
-        List<BookDTO> bookList = bookDAO.select(1, isbn);
-
-        for (BookDTO book : bookList) {
-            System.out.println("○ ISBN : " + book.getIsbn());
-            System.out.println("○ 제목 : " + book.getTitle());
-            System.out.println("○ 저자 : " + book.getAuthor());
-            System.out.println("○ 출판연도 : " + book.getPublish_year());
-            System.out.println("○ 장르 : " + book.getGenre());
-
-            if (book != null) {
-
-                System.out.println("\n[§ 도서 삭제 §]");
-                bookDAO.delete(isbn);
-
-                System.out.println("● 도서 삭제가 완료되었습니다. ●");
-
-            } else {
-                System.out.println("● 도서를 찾을 수 없습니다. ●");
-            }
-        }
-    }
-
     public static void selectAllBooks() {
+
+        System.out.println("[Select All]");
 
         List<BookDTO> bookList = bookDAO.selectAllBooks();
 
@@ -182,6 +136,70 @@ public class BookMain {
 
         while (iter.hasNext()) {
             System.out.println(iter.next());
+        }
+    }
+
+    public static void update() {
+
+        System.out.println("[Select]");
+        System.out.print("ISBN : ");
+        String isbn = scanner.nextLine();
+
+        BookDTO book = bookDAO.getBookByIsbn(isbn);
+
+        if (book != null) {
+
+            System.out.println(book);
+
+            System.out.println("------------------");
+            System.out.println("[Update]");
+            System.out.print("Title : ");
+            String title = scanner.nextLine();
+            if (!title.isEmpty()) book.setTitle(title);
+
+            System.out.print("Author : ");
+            String author = scanner.nextLine();
+            if (!author.isEmpty()) book.setAuthor(author);
+
+            System.out.print("Publish Year : ");
+            String publish_year = scanner.nextLine();
+            if (!publish_year.isEmpty()) book.setPublish_year(Integer.parseInt(publish_year));
+
+            System.out.print("Genre : ");
+            String genre = scanner.nextLine();
+            if (!genre.isEmpty()) book.setGenre(genre);
+
+            bookDAO.update(book);
+
+            System.out.println("* Update Completed *");
+        } else {
+            System.out.println("Sorry, the book could not be found.");
+        }
+    }
+
+    public static void delete() {
+
+        System.out.println("[Select]");
+        System.out.print("ISBN : ");
+        String isbn = scanner.nextLine();
+
+        BookDTO book = bookDAO.getBookByIsbn(isbn);
+
+        if (book != null) {
+
+            System.out.println("Are you sure you want to delete it?");
+            System.out.print("1. Yes | 2. No > ");
+            String answer = scanner.nextLine();
+
+            if (answer.equals("1") || answer.toUpperCase().equals("YES")) {
+
+                System.out.println("------------------");
+                bookDAO.delete(isbn);
+
+                System.out.println("* Deletion Complete *");
+            }
+        } else {
+            System.out.println("Sorry, the book could not be found.");
         }
     }
 }

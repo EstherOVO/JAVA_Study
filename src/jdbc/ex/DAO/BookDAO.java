@@ -6,11 +6,15 @@ public interface BookDAO {
 
     void insert(BookDTO bookDTO);
 
-    List<BookDTO> select(int number, String str);
+    BookDTO getBookByIsbn(String isbn);
+
+    List<BookDTO> getBookByTitle(String title);
+
+    List<BookDTO> getBookByAuthor(String author);
+
+    List<BookDTO> selectAllBooks();
 
     void update(BookDTO bookDTO);
 
     void delete(String isbn);
-
-    List<BookDTO> selectAllBooks();
 }
