@@ -33,7 +33,7 @@ Welcome! I'm developer from Korea 🇰🇷
 --------
 1. Become familiar with Java and Kotlin :running_woman:
 2. Update my profile on GitHub > Success! :key: :unlock:
-3. Complete the class :lock:
+3. Complete the class > Success! :key: :unlock:
 4. Read books about Programming :running_woman:
 
 :bar_chart: Skills
